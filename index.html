@@ -384,11 +384,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div style="padding:16px 20px 0;">
     <div class="kicker" style="margin-bottom:10px;">Inscrições abertas</div>
     <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="padding:12px 14px;border:1px solid var(--ar);border-radius:8px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="abrirReserva('Educar o Paladar','https://mpago.la/2Hm9H41','https://mpago.la/2mWQYJQ','https://mpago.la/1GvwTzY','https://mpago.la/2quVL4i')">
-        <div><div style="font-size:13px;font-weight:600;color:var(--cv);">Educar o Paladar</div><div style="font-size:10px;color:var(--cv2);margin-top:2px;">18/jun · qui · 19h · Cellar Cave</div><div style="font-size:8px;color:var(--co);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:3px;">⏳ Últimas vagas</div></div>
-        <span class="tipo-badge t-trama" style="font-size:7px;flex-shrink:0;">Trama</span>
-      </div>
-
+      <!-- Paladar realizada em 18/jun. Nenhuma experiência de junho com inscrição aberta no momento — próxima a definir (Mari decide depois). -->
     </div>
     <button class="btn-p" style="margin-top:12px;" onclick="goTo('experiencias')">Ver todas as experiências</button>
   </div>
@@ -409,8 +405,8 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div style="padding:16px 0 0;">
     <div style="padding:0 20px 10px;" class="kicker">Encontros realizados</div>
     
-    <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:0 20px 0;"><img src="img/restaurar-1.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/restaurar-2.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/restaurar-3.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"></div>
-    <div style="padding:8px 20px 0;font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;">Restaurar o corpo · 13 jun</div>
+    <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:0 20px 0;"><img src="img/paladar-1.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/paladar-2.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/paladar-3.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"></div>
+    <div style="padding:8px 20px 0;font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;">Educar o Paladar · 18 jun</div>
   </div>
 
   <!-- Comunidade -->
@@ -464,25 +460,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div class="exp-pane active" id="exp-proximas">
     <div class="tl">
 
-      <!-- Educar o Paladar -->
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--ro);background:rgba(221,177,179,.15);"></div><div class="tl-line"></div></div>
-        <div class="exp-card">
-          <div class="ec-top">
-            <div><div class="ec-date">18</div><div class="ec-day">jun · qui · 18h30</div></div>
-            <span class="tipo-badge t-trama">Trama</span>
-          </div>
-          <div class="ec-name">Educar o Paladar</div>
-          <div class="ec-local">Cellar Cave · Vila Nova Conceição</div>
-          <div style="display:inline-block;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(176,103,48,.12);color:var(--co);margin-bottom:10px;">⏳ Últimas vagas</div>
-          <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:8px;">Uma noite entre vinhos, conduzida pela sommelier Andrea Santos. Degustação guiada e harmonização em sala privativa, só para o nosso grupo — aprender a escutar o que cada taça conta sobre origem e processo.</div>
-          <div class="ec-footer">
-            <div><div class="ec-price-label">Sócia</div><div class="ec-price">R$ 490</div><div class="ec-sub">Convidada: R$ 590</div></div>
-            <button class="btn-res" onclick="abrirReserva('Educar o Paladar','https://mpago.la/2Hm9H41','https://mpago.la/2mWQYJQ','https://mpago.la/1GvwTzY','https://mpago.la/2quVL4i')">Reservar</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Silenciar o Ruído -->
       <div class="tl-item">
         <div class="tl-spine"><div class="tl-dot" style="border-color:var(--ro);background:rgba(221,177,179,.15);"></div><div class="tl-line"></div></div>
@@ -525,7 +502,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <!-- REALIZADAS -->
   <div class="exp-pane" id="exp-realizadas">
     <div style="padding:16px 18px 4px;">
-      <p style="font-size:12px;color:var(--cv2);font-weight:300;line-height:1.7;">Cinco experiências já aconteceram. Cada uma delas deixou algo real.</p>
+      <p style="font-size:12px;color:var(--cv2);font-weight:300;line-height:1.7;">Seis experiências já aconteceram. Cada uma delas deixou algo real.</p>
     </div>
     <div class="tl">
 
@@ -678,6 +655,36 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(161,175,134,.08);border-top:1px solid rgba(215,204,194,.4);display:flex;align-items:center;gap:10px;">
             <div style="width:30px;height:30px;border-radius:50%;background:rgba(176,103,48,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;">🎁</div>
             <div><div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Brinde das Fiandeiras</div><div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.5;">Cada participante recebeu um <strong style="font-weight:600;color:var(--cv);">Freepass</strong> para uma aula na Urban Yoga.</div></div>
+          </div>
+        </div>
+      </div>
+
+            <!-- Educar o Paladar -->
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--sa);background:var(--sa);"></div><div class="tl-line"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div class="ec-date" style="color:var(--cv2);">18</div><div class="ec-day">jun · qui · 19h</div></div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+              <span class="tipo-badge t-trama">Trama</span>
+              <span style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(161,175,134,.15);color:#5c7a4a;">✓ Realizada</span>
+            </div>
+          </div>
+          <div class="ec-name">Educar o Paladar</div>
+          <div class="ec-local">Cellar Vinhos · Vila Nova Conceição</div>
+          <div style="margin:8px -13px 0;border-top:1px solid rgba(215,204,194,.4);">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
+            <div style="margin:0 -14px 2px;">
+  <img src="img/paladar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
+  <img src="img/paladar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="img/paladar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+</div>
+          </div>
+          <div style="margin:12px -13px -13px;padding:13px;background:rgba(161,175,134,.08);border-top:1px solid rgba(215,204,194,.4);display:flex;align-items:center;gap:10px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:rgba(176,103,48,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;">🎁</div>
+            <div><div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Brinde das Fiandeiras</div><div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.5;">Cada Fiandeira participante recebeu um <strong style="font-weight:600;color:var(--cv);">voucher de R$100</strong> para usar no restaurante da Cellar e o livro <strong style="font-weight:600;color:var(--cv);">"Expert em Vinhos em 24h"</strong>.</div></div>
           </div>
         </div>
       </div>
@@ -1100,6 +1107,23 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               </div>
             </div>
           </div>
+          <!-- Andrea Santos -->
+          <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(157,175,130,.06);">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(157,175,130,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><circle cx="12" cy="6" r="2.5"/><path d="M12 9v6M8 12h8M9 21l3-6 3 6"/></svg></div>
+              <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:var(--cv);">Andrea Santos</div>
+                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Sommelier</div>
+              </div>
+            </div>
+            <div style="padding:11px 13px;">
+              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">Conduziu a nossa <em style="color:var(--cv);">Educar o Paladar</em>. Ensinou a escutar o que cada taça conta.</p>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                                <a href="https://wa.me/5511939550032" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg> WhatsApp</a>
+                <a href="https://www.instagram.com/drea_santos" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
+              </div>
+            </div>
+          </div>
           <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 2px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Onde nos encontramos</div>
           <!-- Conexa Spot -->
           <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
@@ -1149,6 +1173,22 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               <div style="display:flex;gap:14px;flex-wrap:wrap;">
                                 <a href="https://www.instagram.com/urbanyogasp" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
                 <a href="https://urbanyoga.com.br/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg> Site</a>
+              </div>
+            </div>
+          </div>
+          <!-- Cellar Vinhos -->
+          <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(176,103,48,.05);">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(176,103,48,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+              <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:var(--cv);">Cellar Vinhos</div>
+                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Onde aconteceu · Educar o Paladar</div>
+              </div>
+            </div>
+            <div style="padding:11px 13px;">
+              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">Recebeu a nossa <em style="color:var(--cv);">Educar o Paladar</em>. Vinhos, mesa e uma noite só nossa.</p>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                                <a href="https://www.instagram.com/cellarvinhos" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
               </div>
             </div>
           </div>
@@ -1312,6 +1352,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Treino com Ciência <span style="color:var(--cv2);font-weight:600;">· 09 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/treino-1.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/treino-2.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/treino-3.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
         <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Tomar a Palavra <span style="color:var(--cv2);font-weight:600;">· 21 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/tomar-1.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tomar-2.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tomar-3.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
         <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Restaurar o Corpo <span style="color:var(--cv2);font-weight:600;">· 13 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/restaurar-1.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/restaurar-2.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/restaurar-3.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Educar o Paladar <span style="color:var(--cv2);font-weight:600;">· 18 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/paladar-1.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-2.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-3.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-4.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-5.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
       </div>
     </div>
   </div>
