@@ -1202,11 +1202,30 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         </div>
         <button onclick="fiLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Sair</button>
       </div>
-      <div style="margin:4px 14px 14px;padding:16px;background:rgba(175,105,47,.06);border:1px solid rgba(175,105,47,.25);border-radius:10px;text-align:center;">
+      <div id="bio-cta" style="margin:4px 14px 14px;padding:16px;background:rgba(175,105,47,.06);border:1px solid rgba(175,105,47,.25);border-radius:10px;text-align:center;">
         <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:6px;">Sua bio na teia</div>
         <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.45;margin-bottom:7px;">Ainda não te encontrou aqui?</div>
-        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:13px;">Conte quem você é e mande sua foto — assim seu fio entra na teia. Leva 2 minutinhos, e nos ajuda a deixar cada experiência mais com a sua cara.</p>
-        <a href="https://wa.me/5511933251200?text=Oi%21%20Quero%20preencher%20a%20minha%20bio%20pra%20entrar%20na%20teia%20%F0%9F%8C%BF" target="_blank" style="text-decoration:none;"><button class="btn-p" style="max-width:240px;margin:0 auto;">Preencher minha bio →</button></a>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:13px;">Conte quem você é — assim seu fio entra na teia. Leva 2 minutinhos, e nos ajuda a deixar cada experiência mais com a sua cara.</p>
+        <button class="btn-p" style="max-width:240px;margin:0 auto;" onclick="bioAbrir()">Preencher minha bio →</button>
+      </div>
+      <div id="bio-form" style="display:none;margin:4px 14px 14px;padding:16px;background:var(--br);border:1px solid var(--ar);border-radius:10px;">
+        <div class="kicker" style="margin-bottom:12px;">Sua bio</div>
+        <div class="fg"><label class="fl">Como você quer aparecer</label><input class="fi" type="text" id="bio-nome" placeholder="Seu nome ou apelido"></div>
+        <div class="fg"><label class="fl">Uma linha sobre você</label><textarea class="fi" id="bio-linha" rows="2" placeholder="Quem você é — não o que faz. Algo humano e verdadeiro."></textarea></div>
+        <div class="fg"><label class="fl">O que você faz <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><textarea class="fi" id="bio-faz" rows="2" placeholder="Sua profissão ou projeto, de um jeito leve."></textarea></div>
+        <div style="font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;line-height:1.6;margin:6px 0 12px;">As próximas são opcionais — servem só pra gente pensar experiências mais com a sua cara.</div>
+        <div class="fg"><label class="fl">Momento de vida <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><input class="fi" type="text" id="bio-momento" placeholder="Ex.: casada, solteira, em relacionamento…"></div>
+        <div class="fg"><label class="fl">Filhos? <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><input class="fi" type="text" id="bio-filhos" placeholder="Se quiser, conte idades"></div>
+        <div class="fg"><label class="fl">Pets? <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><input class="fi" type="text" id="bio-pets" placeholder="Quais?"></div>
+        <div class="fg"><label class="fl">O que você ama fazer? <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><input class="fi" type="text" id="bio-hobbies" placeholder="Hobbies, paixões"></div>
+        <div class="fg"><label class="fl">Um tema ou experiência que adoraria <span style="font-weight:400;color:var(--cv2);">(opcional)</span></label><input class="fi" type="text" id="bio-tema" placeholder="O que você gostaria de viver no clube"></div>
+        <div id="bio-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 8px;"></div>
+        <button class="btn-p" onclick="enviarBio()">Enviar minha bio</button>
+        <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:12px;text-align:center;">Sua foto: mande no <a href="https://wa.me/5511933251200?text=Oi%21%20Segue%20a%20foto%20pra%20minha%20bio%20na%20teia%20%F0%9F%8C%BF" target="_blank" style="color:var(--co);font-weight:600;">WhatsApp do clube</a> 🌿</p>
+      </div>
+      <div id="bio-ok" style="display:none;margin:4px 14px 14px;padding:18px 16px;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:10px;text-align:center;">
+        <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);margin-bottom:6px;">Recebemos sua bio, Fiandeira 🌿</div>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;">Em breve seu fio entra na teia. Se ainda não mandou sua foto, é só enviar no WhatsApp do clube.</p>
       </div>
       <div style="padding:0 14px 4px;display:flex;align-items:center;gap:6px;">
         <div class="sc-ok" style="position:static;width:11px;height:11px;"></div>
@@ -2238,7 +2257,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div class="m-body">
       <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:14px;">O valor de sócia é exclusivo para sócias. Confirme seu código para seguir ao pagamento.</p>
-      <div class="fg"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="rsocia-cod" placeholder="••••••" style="text-transform:uppercase;letter-spacing:2px;font-weight:700;text-align:center;" oninput="this.value=this.value.toUpperCase();document.getElementById('rsocia-msg').textContent=''" onkeydown="if(event.key==='Enter')rsociaConfirmar()"></div>
+      <div class="fg"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="rsocia-cod" placeholder="••••••" style="text-transform:uppercase;letter-spacing:2px;font-weight:700;text-align:center;" oninput="rsociaCodChanged(this)" onkeydown="if(event.key==='Enter')rsociaConfirmar()"></div>
       <div id="rsocia-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 10px;"></div>
       <button class="btn-p" onclick="rsociaConfirmar()">Confirmar e ir ao pagamento →</button>
     </div>
@@ -2315,6 +2334,36 @@ try{if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fiSyncTop
 setTimeout(fiSyncTopbar,300);setTimeout(fiSyncTopbar,1200);
 try{if("ResizeObserver" in window){var _fitb=document.querySelector(".topbar");if(_fitb){new ResizeObserver(fiSyncTopbar).observe(_fitb);}}}catch(e){}
 const FI_API = 'https://script.google.com/macros/s/AKfycbxFuL4OwFqRgzisqEHC1ZHlj9l4qFCmrhLJWzY04EyG5EzPw0m0gFPIBFdrjzLh2mpG/exec';
+function bioAbrir(){ var f=document.getElementById('bio-form'); if(f)f.style.display='block'; var c=document.getElementById('bio-cta'); if(c)c.style.display='none'; }
+function enviarBio(){
+  var nome=(document.getElementById('bio-nome').value||'').trim();
+  var linha=(document.getElementById('bio-linha').value||'').trim();
+  var msg=document.getElementById('bio-msg');
+  if(!nome||!linha){ if(msg)msg.textContent='Preencha ao menos seu nome e a linha sobre você.'; return; }
+  var g=function(id){ var el=document.getElementById(id); return el?(el.value||'').trim():''; };
+  var payload={tipo:'bio', codigo:(window._fiCod||'').replace(/\D/g,''), nome:nome, linha:linha, faz:g('bio-faz'), momento:g('bio-momento'), filhos:g('bio-filhos'), pets:g('bio-pets'), hobbies:g('bio-hobbies'), tema:g('bio-tema')};
+  try{ fetch(FI_API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}); }catch(e){}
+  document.getElementById('bio-form').style.display='none';
+  var ok=document.getElementById('bio-ok'); if(ok)ok.style.display='block';
+}
+function rsociaCodChanged(el){
+  el.value=el.value.toUpperCase();
+  var m=document.getElementById('rsocia-msg'); if(m)m.textContent='';
+  window._rsociaSaldo=0;
+  var dig=el.value.replace(/\D/g,'');
+  if(dig.length>=6){ fiJsonp({action:'credito',codigo:dig}, function(cr){ if(cr&&cr.ok){ window._rsociaSaldo=Number(cr.saldo)||0; } }); }
+}
+function rsociaCredito(cod, saldo){
+  var m=document.getElementById('rsocia-msg'); if(!m) return;
+  var wa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi! Tenho R$'+saldo+' de crédito de indicação e quero usar na reserva de '+_rsociaNome+'. Meu código: '+cod+' 🌿');
+  m.innerHTML='<div style="text-align:left;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;padding:12px 13px;">'
+    +'<div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:5px;">Você tem R$'+saldo+' de crédito \uD83C\uDF3F</div>'
+    +'<div style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:11px;">Vale em experiências não-Fio. Fale com a gente pra usar nesta reserva — a gente aplica o desconto pra você.</div>'
+    +'<a href="'+wa+'" target="_blank" style="text-decoration:none;"><button class="btn-p" style="margin:0;">Usar meu crédito no WhatsApp →</button></a>'
+    +'<button class="btn-o" style="margin-top:8px;" onclick="rsociaPagarNormal(\''+cod+'\')">Prefiro pagar o valor cheio →</button>'
+    +'</div>';
+}
+function rsociaPagarNormal(cod){ logReserva(cod,_rsociaNome,'Paga'); window.open(_rsociaUrl,'_blank'); closeRsocia(); }
 function enviarInscricao(d){
   try{ fetch(FI_API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}); }catch(e){}
 }
@@ -2707,7 +2756,7 @@ function convPagar(){
   closeConv();
 }
 function reservarSocia(nome,url){
-  _rsociaUrl=url; _rsociaNome=nome;
+  _rsociaUrl=url; _rsociaNome=nome; window._rsociaSaldo=0;
   document.getElementById('rsocia-nome').textContent=nome;
   document.getElementById('rsocia-cod').value='';
   document.getElementById('rsocia-msg').textContent='';
@@ -2789,6 +2838,7 @@ function rsociaConfirmar(){
   var cod=document.getElementById('rsocia-cod').value.trim().toUpperCase();
   var m=document.getElementById('rsocia-msg');
   if(!cod){m.textContent='Digite seu código.';return;}
+  if(Number(window._rsociaSaldo)>0){ rsociaCredito(cod, Number(window._rsociaSaldo)); return; }
   m.textContent='Verificando…';
   var w=window.open('about:blank','_blank');
   checarSociaFull(cod,function(r){
@@ -2855,7 +2905,7 @@ function fiUnlock() {
   msg.textContent='Verificando…';
   checarSocia(cod,function(ok){
   if(ok) {
-    _fiUnlocked = true;
+    _fiUnlocked = true; window._fiCod = cod;
     document.getElementById('fi-lock').style.display='none';
     document.getElementById('fi-content').style.display='block';
     msg.textContent='';
