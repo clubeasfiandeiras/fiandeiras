@@ -3336,8 +3336,9 @@ function maCarregarCredito(){
 }
 function maCarregarAssoc(p){
   var el=document.getElementById('ma-assoc-info'); if(!el)return;
-  var plano=p.cofundadora?'Co-fundadora (Ciclo 1)':'Sócia';
-  var valor=p.cofundadora?'R$ 157/mês':'R$ 179/mês';
+  var plano=p.cofundadora?'Co-fundadora':(p.plano||'Sócia fundadora');
+  var mens=Number(p.mensalidade)||157;
+  var valor='R$ '+mens+'/mês';
   el.innerHTML='<strong style="color:var(--cv);">'+plano+'</strong><br>Mensalidade: '+valor+(p.entrada?'<br>Sócia desde '+p.entrada:'');
 }
 function maCopiarInd(){
