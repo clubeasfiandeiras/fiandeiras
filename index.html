@@ -201,6 +201,9 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 .oltre-sub{font-size:10px;font-weight:300;color:var(--cv2);margin-top:2px}
 .selo{display:inline-flex;align-items:center;gap:4px;background:rgba(157,175,130,.18);border:1px solid rgba(157,175,130,.45);border-radius:20px;padding:3px 9px 3px 7px;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5c7a4a;margin-top:5px;}
 .oltre-body{padding:14px 16px;background:var(--br)}
+.fe-item{display:block;width:100%;text-align:left;background:none;border:none;padding:11px 20px;font-family:'Mulish',sans-serif;font-size:14px;font-weight:400;color:var(--cv);cursor:pointer;}
+.fe-item:hover{background:rgba(175,105,47,.06);}
+.fe-item.ativo{color:var(--co);font-weight:700;background:rgba(175,105,47,.08);}
 .ma-tab{flex-shrink:0;background:none;border:none;border-bottom:2px solid transparent;padding:8px 5px;font-family:'Mulish',sans-serif;font-size:11px;font-weight:600;color:var(--cv2);cursor:pointer;white-space:nowrap;}.ma-tab.active{color:var(--co);border-bottom-color:var(--co);}
 </style>
 </head>
@@ -1271,19 +1274,51 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         </div>
         <button onclick="fiLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Sair</button>
       </div>
-      <!-- os 5 espaços da sócia -->
-      <div id="fe-tabs" style="display:flex;gap:4px;overflow-x:auto;padding:2px 14px 10px;-webkit-overflow-scrolling:touch;">
-        <button class="ma-tab active" data-fe="meu" onclick="feTab('meu')">Meu espaço</button>
-        <button class="ma-tab" data-fe="teia" onclick="feTab('teia')">As Fiandeiras</button>
-        <button class="ma-tab" data-fe="album" onclick="feTab('album')">Álbuns</button>
-        <button class="ma-tab" data-fe="dicas" onclick="feTab('dicas')">Dicas</button>
-        <button class="ma-tab" data-fe="indicar" onclick="feTab('indicar')">Indicar</button>
+      <!-- título do espaço aberto + botão do menu (desenho da Cris) -->
+      <div style="display:flex;align-items:center;gap:11px;padding:2px 16px 12px;border-bottom:1px solid rgba(216,205,194,.6);">
+        <button onclick="feMenu(true)" aria-label="Abrir menu" style="width:40px;height:40px;border-radius:50%;background:var(--sa);color:var(--li);border:none;font-family:'Merriweather',serif;font-size:15px;cursor:pointer;flex-shrink:0;" id="fe-avatar">🌿</button>
+        <div style="flex:1;min-width:0;">
+          <div id="fe-titulo" style="font-family:'Merriweather',serif;font-size:17px;color:var(--cv);line-height:1.2;">Minha bio</div>
+          <div id="fe-sub" style="font-size:10.5px;color:var(--cv2);margin-top:1px;"></div>
+        </div>
+        <button onclick="feMenu(true)" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:6px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;flex-shrink:0;">Menu</button>
       </div>
-      <div class="fe-pane" id="fe-meu"></div>
+
+      <!-- gaveta do menu -->
+      <div id="fe-drawer" onclick="if(event.target===this)feMenu(false)" style="display:none;position:fixed;inset:0;background:rgba(81,78,75,.45);z-index:9999;">
+        <div style="position:absolute;top:0;right:0;bottom:0;width:78%;max-width:310px;background:var(--br);box-shadow:-8px 0 24px rgba(0,0,0,.12);overflow-y:auto;padding:22px 0 30px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:0 20px 18px;border-bottom:1px solid var(--ar);">
+            <div id="fe-dr-avatar" style="width:46px;height:46px;border-radius:50%;background:var(--sa);color:var(--li);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:17px;flex-shrink:0;">🌿</div>
+            <div style="flex:1;min-width:0;">
+              <div id="fe-dr-nome" style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.2;">Sócia</div>
+              <div id="fe-dr-desde" style="font-size:10.5px;color:var(--cv2);margin-top:2px;"></div>
+              <div id="fe-dr-selo" style="display:none;margin-top:5px;"><span class="selo">Co-fundadora</span></div>
+            </div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:16px 20px 6px;">O que é meu</div>
+          <button class="fe-item" data-fe="bio"     onclick="feTab('bio')">Minha bio</button>
+          <button class="fe-item" data-fe="fio"     onclick="feTab('fio')">Experiência Fio</button>
+          <button class="fe-item" data-fe="exp"     onclick="feTab('exp')">Experiências Adicionais</button>
+          <button class="fe-item" data-fe="indicar" onclick="feTab('indicar')">Indicar uma amiga</button>
+          <button class="fe-item" data-fe="assoc"   onclick="feTab('assoc')">Minha associação</button>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:18px 20px 6px;border-top:1px solid var(--ar);margin-top:10px;">O que é nosso</div>
+          <button class="fe-item" data-fe="teia"  onclick="feTab('teia')">Nossa teia</button>
+          <button class="fe-item" data-fe="album" onclick="feTab('album')">Nossos álbuns</button>
+          <button class="fe-item" data-fe="dicas" onclick="feTab('dicas')">Nossas dicas</button>
+          <div style="padding:18px 20px 0;border-top:1px solid var(--ar);margin-top:12px;">
+            <button class="btn-o" onclick="feMenu(false);fiLockOut();">Sair</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="fe-pane" id="fe-bio"></div>
+      <div class="fe-pane" id="fe-fio" style="display:none;"></div>
+      <div class="fe-pane" id="fe-exp" style="display:none;"></div>
+      <div class="fe-pane" id="fe-indicar" style="display:none;"></div>
+      <div class="fe-pane" id="fe-assoc" style="display:none;"></div>
       <div class="fe-pane" id="fe-teia" style="display:none;"></div>
       <div class="fe-pane" id="fe-album" style="display:none;padding:0 16px 10px;"></div>
       <div class="fe-pane" id="fe-dicas" style="display:none;padding:0 16px 10px;"></div>
-      <div class="fe-pane" id="fe-indicar" style="display:none;"></div>
       <div id="bio-cta" style="margin:4px 14px 14px;padding:16px;background:rgba(175,105,47,.06);border:1px solid rgba(175,105,47,.25);border-radius:10px;text-align:center;">
         <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:6px;">Sua bio na teia</div>
         <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.45;margin-bottom:7px;">Ainda não te encontrou aqui?</div>
@@ -2224,8 +2259,10 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div class="fg"><label class="fl">Pets? (opcional)</label><input class="fi" id="mab-pets" type="text"></div>
         <div class="fg"><label class="fl">O que você ama fazer? (opcional)</label><input class="fi" id="mab-hobbies" type="text"></div>
         <div class="fg"><label class="fl">Um tema ou experiência que adoraria (opcional)</label><input class="fi" id="mab-tema" type="text"></div>
+        <div class="fg"><label class="fl">Data de nascimento (opcional)</label><input class="fi" id="mab-nasc" type="text" placeholder="dd/mm"></div>
         <div id="mab-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin-bottom:8px;"></div>
         <button class="btn-p" onclick="maBioSalvar()">Salvar minha bio</button>
+        <div id="ma-hist" style="margin-top:26px;padding-top:18px;border-top:1px solid var(--ar);"></div>
       </div>
     </div>
 
@@ -2242,7 +2279,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <!-- EXPERIÊNCIAS ADICIONAIS -->
     <div class="ma-pane" id="map-exp" style="display:none;">
       <div class="sec" style="padding-top:12px;">
-        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:12px;">As experiências que você já reservou.</p>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:2px;">Tudo que você reservou e tudo que já viveu no clube.</p>
         <div id="ma-exp-lista"><div style="font-size:12px;color:var(--cv2);">Carregando…</div></div>
       </div>
     </div>
@@ -2260,6 +2297,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div style="margin-top:14px;padding:12px 13px;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;">
           <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:4px;">Seu crédito de indicação</div>
           <div id="ma-credito" style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);">…</div>
+          <div id="ma-indicadas" style="font-size:11px;color:var(--cv2);margin-top:3px;"></div>
           <div style="font-size:10px;font-weight:300;color:var(--cv2);line-height:1.5;margin-top:5px;">Para usar, é só reservar uma experiência com o seu código; a gente aplica o crédito no seu pagamento.</div>
         </div>
       </div>
@@ -2269,7 +2307,9 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <div class="ma-pane" id="map-assoc" style="display:none;">
       <div class="sec" style="padding-top:12px;">
         <div id="ma-assoc-info" style="font-size:13px;color:var(--cv2);line-height:1.8;"></div>
-        <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin:14px 0;">Permanência mínima de 3 meses. Para pausar ou cancelar sua associação, fale com a gente pelo WhatsApp, a gente cuida com carinho.</p>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.7;margin:10px 0 0;">Cobrança mensal no cartão, pelo Kiwify.</p>
+        <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin:14px 0;">Permanência mínima de 3 meses. Para pausar ou cancelar sua associação, fale com a gente, a gente cuida com carinho.</p>
+        <a href="https://wa.me/5511933251200?text=Oi%2C%20gostaria%20de%20pausar%20minha%20associa%C3%A7%C3%A3o%20por%20um%20tempo.%20Podemos%20conversar%3F%20%F0%9F%8C%BF" target="_blank" style="text-decoration:none;"><button class="btn-o" style="margin-bottom:8px;">Pausar minha associação</button></a>
         <a href="https://wa.me/5511933251200?text=Oi!%20Quero%20falar%20sobre%20a%20minha%20associa%C3%A7%C3%A3o%20%F0%9F%8C%BF" target="_blank" style="text-decoration:none;"><button class="btn-o">Falar sobre minha associação</button></a>
       </div>
     </div>
@@ -3196,12 +3236,30 @@ function fiAbrirTudo(cod){
    os blocos que já existem para dentro dos 5 espaços, na hora que a página abre.
    O que era espalhado (teia aqui, álbum e dicas na página Além, área pessoal
    numa página à parte) passa a morar tudo dentro de "As Fiandeiras". */
+var FE_TITULOS={bio:['Minha bio','Quem você é, e tudo que já viveu no clube'],
+  fio:['Experiência Fio','A experiência incluída do seu trimestre'],
+  exp:['Experiências Adicionais','O que você reservou e ainda vai viver'],
+  indicar:['Indicar uma amiga','Seu convite e seu crédito'],
+  assoc:['Minha associação','Seu plano e seus combinados'],
+  teia:['Nossa teia','As mulheres que fazem este clube'],
+  album:['Nossos álbuns','As memórias de cada experiência'],
+  dicas:['Nossas dicas','Onde fomos, quem nos guiou, o que amamos']};
+
+function feMenu(abrir){
+  var d=document.getElementById('fe-drawer'); if(!d)return;
+  d.style.display = abrir ? 'block' : 'none';
+  document.body.style.overflow = abrir ? 'hidden' : '';
+}
 function feTab(t){
-  var tabs=document.querySelectorAll('#fe-tabs .ma-tab');
-  for(var i=0;i<tabs.length;i++) tabs[i].classList.toggle('active', tabs[i].getAttribute('data-fe')===t);
+  var itens=document.querySelectorAll('.fe-item');
+  for(var i=0;i<itens.length;i++) itens[i].classList.toggle('ativo', itens[i].getAttribute('data-fe')===t);
   var ps=document.querySelectorAll('.fe-pane');
   for(var j=0;j<ps.length;j++) ps[j].style.display='none';
   var el=document.getElementById('fe-'+t); if(el) el.style.display='block';
+  var tit=FE_TITULOS[t]||['',''];
+  var a=document.getElementById('fe-titulo'), b=document.getElementById('fe-sub');
+  if(a)a.textContent=tit[0]; if(b)b.textContent=tit[1];
+  feMenu(false);
 }
 function feMover(id, destino){
   var e=document.getElementById(id), d=document.getElementById(destino);
@@ -3209,44 +3267,62 @@ function feMover(id, destino){
   e.style.display='block'; d.appendChild(e); return true;
 }
 function feEsconder(id){ var e=document.getElementById(id); if(e) e.style.display='none'; }
+
+/* espelha nome, iniciais e "sócia desde" no avatar e na gaveta */
+function feIdentidade(){
+  var nome=(document.getElementById('ma-nome')||{}).textContent||'';
+  var desde=(document.getElementById('ma-desde')||{}).textContent||'';
+  var selo=document.getElementById('ma-selo');
+  var ini=nome.trim().split(/\s+/).map(function(x){return x&&x[0]?x[0]:'';}).slice(0,2).join('').toUpperCase();
+  function set(id,v){ var e=document.getElementById(id); if(e)e.textContent=v; }
+  if(ini){ set('fe-avatar',ini); set('fe-dr-avatar',ini); }
+  if(nome) set('fe-dr-nome',nome);
+  set('fe-dr-desde',desde);
+  var s=document.getElementById('fe-dr-selo');
+  if(s) s.style.display = (selo && selo.style.display!=='none') ? 'block' : 'none';
+}
+
 function fiMontarEspacos(){
   if(window._feMontado) return; window._feMontado=true;
 
-  // MEU ESPAÇO: cabeçalho com o nome, a Fio, as experiências, a bio e a associação
-  var av=document.getElementById('ma-avatar');
-  if(av){ var cab=av.closest?av.closest('.sec'):null; if(cab) document.getElementById('fe-meu').appendChild(cab); }
-  feMover('map-fio','fe-meu'); feMover('map-exp','fe-meu');
-  feMover('map-bio','fe-meu'); feMover('map-assoc','fe-meu');
-  feMover('grupo-content','fe-meu');
-
-  // AS FIANDEIRAS: a teia que já estava aqui
+  // MINHA BIO: os campos + o histórico do que ela já viveu (item 4.1 da Cris)
+  feMover('map-bio','fe-bio');
+  // EXPERIÊNCIA FIO
+  feMover('map-fio','fe-fio');
+  // EXPERIÊNCIAS ADICIONAIS
+  feMover('map-exp','fe-exp');
+  // INDICAR
+  feMover('map-ind','fe-indicar');
+  // MINHA ASSOCIAÇÃO
+  feMover('map-assoc','fe-assoc'); feMover('grupo-content','fe-assoc');
+  // NOSSA TEIA
   var g=document.getElementById('sc-grid');
   if(g){ var leg=g.previousElementSibling, d=document.getElementById('fe-teia');
          if(leg&&d) d.appendChild(leg); if(d) d.appendChild(g); }
-  // o formulário de bio antigo sai: quem manda agora é o "Minha bio" do Meu espaço
   feEsconder('bio-cta'); feEsconder('bio-form'); feEsconder('bio-ok');
-
+  // NOSSOS ÁLBUNS e NOSSAS DICAS
   feMover('album-content','fe-album');
   feMover('dicas-content','fe-dicas');
-  feMover('map-ind','fe-indicar');
+  // o cabeçalho de perfil da área antiga vira só a fonte dos dados, não aparece
+  var av=document.getElementById('ma-avatar');
+  if(av){ var cab=av.closest?av.closest('.sec'):null; if(cab) cab.style.display='none'; }
 
-  // some com os botões "Sair" que vieram junto dentro dos blocos movidos
+  // some com os botões repetidos que vieram nos blocos movidos
   var sai=document.querySelectorAll('#fi-content button');
   for(var k=0;k<sai.length;k++){
     var oc=sai[k].getAttribute('onclick')||'';
     if(oc.indexOf('albumLockOut')>-1||oc.indexOf('dicasLockOut')>-1||oc.indexOf('maSair')>-1) sai[k].style.display='none';
   }
-  // e com a barra de abas antiga da área pessoal
   var t0=document.querySelector('#page-minhaarea .ma-tab');
   if(t0&&t0.parentNode) t0.parentNode.style.display='none';
 
-  // ETAPA 3: a página Além fica só com o que é público
+  // a página Além fica só com o que é público
   ['album-lock','dicas-lock','grupo-lock'].forEach(function(id){
     var e=document.getElementById(id); if(!e) return;
     var sec=(e.closest&&(e.closest('.oltre-card')||e.closest('.sec')))||e.parentNode;
     if(sec) sec.style.display='none';
   });
-  feTab('meu');
+  feTab('bio');
 }
 function fiFecharTudo(){
   _fiUnlocked = false; window._fiCod='';
@@ -3454,6 +3530,7 @@ function maAbrir(p){
   var base=location.origin+location.pathname;
   document.getElementById('ma-ind-link').textContent=base+'?ind='+_maCod;
   maCarregarFio(); maCarregarReservas(); maCarregarCredito(); maCarregarAssoc(p); maCarregarBio();
+  try{ feIdentidade(); }catch(e){}
   maTab('bio');
 }
 function maSair(){
@@ -3487,11 +3564,47 @@ function maCarregarReservas(){
   fiJsonp({action:'minhas_reservas',codigo:_maCod}, function(r){
     var el=document.getElementById('ma-exp-lista'); if(!el)return;
     if(!r||!r.reservas||!r.reservas.length){ el.innerHTML='<p style="font-size:12px;font-weight:300;color:var(--cv2);">Você ainda não tem experiências reservadas.</p>'; return; }
-    var html='';
-    for(var i=0;i<r.reservas.length;i++){ var x=r.reservas[i];
-      html+='<div style="padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);display:flex;justify-content:space-between;gap:10px;align-items:center;"><div style="min-width:0;"><div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+x.exp+'</div><div style="font-size:11px;color:var(--cv2);">'+x.data+(x.tipo?' · '+x.tipo:'')+'</div></div>'+(x.status?'<div style="font-size:10px;font-weight:700;color:var(--co);white-space:nowrap;">'+x.status+'</div>':'')+'</div>';
+    // separa o que ainda vai viver do que já viveu
+    var vem=[], foi=[];
+    for(var i=0;i<r.reservas.length;i++){ (r.reservas[i].futura?vem:foi).push(r.reservas[i]); }
+    function ord(a,b){ return (a.ord||0)-(b.ord||0); }
+    vem.sort(ord); foi.sort(function(a,b){return (b.ord||0)-(a.ord||0);});
+    function selo(x){
+      var t=(x.tipo||'').toLowerCase(), s=(x.status||'').toLowerCase();
+      if(t.indexOf('fio')===0) return ['Fio incluída','#5c7a4a'];
+      if(t.indexOf('pausa')===0) return ['Incluída','#5c7a4a'];
+      if(t.indexOf('cortesia')===0) return ['Cortesia','#5c7a4a'];
+      if(t.indexOf('ciclo 1')===0) return ['',''];
+      if(s.indexOf('paga')===0) return ['Pago','#5c7a4a'];
+      return ['Falta pagar','var(--co)'];
     }
-    el.innerHTML=html;
+    function linha(x){
+      var sl=selo(x);
+      return '<div style="padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);display:flex;justify-content:space-between;gap:10px;align-items:center;">'
+        +'<div style="min-width:0;"><div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+x.exp+'</div>'
+        +'<div style="font-size:11px;color:var(--cv2);">'+(x.quando||x.data)+'</div></div>'
+        +(sl[0]?'<div style="font-size:10px;font-weight:700;color:'+sl[1]+';white-space:nowrap;">'+sl[0]+'</div>':'')+'</div>';
+    }
+    function linhaFutura(x){
+      var ag=maAgendaLink(x.exp);
+      var acoes='<div style="display:flex;gap:7px;margin:-2px 0 10px;">'
+        +(ag?'<a href="'+ag+'" target="_blank" style="text-decoration:none;flex:1;"><button style="width:100%;padding:7px;background:none;border:1px solid var(--ar);border-radius:6px;font-family:\'Mulish\',sans-serif;font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Adicionar à agenda</button></a>':'')
+        +'<button onclick="maConvidar(\''+String(x.exp).replace(/\'/g,"")+'\')" style="flex:1;padding:7px;background:none;border:1px solid var(--ar);border-radius:6px;font-family:\'Mulish\',sans-serif;font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Convidar uma amiga</button>'
+        +'</div>';
+      return linha(x)+acoes;
+    }
+    function bloco(titulo, lista, vazio){
+      var h='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:16px 0 4px;">'+titulo+'</div>';
+      if(!lista.length) return h+'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);">'+vazio+'</p>';
+      for(var i=0;i<lista.length;i++) h+=(titulo==='A viver'?linhaFutura:linha)(lista[i]);
+      return h;
+    }
+    el.innerHTML = bloco('A viver', vem, 'Nada reservado por enquanto.');
+    // o histórico mora na Minha bio (item 4.1 do desenho da Cris)
+    var hist=document.getElementById('ma-hist');
+    if(hist) hist.innerHTML = '<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Minha história no clube</div>'
+      + '<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">'+(foi.length?('Você já viveu '+foi.length+' experiência'+(foi.length>1?'s':'')+' com a gente.'):'Sua história no clube começa aqui.')+'</p>'
+      + (foi.length?foi.map(linha).join(''):'');
   });
 }
 function maCarregarCredito(){
@@ -3499,7 +3612,32 @@ function maCarregarCredito(){
     var el=document.getElementById('ma-credito'); if(!el)return;
     var s=(cr&&cr.ok)?(Number(cr.saldo)||0):0;
     el.textContent=s>0?('R$ '+s+' disponível'):'Sem crédito no momento';
+    var q=document.getElementById('ma-indicadas');
+    if(q){ var n=(cr&&cr.indicadas)||0;
+      q.textContent = n ? (n===1?'1 amiga sua já entrou no clube.':n+' amigas suas já entraram no clube.')
+                        : 'Nenhuma indicação convertida ainda.'; }
   });
+}
+/* data, hora e local de cada experiência, pra montar o convite de calendário */
+var EXP_AGENDA={
+ 'despertar o olhar':['20260804','1900','2200','Jardim Paulistano, São Paulo'],
+ 'tecer a cidadania':['20260811','1900','2200','Jardim Paulista, São Paulo'],
+ 'tomar a palavra · módulo 2':['20260820','1900','2200','Jardim Paulista, São Paulo'],
+ 'pausa (28 ago)':['20260828','0700','0800','Online'],
+ 'estrear juntas':['20260912','1000','1300','Jardim Paulistano, São Paulo'],
+ 'desmistificar a ia':['20260917','1900','2130','Online'],
+ 'pausa (25 set)':['20260925','0700','0800','Online'],
+ 'reacender o brilho':['20261003','0830','1130','Morumbi, São Paulo'],
+ 'compor a mesa':['20261015','1900','2200','Jardim Paulista, São Paulo']};
+function maAgendaLink(nome){
+  var k=String(nome||'').toLowerCase().trim(), a=EXP_AGENDA[k];
+  if(!a) return '';
+  var ini=a[0]+'T'+a[1]+'00', fim=a[0]+'T'+a[2]+'00';
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    +'&text='+encodeURIComponent(nome+' · As Fiandeiras')
+    +'&dates='+ini+'/'+fim
+    +'&location='+encodeURIComponent(a[3])
+    +'&details='+encodeURIComponent('Uma experiência do Clube As Fiandeiras. Os detalhes chegam pelo WhatsApp.');
 }
 function maCarregarAssoc(p){
   var el=document.getElementById('ma-assoc-info'); if(!el)return;
@@ -3507,6 +3645,11 @@ function maCarregarAssoc(p){
   var mens=Number(p.mensalidade)||157;
   var valor='R$ '+mens+'/mês';
   el.innerHTML='<strong style="color:var(--cv);">'+plano+'</strong><br>Mensalidade: '+valor+(p.entrada?'<br>Sócia desde '+p.entrada:'');
+}
+function maConvidar(nome){
+  var quem=(document.getElementById('ma-nome')||{}).textContent||'';
+  var txt='Oi, sou '+(quem||'sócia')+' e quero levar uma amiga comigo na experiência '+nome+'. Como faço? 🌿';
+  window.open('https://wa.me/5511933251200?text='+encodeURIComponent(txt),'_blank');
 }
 function maCopiarInd(){
   var link=location.origin+location.pathname+'?ind='+_maCod;
@@ -3521,13 +3664,13 @@ function maCarregarBio(){
     if(!b||!b.tem)return;
     function s(id,v){ var e=document.getElementById(id); if(e&&!e.value&&v)e.value=v; }
     s('mab-nome',b.nome); s('mab-linha',b.linha); s('mab-faz',b.faz); s('mab-momento',b.momento);
-    s('mab-filhos',b.filhos); s('mab-pets',b.pets); s('mab-hobbies',b.hobbies); s('mab-tema',b.tema);
+    s('mab-filhos',b.filhos); s('mab-pets',b.pets); s('mab-hobbies',b.hobbies); s('mab-tema',b.tema); s('mab-nasc',b.nascimento);
     var m=document.getElementById('mab-msg'); if(m)m.textContent='Sua bio atual já está preenchida, é só ajustar o que quiser 🌿';
   });
 }
 function maBioSalvar(){
   function g(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
-  var payload={tipo:'bio',codigo:_maCod,nome:g('mab-nome'),linha:g('mab-linha'),faz:g('mab-faz'),momento:g('mab-momento'),filhos:g('mab-filhos'),pets:g('mab-pets'),hobbies:g('mab-hobbies'),tema:g('mab-tema')};
+  var payload={tipo:'bio',codigo:_maCod,nome:g('mab-nome'),linha:g('mab-linha'),faz:g('mab-faz'),momento:g('mab-momento'),filhos:g('mab-filhos'),pets:g('mab-pets'),hobbies:g('mab-hobbies'),tema:g('mab-tema'),nascimento:g('mab-nasc')};
   var m=document.getElementById('mab-msg');
   if(!payload.nome && !payload.linha){ if(m)m.textContent='Preencha ao menos como você quer aparecer e uma linha sobre você.'; return; }
   if(m)m.textContent='Salvando…';
