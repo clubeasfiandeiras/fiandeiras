@@ -106,7 +106,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 .t-trama{background:rgba(223,178,181,.25);color:#9a6065}
 .t-tear{background:rgba(81,78,75,.1);color:var(--cv)}
 .t-carretel{background:rgba(216,205,194,.55);color:#7a6653}
-.t-pecaunica{background:rgba(175,105,47,.16);color:#8a4f22;border:1px solid rgba(175,105,47,.4)}
+.t-tapecaria{background:rgba(175,105,47,.16);color:#8a4f22;border:1px solid rgba(175,105,47,.4)}
 .combinados details{border:1px solid var(--ar);border-radius:8px;margin-bottom:8px;background:var(--br);overflow:hidden}
 .combinados summary{list-style:none;cursor:pointer;padding:13px 15px;font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);display:flex;justify-content:space-between;align-items:center;gap:10px}
 .combinados summary::-webkit-details-marker{display:none}
@@ -219,7 +219,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <button class="tn active" id="tn-inicio" onclick="goTo('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg><span>O Clube</span></button>
     <button class="tn" id="tn-experiencias" onclick="goTo('experiencias')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>As Experiências</span></button>
     <button class="tn" id="tn-quemsomos" onclick="goTo('quemsomos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="19" cy="7" r="3"/><path d="M23 21v-1a3 3 0 00-3-3"/></svg><span>As Fiandeiras</span></button>
-    <button class="tn" id="tn-associacao" onclick="goTo('associacao')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Fazer Parte</span></button>
+    <button class="tn" id="tn-associacao" onclick="goTo('associacao')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Fazer parte</span></button>
     <button class="tn" id="tn-alem" onclick="goTo('alem')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M3 13h18M3 17h18"/></svg><span style="font-size:6.5px;letter-spacing:.5px;line-height:1.3">Além das<br>Experiências</span></button>
   </div>
 </header>
@@ -231,7 +231,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <button class="d-item active" id="di-inicio" onclick="goTo('inicio')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span class="d-lbl">O Clube</span></button>
     <button class="d-item" id="di-experiencias" onclick="goTo('experiencias')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span class="d-lbl">As Experiências</span></button>
     <button class="d-item" id="di-quemsomos" onclick="goTo('quemsomos')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="19" cy="7" r="3"/><path d="M23 21v-1a3 3 0 00-3-3"/></svg><span class="d-lbl">As Fiandeiras</span></button>
-    <button class="d-item" id="di-associacao" onclick="goTo('associacao')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="d-lbl">Fazer Parte</span></button>
+    <button class="d-item" id="di-associacao" onclick="goTo('associacao')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="d-lbl">Fazer parte</span></button>
     <div class="d-div"></div>
     <button class="d-item" id="di-alem" onclick="goTo('alem')"><svg class="d-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M3 13h18M3 17h18"/></svg><span class="d-lbl">Além das Experiências</span></button>
   </nav>
@@ -280,7 +280,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <span class="hc-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263.54 263.54"><path fill="currentColor" d="M131.77,0l4.31,51.58c3.38,40.43,35.46,72.51,75.89,75.89l51.58,4.31-51.58,4.31c-40.43,3.38-72.51,35.46-75.89,75.89l-4.31,51.58-4.31-51.58c-3.38-40.43-35.46-72.51-75.89-75.89L0,131.77l51.58-4.31c40.43-3.38,72.51-35.46,75.89-75.89L131.77,0Z"/></svg></span>
         <div class="hc-kick">Indique uma amiga</div>
         <div class="hc-title" style="font-size:26px;margin-bottom:10px;">Gostou?<br>Traga uma amiga.</div>
-        <p class="hc-body" style="margin-bottom:6px;">Aqui se entra por indicação. Ela paga o <strong style="font-weight:700;color:var(--co);">R$ 157/mês nos 3 primeiros meses</strong>, e você ganha <strong style="font-weight:700;color:var(--co);">R$157 de crédito</strong> para uma experiência não-Fio.</p>
+        <p class="hc-body" style="margin-bottom:6px;">Aqui se entra por indicação. Ela paga o <strong style="font-weight:700;color:var(--co);">R$ 157/mês nos 3 primeiros meses</strong>, e você ganha <strong style="font-weight:700;color:var(--co);">R$157 de crédito</strong> para uma experiência não-Fio, válido por 3 meses.</p>
         <div style="font-size:8.5px;font-weight:300;color:var(--cv2);opacity:.7;max-width:250px;line-height:1.5;margin-bottom:20px;">O crédito vem todo na 1ª parcela.</div>
         <button class="hc-btn" onclick="indicarAmiga()">Indicar uma amiga &rarr;</button>
       </div>
@@ -838,7 +838,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div class="exp-card">
           <div class="ec-top">
             <div><div style="display:inline-block;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);background:rgba(175,105,47,.1);border:1px solid rgba(175,105,47,.35);border-radius:20px;padding:3px 9px;">Nova data em breve</div><div class="ec-day" style="margin-top:6px;">Outubro · data a remarcar</div></div>
-            <span class="tipo-badge t-pecaunica" onclick="verCombinados()" style="cursor:pointer;">Tapeçaria</span>
+            <span class="tipo-badge t-tapecaria" onclick="verCombinados()" style="cursor:pointer;">Tapeçaria</span>
           </div>
           <div class="ec-name">Esculpir o Livro</div>
           <div class="ec-local">Vila Nova Conceição</div>
@@ -1211,7 +1211,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       </div>
     </div>
     <div style="padding:0 20px 28px;">
-      <button class="btn-p" onclick="goTo('associacao')">Fazer parte desta história</button>
+      <button class="btn-p" onclick="goTo('associacao')">Quero ser sócia</button>
     </div>
   </div>
 
@@ -1263,25 +1263,23 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <button class="btn-p" style="width:auto;padding:0 16px;flex-shrink:0;" onclick="fiUnlock()">Entrar</button>
       </div>
       <div id="fi-lock-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin-bottom:16px;"></div>
-      <p style="font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;line-height:1.6;">Não é sócia ainda? <span style="color:var(--co);font-weight:600;cursor:pointer;" onclick="goTo('associacao')">Associe-se →</span></p>
+      <p style="font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;line-height:1.6;">Não é sócia ainda? <span style="color:var(--co);font-weight:600;cursor:pointer;" onclick="goTo('associacao')">Quero ser sócia →</span></p>
     </div>
 
     <!-- CONTEÚDO (bloqueado até inserir código) -->
     <div id="fi-content" style="display:none;">
-      <div style="padding:12px 16px 8px;display:flex;align-items:center;justify-content:space-between;">
-        <div>
-          <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;">Área das Sócias</p>
-        </div>
+      <div style="padding:12px 16px 4px;display:flex;align-items:center;justify-content:flex-end;">
         <button onclick="fiLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Sair</button>
       </div>
       <!-- título do espaço aberto + botão do menu (desenho da Cris) -->
       <div style="display:flex;align-items:center;gap:11px;padding:2px 16px 12px;border-bottom:1px solid rgba(216,205,194,.6);">
-        <button onclick="feMenu(true)" aria-label="Abrir menu" style="width:40px;height:40px;border-radius:50%;background:var(--sa);color:var(--li);border:none;font-family:'Merriweather',serif;font-size:15px;cursor:pointer;flex-shrink:0;" id="fe-avatar">🌿</button>
+        <button onclick="feTab('inicio')" aria-label="Voltar" style="width:40px;height:40px;border-radius:50%;background:var(--sa);color:var(--li);border:none;font-family:'Merriweather',serif;font-size:15px;cursor:pointer;flex-shrink:0;" id="fe-avatar">🌿</button>
+        <button id="fe-voltar" onclick="feTab('inicio')" style="display:none;background:none;border:none;color:var(--co);font-size:20px;cursor:pointer;padding:0 2px;flex-shrink:0;" aria-label="Voltar">&lsaquo;</button>
         <div style="flex:1;min-width:0;">
           <div id="fe-titulo" style="font-family:'Merriweather',serif;font-size:17px;color:var(--cv);line-height:1.2;">Minha bio</div>
           <div id="fe-sub" style="font-size:10.5px;color:var(--cv2);margin-top:1px;"></div>
         </div>
-        <button onclick="feMenu(true)" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:6px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;flex-shrink:0;">Menu</button>
+        <button onclick="feMenu(true)" style="display:flex;align-items:center;gap:6px;background:var(--li);border:1px solid var(--ar);border-radius:8px;padding:8px 12px;font-family:'Mulish',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--co);cursor:pointer;flex-shrink:0;"><span style="font-size:14px;line-height:1;">☰</span> Menu</button>
       </div>
 
       <!-- gaveta do menu -->
@@ -1297,10 +1295,10 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           </div>
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:16px 20px 6px;">O que é meu</div>
           <button class="fe-item" data-fe="bio"     onclick="feTab('bio')">Minha bio</button>
-          <button class="fe-item" data-fe="fio"     onclick="feTab('fio')">Experiência Fio</button>
-          <button class="fe-item" data-fe="exp"     onclick="feTab('exp')">Experiências Adicionais</button>
-          <button class="fe-item" data-fe="indicar" onclick="feTab('indicar')">Indicar uma amiga</button>
-          <button class="fe-item" data-fe="assoc"   onclick="feTab('assoc')">Minha associação</button>
+          <button class="fe-item" data-fe="fio"     onclick="feTab('fio')">Minha Fio</button>
+          <button class="fe-item" data-fe="exp"     onclick="feTab('exp')">Minhas experiências</button>
+          <button class="fe-item" data-fe="indicar" onclick="feTab('indicar')">Meus créditos</button>
+          <button class="fe-item" data-fe="assoc"   onclick="feTab('assoc')">Meu plano</button>
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:18px 20px 6px;border-top:1px solid var(--ar);margin-top:10px;">O que é nosso</div>
           <button class="fe-item" data-fe="teia"  onclick="feTab('teia')">Nossa teia</button>
           <button class="fe-item" data-fe="album" onclick="feTab('album')">Nossos álbuns</button>
@@ -1311,7 +1309,8 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         </div>
       </div>
 
-      <div class="fe-pane" id="fe-bio"></div>
+      <div class="fe-pane" id="fe-inicio"></div>
+      <div class="fe-pane" id="fe-bio" style="display:none;"></div>
       <div class="fe-pane" id="fe-fio" style="display:none;"></div>
       <div class="fe-pane" id="fe-exp" style="display:none;"></div>
       <div class="fe-pane" id="fe-indicar" style="display:none;"></div>
@@ -1366,10 +1365,22 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 <!-- ══ ASSOCIAÇÃO ══ -->
 <div class="page" id="page-associacao">
   <div class="hero">
-    <div class="kicker hero-kicker" style="color:var(--ro);margin-bottom:10px;">Associação</div>
+    <div class="kicker hero-kicker" style="color:var(--ro);margin-bottom:10px;">Fazer parte</div>
     <h1 class="hero-title">Torne-se <em>sócia</em></h1>
     <p class="hero-body">Associação contínua. Sempre 3 meses de experiências à frente, e uma Fio incluída no seu plano a cada 3 meses do seu início.</p>
   </div>
+
+  <!-- Chamada no topo: quem já decidiu não precisa rolar a página inteira -->
+  <div style="padding:16px 20px 2px;">
+    <div style="background:var(--li);border-radius:12px;padding:17px 17px 16px;text-align:center;">
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:7px;">Investimento mensal</div>
+      <div style="font-family:'Merriweather',serif;font-size:28px;font-weight:300;color:var(--cv);line-height:1;">R$ <span id="assoc-price-topo">179</span><span style="font-size:14px;font-weight:300;color:var(--cv2);">/mês</span></div>
+      <p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin:9px 0 13px;">Permanência mínima de 3 meses. Vagas limitadas, para preservar a intimidade do clube.</p>
+      <button class="btn-p" style="margin:0;" onclick="assocIrForm()">Quero ser sócia &rarr;</button>
+      <div style="font-size:11px;font-weight:300;color:var(--cv2);margin-top:10px;">Já é sócia do Ciclo 1? <span onclick="assocIrForm('renov')" style="color:var(--co);font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">Renove aqui</span>.</div>
+    </div>
+  </div>
+
   <div class="sec" style="padding-bottom:0;">
     <div class="kicker" style="margin-bottom:12px;">O que está incluído</div>
     <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:2px 0 2px;">As experiências</div><div style="display:flex;gap:13px;padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">1</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Sempre 3 meses de experiências à frente.</div><p style="font-size:12px;color:var(--cv2);">Você sempre sabe o que vem por aí.</p></div></div><div style="display:flex;gap:13px;padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">2</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Pausa online toda última sexta do mês e, a cada 3 meses de participação, uma experiência Fio, exclusiva para sócias.</div><p style="font-size:12px;color:var(--cv2);">Contada a partir do seu dia de entrada. <span style="color:var(--co);font-weight:600;cursor:pointer;" onclick="verCombinados()">Como funciona →</span></p></div></div><div style="display:flex;gap:13px;padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">3</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Acesso prioritário e valores exclusivos em todas as experiências.</div></div></div><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:14px 0 2px;">A comunidade</div><div style="display:flex;gap:13px;padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">4</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Comunidade fechada no WhatsApp.</div><p style="font-size:12px;color:var(--cv2);">Trocas genuínas entre as sócias entre os encontros.</p></div></div><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:14px 0 2px;">Espaços exclusivos no site</div><div style="display:flex;gap:13px;padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">5</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Todas as Dicas do clube, com prioridade.</div><p style="font-size:12px;color:var(--cv2);">Parceiros e recomendações de confiança das Fiandeiras.</p></div></div><div style="display:flex;gap:13px;padding:12px 0;"><div style="width:26px;height:26px;border-radius:50%;background:var(--co);color:var(--li);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">6</div><div><div style="font-family:'Merriweather',serif;font-size:13px;color:var(--cv);margin-bottom:2px;">Álbuns de fotos completos dos encontros.</div><p style="font-size:12px;color:var(--cv2);">As memórias de cada experiência, só para sócias.</p></div></div>
@@ -1394,7 +1405,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <!-- Regras Fio -->
 
   <!-- Formulário -->
-  <div style="padding:20px 20px 10px;">
+  <div id="assoc-form" style="padding:20px 20px 10px;scroll-margin-top:96px;">
     <div id="assoc-tabs" style="display:flex;gap:8px;margin-bottom:16px;">
       <button id="atab-nova" onclick="assocTab('nova')" style="flex:1;padding:11px;border-radius:8px;border:1px solid var(--co);background:var(--co);color:#fff;font-family:'Mulish',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">Sou nova</button>
       <button id="atab-renov" onclick="assocTab('renov')" style="flex:1;padding:11px;border-radius:8px;border:1px solid var(--ar);background:none;color:var(--cv);font-family:'Mulish',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">Co-fundadora (Ciclo 1)</button>
@@ -1589,7 +1600,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       <div style="padding:14px 14px 10px;">
         <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
           <div style="font-size:14px;font-weight:600;color:var(--cv);">Esculpir o Livro</div>
-          <span class="tipo-badge t-pecaunica" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tapeçaria</span>
+          <span class="tipo-badge t-tapecaria" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tapeçaria</span>
         </div>
         <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">Vila Nova Conceição · <strong style="color:var(--co);font-weight:700;">nova data em breve</strong></div>
         <div style="font-size:11px;color:var(--co);font-weight:600;">3x R$ 268,33 <span style="font-weight:400;color:var(--cv2);">(total R$ 805)</span> · convidada 3x R$ 320,67 <span style="font-weight:400;color:var(--cv2);">(total R$ 962)</span></div>
@@ -2186,14 +2197,15 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div class="combinados">
       <details><summary>1. O que somos</summary><div class="cbd"><p>As Fiandeiras são um clube de convivência feminina, um espaço programado e intencional de pausa no cotidiano.</p><p>Nascemos de três intenções:</p><ul><li>expandir o convívio social</li><li>ampliar repertório e reflexão</li><li>cultivar interioridade e presença</li></ul><p style='margin-top:8px'>Não é um evento. É um tempo de respiro, um lugar onde mulheres podem estar juntas de forma genuína, sem performance.</p></div></details>
       <details><summary>2. O que não somos</summary><div class="cbd"><p>As Fiandeiras não são um grupo de networking, de vendas ou de prospecção profissional.</p><p>Relações profissionais podem surgir naturalmente, e isso é bem-vindo. Só não é o que nos move.</p></div></details>
-      <details><summary>3. Como entrar</summary><div class="cbd"><p>A entrada acontece por vínculos reais e rede de confiança. Para fazer parte:</p><ul><li>conhecer pessoalmente ao menos uma integrante</li><li>solicitar a inscrição</li><li>iniciar a assinatura</li></ul><p style='margin-top:8px'>O clube tem um número limitado de vagas, é isso que preserva a intimidade dos encontros.</p></div></details>
-      <details><summary>4. Como funciona a participação</summary><div class="cbd"><p>A participação é contínua. A assinatura é recorrente e permanece ativa automaticamente, sem necessidade de renovar a cada período.</p><p>A qualquer momento, a integrante pode cancelar a assinatura, e a cobrança é encerrada.</p></div></details>
-      <details><summary>5. O que cada sócia tem</summary><div class="cbd"><p>Enquanto a assinatura está ativa, cada sócia tem:</p><ul><li>A agenda dos 3 próximos meses, atualizada todo mês.</li><li>A Pausa online toda última sexta do mês, inclusa.</li><li>Uma experiência Fio a cada 3 meses de participação, exclusiva para sócias, contada a partir do seu dia de entrada.</li><li>Acesso prioritário e valores exclusivos em todas as experiências.</li><li>Comunidade fechada no WhatsApp.</li><li>Todas as Dicas do clube, com prioridade.</li><li>Álbuns de fotos completos dos encontros.</li></ul></div></details>
-      <details><summary>6. As experiências</summary><div class="cbd"><p>As experiências acontecem em dias variados, noites durante a semana ou manhãs de sábado. Sempre que possível, buscamos concentrar ao menos um dos encontros na terceira quinta-feira do mês, criando um ponto de referência no calendário.</p><p>Cada experiência trabalha um dos três pilares do clube, Conexão, Interioridade ou Ampliação, que define o seu propósito. Cada uma também pertence a um tier, que define a sua faixa de investimento. Pilar e tier são coisas distintas: o pilar diz respeito ao que a experiência propõe; o tier, ao seu valor de acesso.</p><p>Os tiers atuais são Fio, Ponto, Trama, Tear, Carretel e Tapeçaria. Os valores de cada um são informados na grade.</p><p>Buscamos oferecer ao menos uma experiência Fio por mês. As experiências Fio são exclusivas para sócias, e uma delas, a cada três meses, está inclusa na assinatura. Quando uma Fio for aberta a convidadas, avisamos com antecedência. As demais experiências têm custo adicional.</p></div></details>
-      <details><summary>7. Sobre os encontros</summary><div class="cbd"><p>Nenhum encontro é obrigatório. Participar é sempre um gesto de desejo e presença.</p><ul><li>Todas as experiências têm vagas limitadas e um número mínimo de participantes, quando esse número não é alcançado, a experiência pode ser cancelada.</li><li>A confirmação segue a ordem de reserva.</li><li>Integrantes com assinatura ativa têm prioridade e valor exclusivo, por um prazo determinado e mediante pagamento, em cada experiência.</li><li>Depois desse prazo, as vagas que restarem podem ser abertas a convidadas, por um valor acima do praticado às integrantes.</li></ul></div></details>
+      <details><summary>3. Como entrar</summary><div class="cbd"><p>A entrada acontece por vínculos reais e rede de confiança. Para fazer parte:</p><ul><li>conhecer pessoalmente ao menos uma sócia</li><li>solicitar a inscrição</li><li>iniciar a associação</li></ul><p style='margin-top:8px'>O clube tem um número limitado de vagas, é isso que preserva a intimidade dos encontros.</p></div></details>
+      <details><summary>4. Como funciona a participação</summary><div class="cbd"><p>A participação é contínua. A associação é recorrente e permanece ativa automaticamente, sem necessidade de renovar a cada período.</p><p>A qualquer momento, a sócia pode cancelar a associação, e a cobrança é encerrada.</p></div></details>
+      <details><summary>5. O que cada sócia tem</summary><div class="cbd"><p>Enquanto a associação está ativa, cada sócia tem:</p><ul><li>A agenda dos 3 próximos meses, atualizada todo mês.</li><li>A Pausa online toda última sexta do mês, inclusa.</li><li>Uma experiência Fio a cada 3 meses de participação, exclusiva para sócias, contada a partir do seu dia de entrada.</li><li>Acesso prioritário e valores exclusivos em todas as experiências.</li><li>Comunidade fechada no WhatsApp.</li><li>Todas as Dicas do clube, com prioridade.</li><li>Álbuns de fotos completos dos encontros.</li></ul></div></details>
+      <details><summary>6. As experiências</summary><div class="cbd"><p>As experiências acontecem em dias variados, noites durante a semana ou manhãs de sábado. Sempre que possível, buscamos concentrar ao menos um dos encontros na terceira quinta-feira do mês, criando um ponto de referência no calendário.</p><p>Cada experiência trabalha um dos três pilares do clube, Conexão, Interioridade ou Ampliação, que define o seu propósito. Cada uma também pertence a um tier, que define a sua faixa de investimento. Pilar e tier são coisas distintas: o pilar diz respeito ao que a experiência propõe; o tier, ao seu valor de acesso.</p><p>Os tiers atuais são Fio, Ponto, Trama, Tear, Carretel e Tapeçaria. Os valores de cada um são informados na grade.</p><p>Buscamos oferecer ao menos uma experiência Fio por mês. As experiências Fio são exclusivas para sócias, e uma delas, a cada três meses, está inclusa na associação. Quando uma Fio for aberta a convidadas, avisamos com antecedência. As demais experiências têm custo adicional.</p></div></details>
+      <details><summary>7. Sobre os encontros</summary><div class="cbd"><p>Nenhum encontro é obrigatório. Participar é sempre um gesto de desejo e presença.</p><ul><li>Todas as experiências têm vagas limitadas e um número mínimo de participantes, quando esse número não é alcançado, a experiência pode ser cancelada.</li><li>A confirmação segue a ordem de reserva.</li><li>Sócias com associação ativa têm prioridade e valor exclusivo, por um prazo determinado e mediante pagamento, em cada experiência.</li><li>Depois desse prazo, as vagas que restarem podem ser abertas a convidadas, por um valor acima do praticado às sócias.</li></ul></div></details>
       <details><summary>8. Trocas e cancelamentos</summary><div class="cbd"><p>Como cada experiência é fechada com antecedência, fornecedores, número mínimo e vagas limitadas, o aviso prévio é o que nos permite reorganizar com cuidado.</p><ul><li><strong style='font-weight:600;color:var(--cv)'>Fio:</strong> a experiência Fio escolhida pode ser trocada por outra uma única vez, até dois dias antes da data. Depois desse prazo, fica confirmada e conta como o Fio do período.</li><li><strong style='font-weight:600;color:var(--cv)'>Demais experiências:</strong> com 7 dias ou mais de antecedência, reembolso integral; entre 2 e 7 dias antes, crédito para usar em outra experiência; com menos de 2 dias, sem reembolso nem crédito.</li></ul></div></details>
-      <details><summary>9. O investimento</summary><div class="cbd"><p>O valor da assinatura sustenta a curadoria cuidadosa de cada experiência e toda a estrutura do clube. Nele estão inclusos:</p><ul><li>uma experiência da categoria Fio a cada três meses;</li><li>reserva prioritária em todas as experiências, com valor exclusivo para sócias;</li><li>acesso à comunidade fechada no WhatsApp.</li></ul></div></details>
-      <details><summary>10. Um ambiente seguro</summary><div class="cbd"><p>As Fiandeiras são um espaço seguro de convivência.</p><ul><li>O que é compartilhado nos encontros permanece no grupo.</li><li>O respeito às histórias e às experiências de cada mulher é inegociável.</li></ul></div></details>
+      <details><summary>9. O investimento</summary><div class="cbd"><p>O valor da associação sustenta a curadoria cuidadosa de cada experiência e toda a estrutura do clube. Nele estão inclusos:</p><ul><li>uma experiência da categoria Fio a cada três meses;</li><li>reserva prioritária em todas as experiências, com valor exclusivo para sócias;</li><li>acesso à comunidade fechada no WhatsApp.</li></ul></div></details>
+      <details><summary>10. Indicar uma amiga</summary><div class="cbd"><p>Aqui se entra por indicação, e quem indica ganha junto.</p><ul><li>Quando uma amiga entra pelo seu link e paga a primeira mensalidade, você ganha <strong style='font-weight:600;color:var(--cv)'>R$157 de crédito</strong>.</li><li>O crédito vale nas experiências que não são Fio. Não abate a mensalidade e não vira dinheiro.</li><li>Ele vale por <strong style='font-weight:600;color:var(--cv)'>3 meses</strong>, contados do dia em que entra.</li><li>Se você tiver mais de um crédito, eles somam e entram inteiros numa única experiência, abatendo do valor. Não dá para dividir entre duas.</li><li>Para usar, escolha a experiência na sua área de sócia e peça. A gente manda o link de pagamento já com o valor abatido.</li></ul></div></details>
+      <details><summary>11. Um ambiente seguro</summary><div class="cbd"><p>As Fiandeiras são um espaço seguro de convivência.</p><ul><li>O que é compartilhado nos encontros permanece no grupo.</li><li>O respeito às histórias e às experiências de cada mulher é inegociável.</li></ul></div></details>
     </div>
         <div style="text-align:center;font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--co);margin:16px 0 6px;">Conectar · Aprofundar · Ampliar</div>
       </div>
@@ -2243,7 +2255,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       <button class="ma-tab" data-t="fio" onclick="maTab('fio')">Experiência Fio</button>
       <button class="ma-tab" data-t="exp" onclick="maTab('exp')">Experiências</button>
       <button class="ma-tab" data-t="ind" onclick="maTab('ind')">Indicar</button>
-      <button class="ma-tab" data-t="assoc" onclick="maTab('assoc')">Associação</button>
+      <button class="ma-tab" data-t="assoc" onclick="maTab('assoc')">Meu plano</button>
     </div>
 
     <!-- MINHA BIO -->
@@ -2287,7 +2299,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <!-- INDICAR UMA AMIGA -->
     <div class="ma-pane" id="map-ind" style="display:none;">
       <div class="sec" style="padding-top:12px;">
-        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:12px;">Compartilhe seu link. Quando uma amiga entra por ele, você ganha R$157 de crédito para usar em uma experiência (não-Fio), lançado na primeira parcela dela.</p>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:12px;">Compartilhe seu link. Quando uma amiga entra por ele, você ganha R$157 de crédito para usar em uma experiência que não seja Fio, lançado na primeira parcela dela. O crédito vale por 3 meses.</p>
         <div style="background:var(--li);border-radius:8px;padding:12px;margin-bottom:12px;">
           <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">Seu link</div>
           <div id="ma-ind-link" style="font-size:12px;color:var(--cv);word-break:break-all;line-height:1.5;"></div>
@@ -2298,7 +2310,14 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:4px;">Seu crédito de indicação</div>
           <div id="ma-credito" style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);">…</div>
           <div id="ma-indicadas" style="font-size:11px;color:var(--cv2);margin-top:3px;"></div>
-          <div style="font-size:10px;font-weight:300;color:var(--cv2);line-height:1.5;margin-top:5px;">Para usar, é só reservar uma experiência com o seu código; a gente aplica o crédito no seu pagamento.</div>
+          <div id="ma-cred-prazo" style="font-size:11px;color:var(--cv2);margin-top:3px;"></div>
+          <div style="font-size:10px;font-weight:300;color:var(--cv2);line-height:1.5;margin-top:5px;">O crédito abate do valor de uma experiência que não seja Fio, e entra inteiro numa só. Escolha abaixo para ver quanto fica, e a gente manda o link de pagamento com o desconto já aplicado.</div>
+          <div id="ma-cred-box" style="display:none;margin-top:9px;">
+            <select id="ma-cred-exp" class="fi" style="margin-bottom:8px;" onchange="maCredCalc()"></select>
+            <div id="ma-cred-conta" style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:9px;"></div>
+            <button class="btn-p" style="margin:0;" onclick="maUsarCredito()">Pedir meu link com o crédito abatido</button>
+          </div>
+          <div id="ma-cred-pedido" style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:9px;"></div>
         </div>
       </div>
     </div>
@@ -2324,7 +2343,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <button class="bn active" id="bn-inicio" onclick="goTo('inicio')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span>O Clube</span></button>
   <button class="bn" id="bn-experiencias" onclick="goTo('experiencias')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>As Experiências</span></button>
   <button class="bn" id="bn-quemsomos" onclick="goTo('quemsomos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="19" cy="7" r="3"/><path d="M23 21v-1a3 3 0 00-3-3"/></svg><span>As Fiandeiras</span></button>
-  <button class="bn" id="bn-associacao" onclick="goTo('associacao')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Fazer Parte</span></button>
+  <button class="bn" id="bn-associacao" onclick="goTo('associacao')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Fazer parte</span></button>
   <button class="bn" id="bn-alem" onclick="goTo('alem')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M3 13h18M3 17h18"/></svg><span style="font-size:7.5px;letter-spacing:.5px;line-height:1.3">Além das<br>Experiências</span></button>
 </nav>
 
@@ -2552,7 +2571,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       <div id="rv-step2b" style="display:none;">
         <div style="background:var(--li);border-radius:8px;padding:14px;margin-bottom:16px;">
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:6px;">Valor para não sócias</div>
-          <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">Quer participar com preço de sócia? <span style="color:var(--co);font-weight:600;cursor:pointer;" onclick="goTo('associacao');closeRv();">Associe-se primeiro →</span></p>
+          <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">Quer participar com preço de sócia? <span style="color:var(--co);font-weight:600;cursor:pointer;" onclick="goTo('associacao');closeRv();">Quero ser sócia →</span></p>
         </div>
         <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:8px;">Forma de pagamento</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
@@ -2626,13 +2645,41 @@ function rsociaCodChanged(el){
 }
 function rsociaCredito(cod, saldo){
   var m=document.getElementById('rsocia-msg'); if(!m) return;
-  var wa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi, tenho R$'+saldo+' de crédito de indicação e quero usar na reserva de '+_rsociaNome+'. Meu código: '+cod+' 🌿');
+  var e=null; for(var i=0;i<EXP_RV.length;i++) if(EXP_RV[i].n===_rsociaNome) e=EXP_RV[i];
+  var conta='';
+  if(e){ var usa=Math.min(saldo,e.ps), paga=e.ps-usa;
+    conta='<div style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:11px;">'
+      +_rsociaNome+' custa <b style="font-weight:700;color:var(--cv);">R$ '+e.ps+'</b> para sócia.<br>'
+      +'Seu crédito abate <b style="font-weight:700;color:var(--cv);">R$ '+usa+'</b>.<br>'
+      +'<span style="color:var(--co);font-weight:700;font-size:14px;">Você paga R$ '+paga+'.</span></div>';
+  } else {
+    conta='<div style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:11px;">Seu crédito abate do valor desta experiência. A gente registra seu pedido e te manda o link de pagamento já com o desconto.</div>';
+  }
   m.innerHTML='<div style="text-align:left;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;padding:12px 13px;">'
     +'<div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:5px;">Você tem R$'+saldo+' de crédito \uD83C\uDF3F</div>'
-    +'<div style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:11px;">Vale em experiências não-Fio. Fale com a gente pra usar nesta reserva, a gente aplica o desconto pra você.</div>'
-    +'<a href="'+wa+'" target="_blank" style="text-decoration:none;"><button class="btn-p" style="margin:0;">Usar meu crédito no WhatsApp →</button></a>'
+    +conta
+    +'<button class="btn-p" style="margin:0;" onclick="rsociaUsarCredito(\''+cod+'\','+saldo+')">Pedir meu link com o crédito abatido →</button>'
     +'<button class="btn-o" style="margin-top:8px;" onclick="rsociaPagarNormal(\''+cod+'\')">Prefiro pagar o valor cheio →</button>'
     +'</div>';
+}
+/* registra o pedido na planilha (conciliação) e leva pro WhatsApp */
+function rsociaUsarCredito(cod, saldo){
+  var m=document.getElementById('rsocia-msg');
+  var exp=_rsociaNome;
+  var w=window.open('about:blank','_blank');
+  if(m)m.textContent='Registrando seu pedido…';
+  var dig=String(cod).replace(/\D/g,'')||cod;
+  logReserva(dig, exp, 'Paga');
+  var e=null; for(var i=0;i<EXP_RV.length;i++) if(EXP_RV[i].n===exp) e=EXP_RV[i];
+  var paga=e?(e.ps-Math.min(saldo,e.ps)):0;
+  fiJsonp({action:'credito_pedido',codigo:dig,exp:exp,valor:saldo,paga:(e?paga:'')}, function(r){
+    var v=(r&&r.ok)?r.valor:saldo;
+    var nome=(r&&r.nome)?r.nome:'';
+    var t='Oi'+(nome?(', aqui é a '+nome):'')+'. Quero usar meus R$ '+v+' de crédito por indicação na '+exp+'.'
+      +(e?(' Ela custa R$ '+e.ps+', então fico em R$ '+paga+'.'):'')+' Me manda o link?';
+    if(w){ w.location.href='https://wa.me/5511933251200?text='+encodeURIComponent(t); }
+    if(m)m.innerHTML='<span style="color:#5c7a4a;font-weight:700;">Pedido registrado 🌿</span> A gente já está preparando seu link com R$ '+v+' abatidos.';
+  });
 }
 function rsociaPagarNormal(cod){ logReserva(cod,_rsociaNome,'Paga'); window.open(_rsociaUrl,'_blank'); closeRsocia(); }
 function enviarInscricao(d){
@@ -2737,15 +2784,21 @@ function submitR(){
 }
 
 // ASSOCIAÇÃO
+/* leva quem já decidiu direto pro formulário, sem rolar a página inteira */
+function assocIrForm(t){
+  if(t) assocTab(t);
+  var el=document.getElementById('assoc-form');
+  if(el&&el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
 function assocTab(t){
   var nova=t==='nova';
   document.getElementById('fw-assoc').style.display=nova?'block':'none';
   document.getElementById('fw-renov').style.display=nova?'none':'block';
   var _pr=document.getElementById('assoc-price'); if(_pr)_pr.textContent=nova?'179':'157';
+  var _pt=document.getElementById('assoc-price-topo'); if(_pt)_pt.textContent=nova?'179':'157';
   var bn=document.getElementById('atab-nova'), br=document.getElementById('atab-renov');
   bn.style.background=nova?'var(--co)':'none'; bn.style.color=nova?'#fff':'var(--cv)'; bn.style.borderColor=nova?'var(--co)':'var(--ar)';
-  br.style.background=nova?'var(--co)':'none'; br.style.color=nova?'#fff':'var(--cv)'; br.style.borderColor=nova?'var(--co)':'var(--ar)';
-  if(nova){br.style.background='none';br.style.color='var(--cv)';br.style.borderColor='var(--ar)';}else{bn.style.background='none';bn.style.color='var(--cv)';bn.style.borderColor='var(--ar)';}
+  br.style.background=nova?'none':'var(--co)'; br.style.color=nova?'var(--cv)':'#fff'; br.style.borderColor=nova?'var(--ar)':'var(--co)';
 }
 function submitRenov(){
   var cod=document.getElementById('renov-cod').value.trim().toUpperCase();
@@ -3190,7 +3243,7 @@ function submitPresente(){
   // guarda o recado pro clube; a sócia envia na tela seguinte, depois de pagar
   window._presenteWa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi, acabei de presentear uma amiga.\nDe: '+quem+'\nPara: '+para+(tel?'\nWhatsApp dela: '+tel:'')+'\nPresente: '+detalhe+(msg2?'\nBilhete: '+msg2:'')+'\nJá fiz o pagamento 🌿');
   var _n=document.getElementById('sp-nota');
-  if(_n){ if(tipo==='associacao'){ _n.style.display='block'; _n.innerHTML='No pagamento, preencha os dados de <strong>quem vai receber</strong> a assinatura (a presenteada), pra a associação entrar no nome dela. Quer presentear por um número de meses? No último mês é só nos pedir pra cancelar. \uD83C\uDF3F'; } else { _n.style.display='none'; _n.innerHTML=''; } }
+  if(_n){ if(tipo==='associacao'){ _n.style.display='block'; _n.innerHTML='No pagamento, preencha os dados de <strong>quem vai receber</strong> (a presenteada), pra a associação entrar no nome dela. Quer presentear por um número de meses? No último mês é só nos pedir pra cancelar. \uD83C\uDF3F'; } else { _n.style.display='none'; _n.innerHTML=''; } }
   document.getElementById('fw-pres').style.display='none';
   document.getElementById('sp').classList.add('show');
 }
@@ -3236,11 +3289,13 @@ function fiAbrirTudo(cod){
    os blocos que já existem para dentro dos 5 espaços, na hora que a página abre.
    O que era espalhado (teia aqui, álbum e dicas na página Além, área pessoal
    numa página à parte) passa a morar tudo dentro de "As Fiandeiras". */
-var FE_TITULOS={bio:['Minha bio','Quem você é, e tudo que já viveu no clube'],
-  fio:['Experiência Fio','A experiência incluída do seu trimestre'],
-  exp:['Experiências Adicionais','O que você reservou e ainda vai viver'],
-  indicar:['Indicar uma amiga','Seu convite e seu crédito'],
-  assoc:['Minha associação','Seu plano e seus combinados'],
+var FE_TITULOS={
+  inicio:['Área das Sócias','Tudo que é seu, e tudo que é nosso'],
+  bio:['Minha bio','Quem você é na teia, e tudo que já viveu'],
+  fio:['Minha Fio','A experiência incluída do seu trimestre'],
+  exp:['Minhas experiências','O que você reservou e ainda vai viver'],
+  indicar:['Meus créditos','Indique uma amiga e ganhe R$157'],
+  assoc:['Meu plano','Mensalidade, pagamento e combinados'],
   teia:['Nossa teia','As mulheres que fazem este clube'],
   album:['Nossos álbuns','As memórias de cada experiência'],
   dicas:['Nossas dicas','Onde fomos, quem nos guiou, o que amamos']};
@@ -3259,7 +3314,10 @@ function feTab(t){
   var tit=FE_TITULOS[t]||['',''];
   var a=document.getElementById('fe-titulo'), b=document.getElementById('fe-sub');
   if(a)a.textContent=tit[0]; if(b)b.textContent=tit[1];
+  var v=document.getElementById('fe-voltar');
+  if(v) v.style.display = (t==='inicio') ? 'none' : 'block';
   feMenu(false);
+  try{ window.scrollTo(0,0); }catch(e){}
 }
 function feMover(id, destino){
   var e=document.getElementById(id), d=document.getElementById(destino);
@@ -3322,7 +3380,71 @@ function fiMontarEspacos(){
     var sec=(e.closest&&(e.closest('.oltre-card')||e.closest('.sec')))||e.parentNode;
     if(sec) sec.style.display='none';
   });
-  feTab('bio');
+  feInicio();
+  feTab('inicio');
+}
+/* Tela inicial: os 8 espaços à vista. O menu lateral continua existindo, mas
+   ninguém precisa descobrir ele pra navegar. */
+/* o cartão de abertura: a história dela em três linhas */
+function feResumo(){
+  var el=document.getElementById('fe-resumo'); if(!el)return;
+  var nome=((document.getElementById('ma-nome')||{}).textContent||'').split(' ')[0];
+  var desde=((document.getElementById('ma-desde')||{}).textContent||'').replace('Sócia desde ','');
+  var n=window._maVividas||0;
+  var nomes=window._maVividasNomes||[];
+  var fio=(document.getElementById('ma-fio-box')||{}).textContent||'';
+  var temFio=fio.indexOf('disponível')>-1;
+  var fioAte=window._maFioAte||'';
+  var cred=(document.getElementById('ma-credito')||{}).textContent||'';
+  var credAte=window._maCredAte||'';
+  var b=function(t){ return '<b style="font-weight:700;color:var(--cv);">'+t+'</b>'; };
+
+  var h='<div style="background:var(--li);border-radius:12px;padding:18px 17px;margin:14px 16px 4px;">'
+    +'<div style="font-family:\'Merriweather\',serif;font-size:17px;font-weight:300;color:var(--cv);line-height:1.35;margin-bottom:9px;">'
+    +(nome?('Que bom te ver, '+nome+'.'):'Que bom te ver.')+'</div>'
+    +'<div style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.85;">'
+    +(desde?('Você tece com a gente desde '+b(desde)+'.<br>'):'');
+
+  if(n){
+    h+='Desde então você já viveu '+b(n)+' experiência'+(n>1?'s':'')+' conosco:';
+    if(nomes.length){
+      h+='<div style="margin:4px 0 2px;line-height:1.6;">';
+      for(var i=0;i<nomes.length;i++)
+        h+='<div style="font-family:\'Merriweather\',serif;font-size:13.5px;color:var(--cv);">'+nomes[i]+'</div>';
+      h+='</div>';
+    } else { h+='<br>'; }
+  } else {
+    h+='Sua primeira experiência ainda está por vir.<br>';
+  }
+
+  if(temFio){
+    h+='<div style="margin-top:8px;"><span style="color:var(--co);font-weight:700;">Sua Fio deste trimestre está disponível.</span>'
+      +(fioAte?(' Use até '+b(fioAte)+'.'):'')+'</div>';
+  }
+  if(cred.indexOf('R$')>-1){
+    h+='<div style="margin-top:'+(temFio?'2px':'8px')+';">Você tem '+b(cred.replace(' disponível',''))+' de crédito por indicação.'
+      +(credAte?(' Use até '+b(credAte)+'.'):'')+'</div>';
+  }
+  h+='</div></div>';
+  el.innerHTML=h;
+}
+function feInicio(){
+  var el=document.getElementById('fe-inicio'); if(!el)return;
+  var GRUPOS=[['O que é meu',['bio','fio','exp','indicar','assoc']],
+              ['O que é nosso',['teia','album','dicas']]];
+  var h='<div id="fe-resumo"></div>';
+  for(var g=0;g<GRUPOS.length;g++){
+    h+='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:'+(g?'22px':'16px')+' 18px 6px;">'+GRUPOS[g][0]+'</div>';
+    for(var i=0;i<GRUPOS[g][1].length;i++){
+      var k=GRUPOS[g][1][i], t=FE_TITULOS[k]||['',''];
+      h+='<button onclick="feTab(\''+k+'\')" style="display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(216,205,194,.55);padding:13px 18px;cursor:pointer;">'
+        +'<div style="flex:1;min-width:0;">'
+        +'<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);line-height:1.25;">'+t[0]+'</div>'
+        +'<div style="font-size:11px;font-weight:300;color:var(--cv2);margin-top:2px;">'+t[1]+'</div></div>'
+        +'<div style="color:var(--co);font-size:16px;flex-shrink:0;">&rsaquo;</div></button>';
+    }
+  }
+  el.innerHTML=h;
 }
 function fiFecharTudo(){
   _fiUnlocked = false; window._fiCod='';
@@ -3554,9 +3676,15 @@ function maCarregarFio(){
     var box=document.getElementById('ma-fio-box'); if(!box)return;
     if(!r||!r.encontrada){ box.innerHTML='<div style="font-size:12px;color:var(--cv2);">Não conseguimos carregar sua Fio agora.</div>'; return; }
     if(r.disponivel){
-      box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:16px;color:var(--co);margin-bottom:10px;">Sua Fio deste trimestre está disponível 🌿</div><button class="btn-p" style="max-width:220px;margin:0 auto;" onclick="goTo(\'experiencias\')">Ver experiências Fio</button>';
+      window._maFioAte=r.ate||'';
+      box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:16px;color:var(--co);margin-bottom:6px;">Sua Fio deste trimestre está disponível 🌿</div>'
+        +(r.ate?'<div style="font-size:12px;color:var(--cv2);margin-bottom:10px;">Use até <b style="font-weight:700;color:var(--cv);">'+r.ate+'</b>, quando começa seu próximo trimestre.</div>':'<div style="margin-bottom:10px;"></div>')
+        +'<button class="btn-p" style="max-width:220px;margin:0 auto;" onclick="goTo(\'experiencias\')">Ver experiências Fio</button>';
+      try{ feResumo(); }catch(e){}
     } else {
+      window._maFioAte='';
       box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);margin-bottom:6px;">Sua Fio deste trimestre já foi usada.</div>'+(r.proxima?'<div style="font-size:12px;color:var(--cv2);">Sua próxima Fio libera em '+r.proxima+'.</div>':'');
+      try{ feResumo(); }catch(e){}
     }
   });
 }
@@ -3565,8 +3693,14 @@ function maCarregarReservas(){
     var el=document.getElementById('ma-exp-lista'); if(!el)return;
     if(!r||!r.reservas||!r.reservas.length){ el.innerHTML='<p style="font-size:12px;font-weight:300;color:var(--cv2);">Você ainda não tem experiências reservadas.</p>'; return; }
     // separa o que ainda vai viver do que já viveu
-    var vem=[], foi=[];
-    for(var i=0;i<r.reservas.length;i++){ (r.reservas[i].futura?vem:foi).push(r.reservas[i]); }
+    var vem=[], foi=[], faltou=[];
+    for(var i=0;i<r.reservas.length;i++){ var x=r.reservas[i];
+      if(x.futura){ vem.push(x); }
+      else if(String(x.foi||'').toLowerCase().indexOf('n')===0 && String(x.foi).toLowerCase()!=='sim'){ faltou.push(x); }
+      else { foi.push(x); }
+    }
+    window._maVividas=foi.length;
+    window._maVividasNomes=foi.map(function(x){return x.exp;});
     function ord(a,b){ return (a.ord||0)-(b.ord||0); }
     vem.sort(ord); foi.sort(function(a,b){return (b.ord||0)-(a.ord||0);});
     function selo(x){
@@ -3604,14 +3738,29 @@ function maCarregarReservas(){
     var hist=document.getElementById('ma-hist');
     if(hist) hist.innerHTML = '<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Minha história no clube</div>'
       + '<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">'+(foi.length?('Você já viveu '+foi.length+' experiência'+(foi.length>1?'s':'')+' com a gente.'):'Sua história no clube começa aqui.')+'</p>'
-      + (foi.length?foi.map(linha).join(''):'');
+      + (foi.length?foi.map(linha).join(''):'')
+      + (faltou.length?('<p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:14px;">Você reservou '+faltou.length+' experiência'+(faltou.length>1?'s':'')+' que não conseguiu vir: '+faltou.map(function(x){return x.exp;}).join(', ')+'.</p>'):'');
+    try{ feResumo(); }catch(e){}
   });
 }
 function maCarregarCredito(){
   fiJsonp({action:'credito',codigo:_maCod}, function(cr){
     var el=document.getElementById('ma-credito'); if(!el)return;
     var s=(cr&&cr.ok)?(Number(cr.saldo)||0):0;
+    window._maCredAte=(s>0&&cr&&cr.ate)?cr.ate:'';
     el.textContent=s>0?('R$ '+s+' disponível'):'Sem crédito no momento';
+    var pz=document.getElementById('ma-cred-prazo');
+    if(pz) pz.innerHTML=(s>0&&window._maCredAte)?('Use até <b style="font-weight:700;color:var(--cv);">'+window._maCredAte+'</b>.'):'';
+    var bx=document.getElementById('ma-cred-box');
+    if(bx) bx.style.display=s>0?'block':'none';
+    window._maCredSaldo=s;
+    maCredExps(); maCredCalc();
+    var pd=document.getElementById('ma-cred-pedido');
+    if(pd){
+      var P=cr&&cr.pedido;
+      pd.innerHTML = P ? ('Você pediu, em <b style="font-weight:700;color:var(--cv);">'+P.quando+'</b>, para usar <b style="font-weight:700;color:var(--cv);">R$ '+P.valor+'</b>'+(P.exp?' na <b style="font-weight:700;color:var(--cv);">'+P.exp+'</b>':'')+'. Estamos preparando seu link de pagamento 🌿') : '';
+    }
+    try{ feResumo(); }catch(e){}
     var q=document.getElementById('ma-indicadas');
     if(q){ var n=(cr&&cr.indicadas)||0;
       q.textContent = n ? (n===1?'1 amiga sua já entrou no clube.':n+' amigas suas já entraram no clube.')
@@ -3651,6 +3800,58 @@ function maConvidar(nome){
   var txt='Oi, sou '+(quem||'sócia')+' e quero levar uma amiga comigo na experiência '+nome+'. Como faço? 🌿';
   window.open('https://wa.me/5511933251200?text='+encodeURIComponent(txt),'_blank');
 }
+/* só as experiências que não são Fio aceitam crédito */
+function maCredExps(){
+  var sel=document.getElementById('ma-cred-exp'); if(!sel||sel.options.length)return;
+  var h='<option value="">Escolha a experiência</option>';
+  for(var i=0;i<EXP_RV.length;i++){ var e=EXP_RV[i]; if(e.fio)continue;
+    h+='<option value="'+e.n+'" data-ps="'+e.ps+'">'+e.n+', '+e.d+', R$ '+e.ps+'</option>'; }
+  h+='<option value="Ainda vou escolher">Ainda vou escolher</option>';
+  sel.innerHTML=h;
+}
+/* mostra, antes de pedir, quanto ela vai pagar de fato */
+function maCredCalc(){
+  var sel=document.getElementById('ma-cred-exp'), box=document.getElementById('ma-cred-conta');
+  if(!sel||!box)return;
+  var saldo=Number(window._maCredSaldo)||0, nome=sel.value;
+  if(!nome){ box.innerHTML=''; return; }
+  if(nome==='Ainda vou escolher'){
+    box.innerHTML='Sem problema. A gente guarda seu pedido e faz a conta junto com você quando escolher.';
+    return;
+  }
+  var e=null;
+  for(var i=0;i<EXP_RV.length;i++) if(EXP_RV[i].n===nome) e=EXP_RV[i];
+  if(!e){ box.innerHTML=''; return; }
+  var usa=Math.min(saldo, e.ps), paga=e.ps-usa;
+  var b=function(t){ return '<b style="font-weight:700;color:var(--cv);">'+t+'</b>'; };
+  box.innerHTML=e.n+' custa '+b('R$ '+e.ps)+' para sócia.<br>'
+    +'Seu crédito abate '+b('R$ '+usa)+'.<br>'
+    +'<span style="color:var(--co);font-weight:700;font-size:14px;">Você paga R$ '+paga+'.</span>';
+}
+function maUsarCredito(){
+  var nome=((document.getElementById('ma-nome')||{}).textContent||'').trim();
+  var saldo=Number(window._maCredSaldo)||0;
+  var sel=document.getElementById('ma-cred-exp');
+  var exp=sel?sel.value:'';
+  var pd=document.getElementById('ma-cred-pedido');
+  if(!exp){ if(pd)pd.innerHTML='<span style="color:var(--co);font-weight:600;">Escolha em qual experiência você quer usar.</span>'; return; }
+  if(pd)pd.textContent='Registrando seu pedido…';
+  var e=null; for(var i=0;i<EXP_RV.length;i++) if(EXP_RV[i].n===exp) e=EXP_RV[i];
+  var paga=e?(e.ps-Math.min(saldo,e.ps)):0;
+  var w=window.open('about:blank','_blank');
+  if(exp!=='Ainda vou escolher') logReserva(_maCod, exp, 'Paga');
+  fiJsonp({action:'credito_pedido',codigo:_maCod,exp:exp,valor:saldo,paga:(e?paga:'')}, function(r){
+    var v=(r&&r.ok)?r.valor:saldo;
+    var t='Oi, aqui é a '+nome+'. Quero usar meus R$ '+v+' de crédito por indicação na '+exp+'.'
+      +(e?(' Ela custa R$ '+e.ps+', então fico em R$ '+paga+'.'):'')+' Me manda o link?';
+    if(w){ w.location.href='https://wa.me/5511933251200?text='+encodeURIComponent(t); }
+    if(pd){
+      pd.innerHTML=(r&&r.ok)
+        ? ('Pedido registrado 🌿 A gente já está preparando seu link da <b style="font-weight:700;color:var(--cv);">'+exp+'</b> com <b style="font-weight:700;color:var(--cv);">R$ '+v+'</b> abatidos.')
+        : 'Abrimos o WhatsApp pra você. Se der qualquer coisa, é só falar com a gente por lá.';
+    }
+  });
+}
 function maCopiarInd(){
   var link=location.origin+location.pathname+'?ind='+_maCod;
   var txt='Vem conhecer As Fiandeiras comigo 🌿 É um clube de experiências entre mulheres em São Paulo. Entra pelo meu link, você já entra com o meu convite: '+link;
@@ -3659,9 +3860,32 @@ function maCopiarInd(){
     navigator.clipboard.writeText(txt).then(function(){ if(m)m.textContent='Mensagem copiada, é só colar e mandar 🌿'; }, function(){ if(m)m.textContent=txt; });
   }catch(e){ if(m)m.textContent=txt; }
 }
+/* procura a bio dela na grade (array FI), pra quem já tem texto lá mas ainda
+   não preencheu o formulário */
+function maBioDaGrade(nome){
+  try{
+    var alvo=String(nome||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+    if(!alvo||typeof FI==='undefined')return null;
+    for(var i=0;i<FI.length;i++){
+      var n=String(FI[i].n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+      if(n===alvo) return FI[i];
+    }
+  }catch(e){}
+  return null;
+}
 function maCarregarBio(){
   fiJsonp({action:'bio_get',codigo:_maCod}, function(b){
-    if(!b||!b.tem)return;
+    if(!b||!b.tem){
+      // nada na planilha: aproveita o que já existe na grade
+      var g=maBioDaGrade((document.getElementById('ma-nome')||{}).textContent||'');
+      if(g){
+        function s0(id,v){ var e=document.getElementById(id); if(e&&!e.value&&v)e.value=v; }
+        s0('mab-nome', g.ap||g.n); s0('mab-linha', g.bio||'');
+        var m0=document.getElementById('mab-msg');
+        if(m0)m0.textContent='Puxamos o que já está na sua bio da teia. Complete o resto quando quiser 🌿';
+      }
+      return;
+    }
     function s(id,v){ var e=document.getElementById(id); if(e&&!e.value&&v)e.value=v; }
     s('mab-nome',b.nome); s('mab-linha',b.linha); s('mab-faz',b.faz); s('mab-momento',b.momento);
     s('mab-filhos',b.filhos); s('mab-pets',b.pets); s('mab-hobbies',b.hobbies); s('mab-tema',b.tema); s('mab-nasc',b.nascimento);
