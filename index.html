@@ -309,8 +309,8 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       {n:'Tomar a Palavra · Módulo 2', d:'2026-08-20', meta:'20 ago · qui · Jardim Paulista', tier:'Ponto', desc:'Oratória e presença, com Cecília Flesch.',asaas:'yiq2iwxh7vy5lcx4'},
       {n:'Pausa', d:'2026-08-28', meta:'28 ago · sex · Online', tier:'Ritual online incluído', desc:'Um respiro coletivo, online e incluído.'},
       {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'Fio · aberta a convidadas', desc:'A experiência Fio aberta também a convidadas.',asaas:'ubhg5wcswzasc5mu'},
-      {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Tear', desc:'IA sem medo, com Carolina Kia.',asaas:'ehxkkwsbnbyppw4x'},
-      {n:'Esculpir o Livro', d:'2026-10-03', meta:'03 out · sáb · Vila Nova Conceição', tier:'Tapeçaria', desc:'Um livro que vira arte, com Bernardo Campos.',asaas:'yzi1x0g571ssp2u3'},
+      {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Trama', desc:'IA sem medo, com Carolina Kia.',asaas:'ehxkkwsbnbyppw4x'},
+      {n:'Reacender o Brilho', d:'2026-10-03', meta:'03 out · sáb · Morumbi', tier:'Tear', desc:'Face Yoga e máscara de LED, um ritual de cuidado.',asaas:'pvvqkpzbtftvugze'},
       {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.'}
     ];
     try{
@@ -440,7 +440,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div class="hero" style="padding-bottom:20px;">
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
       <div style="width:8px;height:8px;border-radius:50%;background:#5c7a4a;animation:pulse 2s infinite;"></div>
-      <div class="kicker" style="color:var(--ro);">Acontecendo em julho</div>
+      <div class="kicker" style="color:var(--ro);">Acontecendo em agosto</div>
     </div>
     <h1 class="hero-title">O que está vivo<br><em>no clube</em></h1>
     <p class="hero-body">Tudo que está aberto e acontecendo no clube em julho.</p>
@@ -486,47 +486,66 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulistano</div>
         <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
       </div>
+      <!-- Tecer 11/ago -->
+      <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">11 ago · ter · 19h</div>
+          <span class="tipo-badge t-fio" style="font-size:7px;">Fio</span>
+        </div>
+        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Tecer a Cidadania</div>
+        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulista</div>
+        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
+      </div>
+      <!-- Tomar a Palavra 2, 20/ago -->
+      <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">20 ago · qui · 19h</div>
+          <span class="tipo-badge t-ponto" style="font-size:7px;">Ponto</span>
+        </div>
+        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Tomar a Palavra · Módulo 2</div>
+        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulista</div>
+        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
+      </div>
+      <!-- Pausa 28/ago -->
+      <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">28 ago · sex · 7h</div>
+          <span style="font-size:7px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">Incluída</span>
+        </div>
+        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Pausa</div>
+        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Online · ritual mensal</div>
+        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
+      </div>
     </div>    <button class="btn-p" style="margin-top:12px;" onclick="goTo('experiencias')">Ver todas as experiências</button>
   </div>
 
   <!-- Novelo -->
   <div style="padding:16px 20px 0;">
-    <div class="kicker" style="margin-bottom:10px;">Novelo de junho</div>
+    <div class="kicker" style="margin-bottom:10px;">Novelo de julho</div>
     <div style="border:1px solid rgba(175,105,47,.2);border-radius:8px;background:rgba(175,105,47,.04);padding:14px 16px;">
       <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;margin-bottom:5px;">Newsletter mensal · Por Mari</div>
-      <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:400;color:var(--cv);margin-bottom:8px;line-height:1.4;">Novelos das Fiandeiras · Junho 26</div>
-      <a href="https://open.substack.com/pub/clubeasfiandeiras/p/novelo-das-fiandeiras-junho-26-por?r=8bypn0&utm_medium=ios" target="_blank" style="text-decoration:none;">
+      <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:400;color:var(--cv);margin-bottom:8px;line-height:1.4;">Novelos das Fiandeiras · Julho 26</div>
+      <a href="https://open.substack.com/pub/clubeasfiandeiras/p/novelo-das-fiandeiras-julho-26-por?r=8bypn0&utm_campaign=post&utm_medium=web" target="_blank" style="text-decoration:none;">
         <button class="btn-o" style="margin-top:0;padding:10px;font-size:10px;">Ler o Novelo →</button>
       </a>
     </div>
   </div>
 
-  <!-- Reconhecimento -->
+  <!-- Boas-vindas -->
   <div style="margin:20px 20px 0;">
-    <div class="kicker" style="margin-bottom:10px;">Gratidão</div>
+    <div class="kicker" style="margin-bottom:10px;">Boas-vindas</div>
     <div style="background:rgba(223,178,181,.07);border:1px solid rgba(223,178,181,.3);border-radius:12px;padding:18px 16px;">
-      <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.75;margin-bottom:14px;">Ao longo desses primeiros meses, cinco histórias chamaram nossa atenção de um jeito especial. Um pequeno gesto de agradecimento pelas Fiandeiras que mais viveram este clube junto com a gente.</p>
-      <div style="margin-bottom:12px;">
-        <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">Quem mais viveu experiências além das experiências previstas</div>
-        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:300;color:var(--cv);line-height:1.5;">Carol Viana, Maria Paz e Luciana Leal</div>
-      </div>
-      <div style="height:1px;background:rgba(223,178,181,.25);margin-bottom:12px;"></div>
-      <div>
-        <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">Primeiras a renovar para continuar no clube</div>
-        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:300;color:var(--cv);line-height:1.5;">Ana Takenaka e Amanda Lagroteria</div>
-      </div>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(223,178,181,.2);font-family:'Merriweather',serif;font-size:12px;font-weight:300;font-style:italic;color:var(--cv2);line-height:1.7;">Como um carinho, convidamos cada uma delas para a experiência Silenciar o Ruído, no dia 4 de julho. 🤎</div>
+      <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.75;margin-bottom:14px;">As Fiandeiras que chegaram em julho e já fazem parte desta roda. Que alegria ter vocês aqui.</p>
+      <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:300;color:var(--cv);line-height:1.95;">Fabiana N.<br>Carla B.<br>Luciana A.<br>Katia Q.<br>Ana Luiza F.<br>Eliane M.</div>
     </div>
   </div>
 
   <!-- Fotos dos encontros -->
   <div style="padding:16px 0 0;">
-    <div style="padding:0 20px 10px;" class="kicker">Encontros realizados</div>
     
-    <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:0 20px 0;"><img src="img/entreciclos-1.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/entreciclos-2.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/entreciclos-3.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"></div>
-    <div style="padding:8px 20px 14px;font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;">Entre Ciclos · 23 jul</div>
-    <div style="display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:0 20px 0;"><img src="img/silenciar-1.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/silenciar-2.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"><img src="img/silenciar-3.jpg" style="height:120px;width:90px;object-fit:cover;border-radius:8px;flex-shrink:0;" loading="lazy"></div><div style="padding:10px 13px 2px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;margin-bottom:7px;">Nas palavras das sócias</div><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Revigorante.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Uma sensação de paz que fica.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0;">&ldquo;Como precisamos pausar e silenciar a mente.&rdquo;</p></div>
-    <div style="padding:8px 20px 0;font-size:11px;font-weight:300;color:var(--cv2);font-style:italic;">Silenciar o Ruído · 4 jul</div>
+    
+    
+    
   </div>
 
   <!-- Comunidade -->
@@ -716,7 +735,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div class="exp-card">
           <div class="ec-top">
             <div><div class="ec-date">17</div><div class="ec-day">set · qui · 19h · online</div></div>
-            <span class="tipo-badge t-tear" onclick="verCombinados()" style="cursor:pointer;">Tear</span>
+            <span class="tipo-badge t-trama" onclick="verCombinados()" style="cursor:pointer;">Trama</span>
           </div>
           <div class="ec-name">Desmistificar a IA</div>
           <div class="ec-local">Online</div>
@@ -727,12 +746,12 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="display:grid;grid-template-columns:1fr 1fr;">
               <div style="padding-right:11px;border-right:1px solid rgba(216,205,194,.5);">
                 <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
-                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1;margin-bottom:9px;">R$ 595</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1;margin-bottom:9px;">R$ 495</div>
                 <button onclick="reservarSocia('Desmistificar a IA','https://www.asaas.com/c/p3nihwyj3thuia5t')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar</button>
               </div>
               <div style="padding-left:11px;">
                 <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
-                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1;margin-bottom:9px;">R$ 752</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1;margin-bottom:9px;">R$ 652</div>
                 <button onclick="interesseConv('Desmistificar a IA','https://www.asaas.com/c/ehxkkwsbnbyppw4x')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
               </div>
             </div>
@@ -758,28 +777,38 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           </div>
         </div>
       </div>
-      <!-- Esculpir o Livro, 03/out -->
+      <!-- Reacender o Brilho, 03/out -->
       <div class="tl-item">
         <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
         <div class="exp-card">
           <div class="ec-top">
-            <div><div style="display:inline-block;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);background:rgba(175,105,47,.1);border:1px solid rgba(175,105,47,.35);border-radius:20px;padding:3px 9px;">Nova data em breve</div><div class="ec-day" style="margin-top:6px;">Outubro · data a remarcar</div></div>
-            <span class="tipo-badge t-pecaunica" onclick="verCombinados()" style="cursor:pointer;">Tapeçaria</span>
+            <div><div class="ec-date">03</div><div class="ec-day">out · sáb · 8h30</div></div>
+            <span class="tipo-badge t-tear" onclick="verCombinados()" style="cursor:pointer;">Tear</span>
           </div>
-          <div class="ec-name">Esculpir o Livro</div>
-          <div class="ec-local">Vila Nova Conceição</div>
+          <div class="ec-name">Reacender o Brilho</div>
+          <div class="ec-local">Morumbi</div>
           <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Interioridade</div>
-          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Um livro nas mãos vira outra coisa. As páginas deixam de ser lidas para serem esculpidas, dobradas, compostas, e o que sai é uma peça autoral, única, feita por você. Seguido de um momento gostoso na Vila Nova Conceição.</div>
-          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Bernardo Campos</span> · professor e pioneiro em escultura em livros no Brasil.</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Uma manhã dedicada ao rosto e ao que ele carrega. Face Yoga para soltar o que ficou tenso e máscara de LED para devolver viço, num ritual de cuidado que também é um jeito de reencontrar o próprio brilho. Turma pequena, no máximo 15 mulheres.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Quem conduz</span> · em breve.</div>
           <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
-            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:4px;">Reservas em breve</div>
-            <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;">A data está sendo remarcada, as reservas reabrem assim que a nova data for confirmada. Sócia R$ 805 · convidada R$ 962.</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;">
+              <div style="padding-right:11px;border-right:1px solid rgba(216,205,194,.5);">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1;margin-bottom:9px;">R$ 595</div>
+                <button onclick="reservarSocia('Reacender o Brilho','https://www.asaas.com/c/2n92l8fhs8dv5ep4')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar</button>
+              </div>
+              <div style="padding-left:11px;">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1;margin-bottom:9px;">R$ 752</div>
+                <button onclick="interesseConv('Reacender o Brilho','https://www.asaas.com/c/pvvqkpzbtftvugze')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <!-- Compor a Mesa, 15/out -->
       <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div></div>
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
         <div class="exp-card">
           <div class="ec-top">
             <div><div class="ec-date">15</div><div class="ec-day">out · qui · 19h</div></div>
@@ -795,6 +824,25 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="font-size:9px;font-weight:600;color:#5c7a4a;margin-bottom:9px;">✦ Experiência Fio · exclusiva para sócias</div>
             <button onclick="reservarFio('Compor a Mesa','https://www.asaas.com/c/srloe1ea8mbeo69a')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>
                 <button onclick="reservarSocia('Compor a Mesa','https://www.asaas.com/c/srloe1ea8mbeo69a')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Esculpir o Livro, sem data (suspensa) -->
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--ar);background:var(--br);"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div style="display:inline-block;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);background:rgba(175,105,47,.1);border:1px solid rgba(175,105,47,.35);border-radius:20px;padding:3px 9px;">Nova data em breve</div><div class="ec-day" style="margin-top:6px;">Outubro · data a remarcar</div></div>
+            <span class="tipo-badge t-pecaunica" onclick="verCombinados()" style="cursor:pointer;">Tapeçaria</span>
+          </div>
+          <div class="ec-name">Esculpir o Livro</div>
+          <div class="ec-local">Vila Nova Conceição</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Interioridade</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Um livro nas mãos vira outra coisa. As páginas deixam de ser lidas para serem esculpidas, dobradas, compostas, e o que sai é uma peça autoral, única, feita por você. Seguido de um momento gostoso na Vila Nova Conceição.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Bernardo Campos</span> · professor e pioneiro em escultura em livros no Brasil.</div>
+          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
+            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:4px;">Reservas em breve</div>
+            <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;">A data está sendo remarcada, as reservas reabrem assim que a nova data for confirmada. Sócia R$ 805 · convidada R$ 962.</div>
           </div>
         </div>
       </div>
@@ -1091,7 +1139,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </a>
   </div>
   <div style="padding:0 20px 6px;text-align:center;font-size:10px;font-weight:300;color:var(--cv2);opacity:.5;">Dúvidas? Fale com a gente.</div>
-<div style="padding:26px 20px 10px;border-top:1px solid rgba(216,205,194,.5);margin-top:8px;"><details class="combo-wrap"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--ar);border-radius:10px;background:var(--br);"><div><div class="kicker" style="margin:0;">Monte seu combo</div><div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.4;margin-top:4px;">3 ou mais experiências, <em style="font-style:italic;color:var(--co);">5% de desconto</em></div></div></summary><div style="padding:18px 2px 0;"><p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:16px;">Marque as experiências que você quer viver. A partir de 3, o desconto entra sozinho, e você ainda pode parcelar. A Fio incluída não entra na conta.</p><div id="combo-lista"><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Despertar o Olhar" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Despertar o Olhar</div><div style="font-size:11px;color:var(--cv2);">04/ago · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Tecer a Cidadania" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Tecer a Cidadania</div><div style="font-size:11px;color:var(--cv2);">11/ago · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Tomar a Palavra · Módulo 2" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Tomar a Palavra · Módulo 2</div><div style="font-size:11px;color:var(--cv2);">20/ago · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Estrear Juntas" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Estrear Juntas</div><div style="font-size:11px;color:var(--cv2);">12/set · Fio · aberta a convidadas</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Desmistificar a IA" data-preco="595" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Desmistificar a IA</div><div style="font-size:11px;color:var(--cv2);">17/set · Tear</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 595</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Esculpir o Livro" data-preco="805" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Esculpir o Livro</div><div style="font-size:11px;color:var(--cv2);">03/out · Tapeçaria</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 805</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Compor a Mesa" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Compor a Mesa</div><div style="font-size:11px;color:var(--cv2);">15/out · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label></div><div id="combo-total" style="margin-top:16px;padding:14px 16px;background:var(--li);border-radius:10px;font-family:'Merriweather',serif;font-size:15px;color:var(--cv);line-height:1.5;text-align:center;">Selecione as experiências que você quer.</div><div class="fg" style="margin-top:16px;"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="combo-cod" placeholder="•••••••••••" maxlength="11" style="letter-spacing:2px;font-weight:700;text-align:center;" oninput="document.getElementById('combo-msg').textContent=''"></div><div id="combo-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 10px;"></div><button class="btn-p" onclick="comboEnviar()">Montar meu combo →</button><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:10px;text-align:center;">A gente confere sua seleção e te manda o link de pagamento.</p></div></details></div>
+<div style="padding:26px 20px 10px;border-top:1px solid rgba(216,205,194,.5);margin-top:8px;"><details class="combo-wrap"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--ar);border-radius:10px;background:var(--br);"><div><div class="kicker" style="margin:0;">Monte seu combo</div><div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.4;margin-top:4px;">3 ou mais experiências, <em style="font-style:italic;color:var(--co);">5% de desconto</em></div></div></summary><div style="padding:18px 2px 0;"><p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:16px;">Marque as experiências que você quer viver. A partir de 3, o desconto entra sozinho, e você ainda pode parcelar. A Fio incluída não entra na conta.</p><div id="combo-lista"><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Despertar o Olhar" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Despertar o Olhar</div><div style="font-size:11px;color:var(--cv2);">04/ago · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Tecer a Cidadania" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Tecer a Cidadania</div><div style="font-size:11px;color:var(--cv2);">11/ago · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Tomar a Palavra · Módulo 2" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Tomar a Palavra · Módulo 2</div><div style="font-size:11px;color:var(--cv2);">20/ago · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Estrear Juntas" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Estrear Juntas</div><div style="font-size:11px;color:var(--cv2);">12/set · Fio · aberta a convidadas</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Desmistificar a IA" data-preco="495" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Desmistificar a IA</div><div style="font-size:11px;color:var(--cv2);">17/set · Trama</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 495</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Reacender o Brilho" data-preco="595" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Reacender o Brilho</div><div style="font-size:11px;color:var(--cv2);">03/out · Tear</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 595</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Compor a Mesa" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Compor a Mesa</div><div style="font-size:11px;color:var(--cv2);">15/out · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label></div><div id="combo-total" style="margin-top:16px;padding:14px 16px;background:var(--li);border-radius:10px;font-family:'Merriweather',serif;font-size:15px;color:var(--cv);line-height:1.5;text-align:center;">Selecione as experiências que você quer.</div><div class="fg" style="margin-top:16px;"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="combo-cod" placeholder="•••••••••••" maxlength="11" style="letter-spacing:2px;font-weight:700;text-align:center;" oninput="document.getElementById('combo-msg').textContent=''"></div><div id="combo-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 10px;"></div><button class="btn-p" onclick="comboEnviar()">Montar meu combo →</button><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:10px;text-align:center;">A gente confere sua seleção e te manda o link de pagamento.</p></div></details></div>
 </div>
 
 <!-- ══ QUEM SOMOS ══ -->
@@ -1106,7 +1154,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div class="qs-tabs">
     <button class="qs-tab active" onclick="switchQsTab('historia',this)">Nossa História</button>
     <button class="qs-tab" onclick="switchQsTab('fundadoras',this)">Fundadoras</button>
-    <button class="qs-tab" onclick="switchQsTab('membras',this)">Nossas Sócias</button>
+    <button class="qs-tab" onclick="switchQsTab('membras',this)">Área das Sócias</button>
   </div>
 
   <!-- NOSSA HISTÓRIA -->
@@ -1208,7 +1256,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <div id="fi-content" style="display:none;">
       <div style="padding:12px 16px 8px;display:flex;align-items:center;justify-content:space-between;">
         <div>
-          <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;">Nossas Sócias</p>
+          <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;">Área das Sócias</p>
         </div>
         <button onclick="fiLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Sair</button>
       </div>
@@ -1312,7 +1360,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div id="fw-renov" style="display:none;padding-top:0;">
       <div class="kicker" style="margin-bottom:8px;">Co-fundadora (Ciclo 1)</div>
-      <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:14px;">Que bom te ter de volta! Como já temos seus dados, é só confirmar seu código de sócia para renovar, sem preencher tudo de novo.</p>
+      <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:14px;">Que bom te ter de volta. Como já temos seus dados, é só confirmar seu código de sócia para renovar, sem preencher tudo de novo.</p>
       <div class="fg"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="renov-cod" placeholder="•••••••••••" style="text-transform:uppercase;" oninput="document.getElementById('renov-msg').textContent='';"></div>
       <div id="renov-msg" style="font-size:11px;font-weight:600;color:var(--co);min-height:14px;"></div>
       <button class="btn-p" style="margin-top:12px;" onclick="submitRenov()">Renovar minha associação</button>
@@ -1327,7 +1375,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div class="success" id="srenov">
       <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <div class="s-title">Obrigada! 🌿</div>
+      <div class="s-title">Obrigada 🌿</div>
       <p class="s-body">Você foi direcionada para o pagamento. Pra concluir, é só apertar abaixo e confirmar sua renovação com a gente.</p>
       <button class="btn-p" style="max-width:240px;margin:0 auto;" onclick="renovConfirmar()">Aperte aqui para confirmar</button>
     </div>
@@ -1435,27 +1483,27 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       <div style="padding:14px 14px 10px;">
         <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
           <div style="font-size:14px;font-weight:600;color:var(--cv);">Desmistificar a IA</div>
-          <span class="tipo-badge t-tear" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tear</span>
+          <span class="tipo-badge t-trama" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Trama</span>
         </div>
         <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">17/set · qui · 19h · Online</div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">Sócia: R$ 595 · Convidada: R$ 752</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">Sócia: R$ 495 · Convidada: R$ 652</div>
       </div>
       <div style="padding:0 14px 14px;">
         <button class="btn-p" onclick="reservarSocia('Desmistificar a IA','https://www.asaas.com/c/p3nihwyj3thuia5t')">Reservar, sócia</button>
       </div>
     </div>
-    <!-- Esculpir o Livro -->
+    <!-- Reacender o Brilho -->
     <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
       <div style="padding:14px 14px 10px;">
         <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
-          <div style="font-size:14px;font-weight:600;color:var(--cv);">Esculpir o Livro</div>
-          <span class="tipo-badge t-pecaunica" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tapeçaria</span>
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Reacender o Brilho</div>
+          <span class="tipo-badge t-tear" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tear</span>
         </div>
-        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">Vila Nova Conceição · <strong style="color:var(--co);font-weight:700;">nova data em breve</strong></div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">Sócia: R$ 805 · Convidada: R$ 962</div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">03/out · sáb · 8h30 · Morumbi</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">Sócia: R$ 595 · Convidada: R$ 752</div>
       </div>
       <div style="padding:0 14px 14px;">
-        <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;font-style:italic;">A data está sendo remarcada, reservas reabrem em breve.</div>
+        <button class="btn-p" onclick="reservarSocia('Reacender o Brilho','https://www.asaas.com/c/2n92l8fhs8dv5ep4')">Reservar, sócia</button>
       </div>
     </div>
     <!-- Compor a Mesa -->
@@ -1477,6 +1525,20 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 
     <!-- Realizadas -->
     <div style="height:1px;background:var(--ar);margin-bottom:16px;"></div>
+    <!-- Esculpir o Livro -->
+    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
+      <div style="padding:14px 14px 10px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Esculpir o Livro</div>
+          <span class="tipo-badge t-pecaunica" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tapeçaria</span>
+        </div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">Vila Nova Conceição · <strong style="color:var(--co);font-weight:700;">nova data em breve</strong></div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">Sócia: R$ 805 · Convidada: R$ 962</div>
+      </div>
+      <div style="padding:0 14px 14px;">
+        <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;font-style:italic;">A data está sendo remarcada, reservas reabrem em breve.</div>
+      </div>
+    </div>
     <div class="kicker" style="margin-bottom:4px;opacity:.6;">Já aconteceram</div>
     <p style="font-size:11px;color:var(--cv2);font-weight:300;margin-bottom:12px;">Experiências realizadas.</p>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
@@ -2352,7 +2414,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:12px;text-align:center;">Não tem indicação? <a id="conv-wa" href="#" target="_blank" style="color:var(--co);text-decoration:underline;">Fale com a gente</a>.</p>
       </div>
       <div id="conv-step2" style="display:none;">
-        <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:14px;">Que bom! Deixa seus dados que já te levamos ao pagamento. 🌿</p>
+        <p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:14px;">Que bom. Deixa seus dados que já te levamos ao pagamento. 🌿</p>
         <div class="fg"><label class="fl">Seu nome</label><input class="fi" type="text" id="conv-nm" placeholder="Seu nome"></div>
         <div class="fg"><label class="fl">WhatsApp</label><input class="fi" type="tel" id="conv-wp" placeholder="(11) 99999-9999"></div>
         <div class="fg"><label class="fl">E-mail</label><input class="fi" type="email" id="conv-em" placeholder="seu@email.com"></div>
@@ -2499,7 +2561,7 @@ function rsociaCodChanged(el){
 }
 function rsociaCredito(cod, saldo){
   var m=document.getElementById('rsocia-msg'); if(!m) return;
-  var wa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi! Tenho R$'+saldo+' de crédito de indicação e quero usar na reserva de '+_rsociaNome+'. Meu código: '+cod+' 🌿');
+  var wa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi, tenho R$'+saldo+' de crédito de indicação e quero usar na reserva de '+_rsociaNome+'. Meu código: '+cod+' 🌿');
   m.innerHTML='<div style="text-align:left;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;padding:12px 13px;">'
     +'<div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:5px;">Você tem R$'+saldo+' de crédito \uD83C\uDF3F</div>'
     +'<div style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:11px;">Vale em experiências não-Fio. Fale com a gente pra usar nesta reserva, a gente aplica o desconto pra você.</div>'
@@ -2605,7 +2667,7 @@ function submitR(){
   document.getElementById('srenov').classList.add('show');
   var socia=document.getElementById('rs').value;
   var preco=socia==='sim'?document.getElementById('mps').textContent:document.getElementById('mpn').textContent;
-  var msg=encodeURIComponent('Ola! Tenho interesse em reservar.\nExperiencia: '+document.getElementById('mn').textContent+'\n'+document.getElementById('md').textContent+'\nNome: '+nome+'\nWhatsApp: '+tel+'\nSocia: '+(socia==='sim'?'Sim':'Nao')+'\nValor: '+preco);
+  var msg=encodeURIComponent('Ola, tenho interesse em reservar.\nExperiencia: '+document.getElementById('mn').textContent+'\n'+document.getElementById('md').textContent+'\nNome: '+nome+'\nWhatsApp: '+tel+'\nSocia: '+(socia==='sim'?'Sim':'Nao')+'\nValor: '+preco);
   window.open('https://wa.me/5511933251200?text='+msg,'_blank');
 }
 
@@ -2637,7 +2699,7 @@ function submitRenov(){
 }
 function renovConfirmar(){
   var cod=window._renovCod||document.getElementById('renov-cod').value.trim().toUpperCase();
-  var wa=encodeURIComponent('Oi! Sou sócia e quero renovar minha associação 🌿\nMeu código: '+cod);
+  var wa=encodeURIComponent('Oi, sou sócia e quero renovar minha associação 🌿\nMeu código: '+cod);
   window.open('https://wa.me/5511933251200?text='+wa,'_blank');
 }
 function submitA(){
@@ -2776,7 +2838,7 @@ function verificarCodigo(val){
   if(SOCIAS[val]){
     var s=SOCIAS[val];
     status.textContent='✓';status.style.color='var(--sa)';
-    nomeEl.textContent='Olá, '+s.primeiro+'! Código válido.';
+    nomeEl.textContent='Olá, '+s.primeiro+'. Código válido.';
     badge.style.display='block';badge.style.background='rgba(157,175,130,.12)';badge.style.border='1px solid rgba(157,175,130,.3)';badge.style.color='#5c7a4a';
     badge.textContent='✓ Sócia · Preços exclusivos aplicados';
     if(dica)dica.textContent='Uma Fio está incluída na sua associação.';
@@ -2802,11 +2864,11 @@ function usarSemCodigo(){
 }
 
 var EXP_RV=[
-  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:452,fio:true},
-  {n:'Despertar o Olhar',d:'04/ago',l:'Jardim Paulistano',ps:395,pn:552,fio:false},
-  {n:'Tomar a Palavra · Módulo 2',d:'20/ago',l:'Jardim Paulista',ps:395,pn:552,fio:false},
-  {n:'Desmistificar a IA',d:'17/set',l:'Online',ps:595,pn:752,fio:false},
-  {n:'Esculpir o Livro',d:'03/out',l:'Vila Nova Conceição',ps:805,pn:962,fio:false},
+  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:452,fio:true,asaas:'ubhg5wcswzasc5mu'},
+  {n:'Despertar o Olhar',d:'04/ago',l:'Jardim Paulistano',ps:395,pn:552,fio:false,asaas:'0bq6f4rqc9o212sc'},
+  {n:'Tomar a Palavra · Módulo 2',d:'20/ago',l:'Jardim Paulista',ps:395,pn:552,fio:false,asaas:'yiq2iwxh7vy5lcx4'},
+  {n:'Desmistificar a IA',d:'17/set',l:'Online',ps:495,pn:652,fio:false,asaas:'ehxkkwsbnbyppw4x'},
+  {n:'Reacender o Brilho',d:'03/out',l:'Morumbi',ps:595,pn:752,fio:false,asaas:'pvvqkpzbtftvugze'},
 ];
 
 document.querySelectorAll('.rv-row:not(.enc)').forEach((r,i)=>{
@@ -2843,7 +2905,7 @@ function enviarReserva(){
     total+=preco;
     lines.push(e.n+' ('+e.d+'), R$ '+preco);
   });
-  var msg=encodeURIComponent('Ola! Gostaria de reservar experiencias.\nAcesso: '+(isSociaAtiva?'Socia ('+nomeSociaAtiva+')':'Convidada')+'\n'+lines.join('\n')+'\nTotal: R$ '+total);
+  var msg=encodeURIComponent('Ola, gostaria de reservar experiencias.\nAcesso: '+(isSociaAtiva?'Socia ('+nomeSociaAtiva+')':'Convidada')+'\n'+lines.join('\n')+'\nTotal: R$ '+total);
   window.open('https://wa.me/5511933251200?text='+msg,'_blank');
 }
 
@@ -2869,7 +2931,7 @@ function interesseConv(nome, payUrl){
   document.getElementById('conv-em').value='';
   document.getElementById('conv-step1').style.display='block';
   document.getElementById('conv-step2').style.display='none';
-  document.getElementById('conv-wa').href='https://wa.me/5511933251200?text='+encodeURIComponent('Oi! Tenho interesse na experiência '+nome+' como convidada, mas não tenho indicação de uma sócia. 🌿');
+  document.getElementById('conv-wa').href='https://wa.me/5511933251200?text='+encodeURIComponent('Oi, tenho interesse na experiência '+nome+' como convidada, mas não tenho indicação de uma sócia. 🌿');
   document.getElementById('mov-conv').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -2896,7 +2958,7 @@ function convPagar(){
   if(!nome||!wp||!em){m.textContent='Por favor, preencha nome, WhatsApp e e-mail.';return;}
   try{ fiJsonp({action:'conv_log',nome:nome,whatsapp:wp,email:em,experiencia:_convNome,codigo:_convCod.replace(/\D/g,'')},function(){}); }catch(e){}
   if(_convUrl && _convUrl.indexOf('http')===0){ window.open(_convUrl,'_blank'); }
-  else { window.open('https://wa.me/5511933251200?text='+encodeURIComponent('Oi! Quero pagar como convidada a experiência '+_convNome+' (indicada pela sócia de código '+_convCod+'). 🌿'),'_blank'); }
+  else { window.open('https://wa.me/5511933251200?text='+encodeURIComponent('Oi, quero pagar como convidada a experiência '+_convNome+' (indicada pela sócia de código '+_convCod+'). 🌿'),'_blank'); }
   closeConv();
 }
 function comboAtualizar(){
@@ -2929,6 +2991,7 @@ function comboEnviar(){
     if(r.inativa){ if(w){w.close();} m.textContent='Renove sua participação no clube e aproveite sua prioridade no acesso e o valor exclusivo de sócia nas experiências do clube.'; return; }
     m.textContent='';
     var quem = r.nome ? r.nome : 'uma sócia';
+    try{ fiJsonp({action:'combo_log',codigo:cod,experiencias:(window._comboNomes||[]).join('|'),bruto:(window._comboBruto||''),total:(window._comboTotal||''),desc:(window._comboDesc?'1':'0')}, function(){}); }catch(e){}
     var txt='Oi, aqui é '+quem+'. Quero montar um combo de experiências: '+window._comboNomes.join(', ')+'. Total'+(window._comboDesc?' com 5% de desconto':'')+': R$ '+window._comboTotal+'.';
     if(w){ w.location.href='https://wa.me/5511933251200?text='+encodeURIComponent(txt); }
   });
@@ -2994,7 +3057,7 @@ function pausaConfirmar(){
   msg.textContent='Verificando…';
   fiJsonp({action:'reserva',codigo:cod.replace(/\D/g,''),experiencia:'Pausa ('+_pausaData+')',tipo:'Pausa'},function(data){
     if((data&&data.ok&&data.socia)||SOCIAS_ATIVAS.indexOf(cod.toUpperCase())>-1){
-      msg.innerHTML='Prontinho'+((data&&data.nome)?', '+data.nome:'')+'! \uD83C\uDF3F Sua participação na Pausa está reservada.';
+      msg.innerHTML='Prontinho'+((data&&data.nome)?', '+data.nome:'')+'. \uD83C\uDF3F Sua participação na Pausa está reservada.';
       document.getElementById('pausa-btn').style.display='none';
     } else if(data===null){ msg.textContent='Erro de conexão. Tente de novo.'; }
     else { msg.textContent='Código não encontrado. Confira com a gente no WhatsApp.'; }
@@ -3060,7 +3123,7 @@ function submitPresente(){
   // abre o pagamento primeiro (no clique, pra não tomar bloqueio de pop-up)
   window.open(payUrl,'_blank');
   // guarda o recado pro clube; a sócia envia na tela seguinte, depois de pagar
-  window._presenteWa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi! Acabei de presentear uma amiga.\nDe: '+quem+'\nPara: '+para+(tel?'\nWhatsApp dela: '+tel:'')+'\nPresente: '+detalhe+(msg2?'\nBilhete: '+msg2:'')+'\nJá fiz o pagamento 🌿');
+  window._presenteWa='https://wa.me/5511933251200?text='+encodeURIComponent('Oi, acabei de presentear uma amiga.\nDe: '+quem+'\nPara: '+para+(tel?'\nWhatsApp dela: '+tel:'')+'\nPresente: '+detalhe+(msg2?'\nBilhete: '+msg2:'')+'\nJá fiz o pagamento 🌿');
   var _n=document.getElementById('sp-nota');
   if(_n){ if(tipo==='associacao'){ _n.style.display='block'; _n.innerHTML='No pagamento, preencha os dados de <strong>quem vai receber</strong> a assinatura (a presenteada), pra a associação entrar no nome dela. Quer presentear por um número de meses? No último mês é só nos pedir pra cancelar. \uD83C\uDF3F'; } else { _n.style.display='none'; _n.innerHTML=''; } }
   document.getElementById('fw-pres').style.display='none';
@@ -3289,7 +3352,7 @@ function maAbrir(p){
   document.getElementById('ma-selo').style.display=p.cofundadora?'block':'none';
   var base=location.origin+location.pathname;
   document.getElementById('ma-ind-link').textContent=base+'?ind='+_maCod;
-  maCarregarFio(); maCarregarReservas(); maCarregarCredito(); maCarregarAssoc(p);
+  maCarregarFio(); maCarregarReservas(); maCarregarCredito(); maCarregarAssoc(p); maCarregarBio();
   maTab('bio');
 }
 function maSair(){
@@ -3349,8 +3412,17 @@ function maCopiarInd(){
   var txt='Vem conhecer As Fiandeiras comigo 🌿 É um clube de experiências entre mulheres em São Paulo. Entra pelo meu link, você já entra com o meu convite: '+link;
   var m=document.getElementById('ma-ind-msg');
   try{
-    navigator.clipboard.writeText(txt).then(function(){ if(m)m.textContent='Mensagem copiada! É só colar e mandar 🌿'; }, function(){ if(m)m.textContent=txt; });
+    navigator.clipboard.writeText(txt).then(function(){ if(m)m.textContent='Mensagem copiada, é só colar e mandar 🌿'; }, function(){ if(m)m.textContent=txt; });
   }catch(e){ if(m)m.textContent=txt; }
+}
+function maCarregarBio(){
+  fiJsonp({action:'bio_get',codigo:_maCod}, function(b){
+    if(!b||!b.tem)return;
+    function s(id,v){ var e=document.getElementById(id); if(e&&!e.value&&v)e.value=v; }
+    s('mab-nome',b.nome); s('mab-linha',b.linha); s('mab-faz',b.faz); s('mab-momento',b.momento);
+    s('mab-filhos',b.filhos); s('mab-pets',b.pets); s('mab-hobbies',b.hobbies); s('mab-tema',b.tema);
+    var m=document.getElementById('mab-msg'); if(m)m.textContent='Sua bio atual já está preenchida, é só ajustar o que quiser 🌿';
+  });
 }
 function maBioSalvar(){
   function g(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
@@ -3360,7 +3432,7 @@ function maBioSalvar(){
   if(m)m.textContent='Salvando…';
   try{
     fetch(FI_API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-    if(m)m.textContent='Bio enviada! Ela entra na teia em breve 🌿';
+    if(m)m.textContent='Bio enviada, ela entra na teia em breve 🌿';
   }catch(e){ if(m)m.textContent='Não consegui enviar agora, tente de novo.'; }
 }
 (function(){ try{ var c=localStorage.getItem('fi_ma_cod'); if(c){ fiJsonp({action:'perfil',codigo:c}, function(p){ if(p&&p.socia&&!p.inativa){ _maCod=c; maAbrir(p); } }); } }catch(e){} })();
