@@ -1654,7 +1654,12 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     <div class="oltre-body">
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
         <div style="padding:10px 12px;border:1px solid var(--ar);border-radius:8px;background:var(--li);">
-          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Jun 2026 · Por Mari</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Jul 2026 · Por Mari</div>
+          <div style="font-size:13px;font-weight:600;color:var(--cv);">Novelos das Fiandeiras · Julho 26</div>
+          <a href="https://open.substack.com/pub/clubeasfiandeiras/p/novelo-das-fiandeiras-julho-26-por?r=8bypn0&utm_medium=web" target="_blank" style="font-size:10px;font-weight:700;color:var(--co);text-decoration:none;display:block;margin-top:6px;">Ler →</a>
+        </div>
+        <div style="padding:10px 12px;border:1px solid var(--ar);border-radius:8px;">
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;opacity:.6;">Jun 2026 · Por Mari</div>
           <div style="font-size:13px;font-weight:600;color:var(--cv);">Novelos das Fiandeiras · Junho 26</div>
           <a href="https://open.substack.com/pub/clubeasfiandeiras/p/novelo-das-fiandeiras-junho-26-por?r=8bypn0&utm_medium=ios" target="_blank" style="font-size:10px;font-weight:700;color:var(--co);text-decoration:none;display:block;margin-top:6px;">Ler →</a>
         </div>
@@ -1692,7 +1697,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
   </div>
 
-  <div style="padding:22px 20px 8px;"><div class="kicker">Só para as sócias</div><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:6px;">As memórias, os contatos e o grupo, reservados a quem faz parte.</p></div><div style="padding:0 20px 10px;"><button class="btn-o" onclick="goTo('quemsomos')">Entrar na minha área da sócia</button></div>
+  <div style="padding:22px 20px 8px;display:none;"><div class="kicker">Só para as sócias</div><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:6px;">As memórias, os contatos e o grupo, reservados a quem faz parte.</p></div><div style="padding:0 20px 10px;display:none;"><button class="btn-o" onclick="goTo('quemsomos')">Entrar na minha área da sócia</button></div>
 <div class="oltre-card">
     <div class="oltre-head" style="background:linear-gradient(135deg,rgba(223,178,181,.12),rgba(175,105,47,.07));">
       <div class="oltre-icon" style="background:rgba(223,178,181,.20);">
@@ -2330,7 +2335,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.7;margin:10px 0 0;">Cobrança mensal no cartão, pelo Kiwify.</p>
         <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin:14px 0;">Permanência mínima de 3 meses. Para pausar ou cancelar sua associação, fale com a gente, a gente cuida com carinho.</p>
         <a href="https://wa.me/5511933251200?text=Oi%2C%20gostaria%20de%20pausar%20minha%20associa%C3%A7%C3%A3o%20por%20um%20tempo.%20Podemos%20conversar%3F%20%F0%9F%8C%BF" target="_blank" style="text-decoration:none;"><button class="btn-o" style="margin-bottom:8px;">Pausar minha associação</button></a>
-        <a href="https://wa.me/5511933251200?text=Oi!%20Quero%20falar%20sobre%20a%20minha%20associa%C3%A7%C3%A3o%20%F0%9F%8C%BF" target="_blank" style="text-decoration:none;"><button class="btn-o">Falar sobre minha associação</button></a>
       </div>
     </div>
 
@@ -3457,7 +3461,7 @@ function feResumo(){
 function feInicio(){
   var el=document.getElementById('fe-inicio'); if(!el)return;
   var GRUPOS=[['O que é meu',['bio','exp','fio','indicar','assoc']],
-              ['O que é nosso',['teia','album','dicas','grupo']]];
+              ['O que é nosso',['teia','album','dicas']]];
   var h='<div id="fe-resumo"></div>';
   for(var g=0;g<GRUPOS.length;g++){
     h+='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:'+(g?'22px':'16px')+' 18px 6px;">'+GRUPOS[g][0]+'</div>';
@@ -3468,6 +3472,13 @@ function feInicio(){
         +'<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);line-height:1.25;">'+t[0]+'</div>'
         +'<div style="font-size:11px;font-weight:300;color:var(--cv2);margin-top:2px;">'+t[1]+'</div></div>'
         +'<div style="color:var(--co);font-size:16px;flex-shrink:0;">&rsaquo;</div></button>';
+    }
+    if(g===1){
+      h+='<a href="https://chat.whatsapp.com/CUawDns7iaS6F0qrSR62Z4?s=cl&p=i&ilr=0" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:12px;width:100%;border-bottom:1px solid rgba(216,205,194,.55);padding:13px 18px;">'
+        +'<div style="flex:1;min-width:0;">'
+        +'<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);line-height:1.25;">Nosso grupo</div>'
+        +'<div style="font-size:11px;font-weight:300;color:var(--cv2);margin-top:2px;">A conversa do dia a dia no WhatsApp</div></div>'
+        +'<svg width="16" height="16" viewBox="0 0 24 24" fill="var(--co)"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg></a>';
     }
   }
   el.innerHTML=h;
@@ -3609,6 +3620,10 @@ function rvPagar(url) {
 
 /* contagem de sócias automática */
 try{renderSocias();function _setCount(v){var _e1=document.getElementById('socia-count');if(_e1)_e1.textContent=v;var _e2=document.getElementById('socia-count-2');if(_e2)_e2.textContent=v;}var _n=FI.filter(function(x){return !x.fund;}).length;_setCount(_n);try{fiJsonp({action:'contagem'},function(r){if(r&&r.ok&&typeof r.total==='number'&&r.total>0){_setCount(r.total);}});}catch(e){}var _start=new Date(2026,3,16);var _now=new Date();var _m=Math.round((_now-_start)/2629800000);if(_m<1)_m=1;var _txt='Tecendo há '+_m+(_m===1?' mês':' meses');var _e3=document.getElementById('meses-clube');if(_e3)_e3.textContent=_txt;}catch(e){}
+/* Alem das Experiencias: album, dicas e grupo passam a morar so na Area das Socias.
+   Escondemos esses cards da pagina publica. O conteudo continua existindo e e movido
+   para a area no login (feMover), entao nada quebra. */
+try{['album-lock','dicas-lock','grupo-lock'].forEach(function(id){var e=document.getElementById(id);if(!e)return;var c=(e.closest&&e.closest('.oltre-card'))||e.parentNode;if(c)c.style.display='none';});}catch(e){}
 function albumUnlock(){
   var cod=document.getElementById('album-lock-input').value.trim().toUpperCase();
   var msg=document.getElementById('album-lock-msg');
@@ -3722,31 +3737,65 @@ function maCarregarFio(pronto){
   if(pronto){ render(pronto); return; }
   fiJsonp({action:'fio_check',codigo:_maCod}, render);
 }
-/* as experiências Fio que ainda vão acontecer */
-var FIO_PROX=[
-  {n:'Tecer a Cidadania',d:'11 de agosto, terça',l:'Jardim Paulista'},
-  {n:'Estrear Juntas',d:'12 de setembro, sábado',l:'Jardim Paulistano'},
-  {n:'Compor a Mesa',d:'15 de outubro, quinta',l:'Jardim Paulista'}];
+/* --- Área da sócia: reserva reaproveitando o MESMO fluxo do site --- */
+function maEsc(s){ return String(s||'').replace(/'/g,"\\'"); }
+function maNorm(s){ return String(s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
+/* a sócia já está logada aqui: reusa os modais do site e já preenche o código */
+function maReservarSocia(nome,url){ reservarSocia(nome,url); try{var e=document.getElementById('rsocia-cod'); if(e&&_maCod){e.value=_maCod;}}catch(x){} }
+function maReservarFio(nome,url){ reservarFio(nome,url); try{var e=document.getElementById('fio-cod'); if(e&&_maCod){e.value=_maCod;}}catch(x){} }
+/* experiências que ainda dá pra reservar (URL de sócia, iguais aos botões da página de experiências) */
+var MA_RESERVAR=[
+  {n:'Despertar o Olhar',q:'04 de agosto, terça',fio:false,u:'https://www.asaas.com/c/3ug38x8bqyubjd22'},
+  {n:'Tecer a Cidadania',q:'11 de agosto, terça',fio:true,u:'https://www.asaas.com/c/llm29jxwsj8u6sr7'},
+  {n:'Tomar a Palavra · Módulo 2',q:'20 de agosto, quinta',fio:false,u:'https://www.asaas.com/c/un3serfsjnmgcqsd'},
+  {n:'Estrear Juntas',q:'12 de setembro, sábado',fio:true,u:'https://www.asaas.com/c/ishqorz2n31xta6v'},
+  {n:'Desmistificar a IA',q:'17 de setembro, quinta',fio:false,u:'https://www.asaas.com/c/p3nihwyj3thuia5t'},
+  {n:'Reacender o Brilho',q:'03 de outubro, sábado',fio:false,u:'https://www.asaas.com/c/2n92l8fhs8dv5ep4'},
+  {n:'Compor a Mesa',q:'15 de outubro, quinta',fio:true,u:'https://www.asaas.com/c/srloe1ea8mbeo69a'}
+];
+/* só mostra na área o que ainda não passou (datas de EXP_AGENDA) */
+function maFutura(nome){
+  var a=EXP_AGENDA[maNorm(nome)]; if(!a) return true;
+  var d=new Date(); var t=''+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2);
+  return a[0]>=t;
+}
+/* convidada só nas não-Fio (e na Estrear Juntas) */
+function maConvidarOk(nome){
+  var k=maNorm(nome);
+  for(var i=0;i<MA_RESERVAR.length;i++){ if(maNorm(MA_RESERVAR[i].n)===k){ return (!MA_RESERVAR[i].fio) || k==='estrear juntas'; } }
+  return false;
+}
+/* botão de reserva (mesma linguagem visual do site) */
+function maBtnReservar(e){
+  if(e.fio){
+    return '<button onclick="maReservarFio(\''+maEsc(e.n)+'\',\''+e.u+'\')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:7px;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>'
+      +'<button onclick="maReservarSocia(\''+maEsc(e.n)+'\',\''+e.u+'\')" style="width:100%;padding:8px;background:none;border:none;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:600;color:var(--cv2);cursor:pointer;margin-top:2px;">ou reservar pagando</button>';
+  }
+  return '<button onclick="maReservarSocia(\''+maEsc(e.n)+'\',\''+e.u+'\')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:7px;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar</button>';
+}
 function maFioLista(disponivel){
   var el=document.getElementById('ma-fio-lista'); if(!el)return;
+  var fios=MA_RESERVAR.filter(function(e){return e.fio && maFutura(e.n);});
   var h='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:20px 0 4px;">As experiências Fio de agora</div>'
-   +'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:2px;">'
-   +(disponivel?'Escolha uma delas para usar a sua Fio deste trimestre.':'Estas são as Fio do momento. A sua deste trimestre já foi usada, mas dá para reservar pagando.')+'</p>';
-  for(var i=0;i<FIO_PROX.length;i++){ var e=FIO_PROX[i];
-    h+='<div style="padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);">'
+   +'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">'
+   +(disponivel?'Escolha uma delas para usar a sua Fio deste trimestre, sem sair daqui.':'Estas são as Fio do momento. A sua deste trimestre já foi usada, mas dá para reservar pagando.')+'</p>';
+  for(var i=0;i<fios.length;i++){ var e=fios[i];
+    h+='<div style="padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);">'
       +'<div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+e.n+'</div>'
-      +'<div style="font-size:11px;color:var(--cv2);">'+e.d+' · '+e.l+'</div></div>';
+      +'<div style="font-size:11px;color:var(--cv2);margin-bottom:9px;">'+e.q+'</div>'
+      +(disponivel?maBtnReservar(e):'<button onclick="maReservarSocia(\''+maEsc(e.n)+'\',\''+e.u+'\')" style="width:100%;padding:9px;background:none;border:1px solid var(--ar);border-radius:7px;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Reservar pagando (valor de sócia)</button>')
+      +'</div>';
   }
-  h+='<button class="btn-o" style="margin-top:13px;" onclick="goTo(\'experiencias\')">Ver todas as experiências</button>';
+  h+='<button class="btn-o" style="margin-top:14px;" onclick="goTo(\'experiencias\')">Ver todas as experiências</button>';
   el.innerHTML=h;
 }
 function maCarregarReservas(pronto){
   function render(r){
     var el=document.getElementById('ma-exp-lista'); if(!el)return;
-    if(!r||!r.reservas||!r.reservas.length){ el.innerHTML='<p style="font-size:12px;font-weight:300;color:var(--cv2);">Você ainda não tem experiências reservadas.</p>'; return; }
-    // separa o que ainda vai viver do que já viveu
-    var vem=[], foi=[], faltou=[];
-    for(var i=0;i<r.reservas.length;i++){ var x=r.reservas[i];
+    var reservas=(r&&r.reservas)?r.reservas:[];
+    var vem=[], foi=[], faltou=[], jaTem={};
+    for(var i=0;i<reservas.length;i++){ var x=reservas[i];
+      jaTem[maNorm(x.exp)]=true;
       if(x.futura){ vem.push(x); }
       else if(String(x.foi||'').toLowerCase().indexOf('n')===0 && String(x.foi).toLowerCase()!=='sim'){ faltou.push(x); }
       else { foi.push(x); }
@@ -3768,27 +3817,37 @@ function maCarregarReservas(pronto){
       var sl=selo(x);
       return '<div style="padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);display:flex;justify-content:space-between;gap:10px;align-items:center;">'
         +'<div style="min-width:0;"><div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+x.exp+'</div>'
-        +'<div style="font-size:11px;color:var(--cv2);">'+(x.quando||x.data)+'</div></div>'
+        +'<div style="font-size:11px;color:var(--cv2);">'+(x.quando||x.data||'')+'</div></div>'
         +(sl[0]?'<div style="font-size:10px;font-weight:700;color:'+sl[1]+';white-space:nowrap;">'+sl[0]+'</div>':'')+'</div>';
     }
+    /* A VIVER: 1 ação principal (agenda) + convidar só onde faz sentido */
     function linhaFutura(x){
       var ag=maAgendaLink(x.exp);
-      var acoes='<div style="display:flex;gap:7px;margin:-2px 0 10px;">'
-        +(ag?'<a href="'+ag+'" target="_blank" style="text-decoration:none;flex:1;"><button style="width:100%;padding:7px;background:none;border:1px solid var(--ar);border-radius:6px;font-family:\'Mulish\',sans-serif;font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Adicionar à agenda</button></a>':'')
-        +'<button onclick="maConvidar(\''+String(x.exp).replace(/\'/g,"")+'\')" style="flex:1;padding:7px;background:none;border:1px solid var(--ar);border-radius:6px;font-family:\'Mulish\',sans-serif;font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Convidar uma amiga</button>'
-        +'</div>';
-      return linha(x)+acoes;
-    }
-    function bloco(titulo, lista, vazio){
-      var h='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:16px 0 4px;">'+titulo+'</div>';
-      if(!lista.length) return h+'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);">'+vazio+'</p>';
-      for(var i=0;i<lista.length;i++) h+=(titulo==='A viver'?linhaFutura:linha)(lista[i]);
+      var h=linha(x)+'<div style="margin:-2px 0 12px;">';
+      if(ag) h+='<a href="'+ag+'" target="_blank" style="text-decoration:none;"><button style="width:100%;padding:8px;background:none;border:1px solid var(--ar);border-radius:7px;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Adicionar à agenda</button></a>';
+      if(maConvidarOk(x.exp)) h+='<button onclick="maConvidar(\''+maEsc(x.exp)+'\')" style="width:100%;padding:7px;background:none;border:none;font-family:\'Mulish\',sans-serif;font-size:10px;font-weight:600;color:var(--co);cursor:pointer;margin-top:3px;">Convidar uma amiga &rarr;</button>';
+      h+='</div>';
       return h;
     }
-    el.innerHTML = bloco('A viver', vem, 'Nada reservado por enquanto.');
-    // o histórico mora na Minha bio (item 4.1 do desenho da Cris)
+    /* POSSO VIVER: o que ainda dá pra reservar e ela ainda não reservou */
+    var podem=MA_RESERVAR.filter(function(e){ return maFutura(e.n) && !jaTem[maNorm(e.n)]; });
+    function linhaPode(e){
+      return '<div style="padding:12px 0;border-bottom:1px solid rgba(216,205,194,.5);">'
+        +'<div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+e.n+(e.fio?' <span style="font-size:9px;font-weight:700;color:#5c7a4a;letter-spacing:1px;">FIO</span>':'')+'</div>'
+        +'<div style="font-size:11px;color:var(--cv2);margin-bottom:9px;">'+e.q+'</div>'
+        +maBtnReservar(e)+'</div>';
+    }
+    function cab(t){ return '<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:16px 0 4px;">'+t+'</div>'; }
+    var out=cab('A viver');
+    if(vem.length){ for(var a=0;a<vem.length;a++) out+=linhaFutura(vem[a]); }
+    else out+='<p style="font-size:11.5px;font-weight:300;color:var(--cv2);">Nada reservado por enquanto.</p>';
+    out+=cab('Você ainda pode viver');
+    if(podem.length){ for(var b=0;b<podem.length;b++) out+=linhaPode(podem[b]); }
+    else out+='<p style="font-size:11.5px;font-weight:300;color:var(--cv2);">Por enquanto você já reservou tudo o que está aberto. 🌿</p>';
+    el.innerHTML=out;
+    /* JÁ VIVI: a história */
     var hist=document.getElementById('ma-hist');
-    if(hist) hist.innerHTML = '<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Minha história no clube</div>'
+    if(hist) hist.innerHTML = cab('Já vivi')
       + '<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">'+(foi.length?('Você já viveu '+foi.length+' experiência'+(foi.length>1?'s':'')+' com a gente.'):'Sua história no clube começa aqui.')+'</p>'
       + (foi.length?foi.map(linha).join(''):'')
       + (faltou.length?('<p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:14px;">Você reservou '+faltou.length+' experiência'+(faltou.length>1?'s':'')+' que não conseguiu vir: '+faltou.map(function(x){return x.exp;}).join(', ')+'.</p>'):'');
@@ -3844,6 +3903,17 @@ function maAgendaLink(nome){
     +'&location='+encodeURIComponent(a[3])
     +'&details='+encodeURIComponent('Uma experiência do Clube As Fiandeiras. Os detalhes chegam pelo WhatsApp.');
 }
+/* estimativa da proxima renovacao a partir do inicio da assinatura (dd/mm/aaaa) */
+function maProxCobranca(dstr){
+  var m=String(dstr||'').match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/); if(!m) return '';
+  var dia=parseInt(m[1],10);
+  var hoje=new Date(); hoje.setHours(0,0,0,0);
+  var y=hoje.getFullYear(), mo=hoje.getMonth();
+  function mk(yy,mm){ var last=new Date(yy,mm+1,0).getDate(); return new Date(yy,mm,Math.min(dia,last)); }
+  var prox=mk(y,mo);
+  if(prox<=hoje){ mo++; if(mo>11){mo=0;y++;} prox=mk(y,mo); }
+  return ('0'+prox.getDate()).slice(-2)+'/'+('0'+(prox.getMonth()+1)).slice(-2);
+}
 function maCarregarAssoc(p){
   var el=document.getElementById('ma-assoc-info'); if(!el)return;
   var plano=p.cofundadora?'Co-fundadora':(p.plano||'Sócia fundadora');
@@ -3865,6 +3935,7 @@ function maCarregarAssoc(p){
     +linha('No clube desde', p.entrada||'a confirmar')
     +linha('Tecendo há', tempo)
     +(p.assinatura?linha('Assinatura atual desde', p.assinatura):'')
+    +((!pausada&&!cancelada&&maProxCobranca(p.assinatura))?linha('Próxima renovação','por volta de '+maProxCobranca(p.assinatura)):'')
     +linha('Mensalidade', '<b style="font-weight:700;">R$ '+mens+'</b> por mês')
     +linha('Situação', situacao)
     +'</div>';
