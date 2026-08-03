@@ -1268,7 +1268,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 
     <!-- CONTEÚDO (bloqueado até inserir código) -->
     <div id="fi-content" style="display:none;">
-      <div style="padding:12px 16px 4px;display:flex;align-items:center;justify-content:flex-end;">
+      <div style="display:none;">
         <button onclick="fiLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Sair</button>
       </div>
       <!-- título do espaço aberto + botão do menu (desenho da Cris) -->
@@ -1318,6 +1318,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       <div class="fe-pane" id="fe-teia" style="display:none;"></div>
       <div class="fe-pane" id="fe-album" style="display:none;padding:0 16px 10px;"></div>
       <div class="fe-pane" id="fe-dicas" style="display:none;padding:0 16px 10px;"></div>
+      <div class="fe-pane" id="fe-grupo" style="display:none;padding:0 16px 10px;"></div>
       <div id="bio-cta" style="margin:4px 14px 14px;padding:16px;background:rgba(175,105,47,.06);border:1px solid rgba(175,105,47,.25);border-radius:10px;text-align:center;">
         <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:6px;">Sua bio na teia</div>
         <div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.45;margin-bottom:7px;">Ainda não te encontrou aqui?</div>
@@ -2274,7 +2275,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div class="fg"><label class="fl">Data de nascimento (opcional)</label><input class="fi" id="mab-nasc" type="text" placeholder="dd/mm"></div>
         <div id="mab-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin-bottom:8px;"></div>
         <button class="btn-p" onclick="maBioSalvar()">Salvar minha bio</button>
-        <div id="ma-hist" style="margin-top:26px;padding-top:18px;border-top:1px solid var(--ar);"></div>
       </div>
     </div>
 
@@ -2285,14 +2285,15 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="font-size:12px;color:var(--cv2);">Carregando…</div>
         </div>
         <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:12px;">Uma experiência Fio incluída a cada 3 meses de participação, contada a partir da sua data de entrada. Não acumula: a Fio não usada no trimestre não passa para o próximo.</p>
+        <div id="ma-fio-lista"></div>
       </div>
     </div>
 
     <!-- EXPERIÊNCIAS ADICIONAIS -->
     <div class="ma-pane" id="map-exp" style="display:none;">
       <div class="sec" style="padding-top:12px;">
-        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:2px;">Tudo que você reservou e tudo que já viveu no clube.</p>
         <div id="ma-exp-lista"><div style="font-size:12px;color:var(--cv2);">Carregando…</div></div>
+        <div id="ma-hist" style="margin-top:22px;padding-top:16px;border-top:1px solid var(--ar);"></div>
       </div>
     </div>
 
@@ -2685,25 +2686,39 @@ function rsociaPagarNormal(cod){ logReserva(cod,_rsociaNome,'Paga'); window.open
 function enviarInscricao(d){
   try{ fetch(FI_API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}); }catch(e){}
 }
-function fiJsonp(params, cb){
-  var name='__fi'+Date.now()+Math.floor(Math.random()*1000);
+/* O Apps Script pode demorar (parte "acordar" depois de um tempo parado).
+   Espera 30s e, se não vier nada, tenta mais uma vez antes de desistir. */
+function fiJsonp(params, cb, _tentativa){
+  var name='__fi'+Date.now()+Math.floor(Math.random()*100000);
   var done=false, s=document.createElement('script');
-  function fim(data){ if(done)return; done=true; try{delete window[name];}catch(e){window[name]=undefined;} if(s.parentNode)s.parentNode.removeChild(s); cb(data); }
+  function fim(data){
+    if(done)return; done=true;
+    try{delete window[name];}catch(e){window[name]=undefined;}
+    if(s.parentNode)s.parentNode.removeChild(s);
+    if(data===null && !_tentativa){ fiJsonp(params, cb, 1); return; }
+    cb(data);
+  }
   window[name]=function(data){ fim(data); };
   s.onerror=function(){ fim(null); };
   var q=Object.keys(params).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(params[k]);}).join('&');
   s.src=FI_API+'?'+q+'&callback='+name;
   document.body.appendChild(s);
-  setTimeout(function(){ fim(null); }, 12000);
+  setTimeout(function(){ fim(null); }, 30000);
 }
 function checarSocia(cod, cb){
   var raw=(cod||'').trim().toUpperCase();
-  if(SOCIAS_ATIVAS.indexOf(raw)>-1){ cb(true); return; }
+  if(SOCIAS_ATIVAS.indexOf(raw)>-1){ cb(true,'ok'); return; }
   fiJsonp({action:'acesso',codigo:raw.replace(/\D/g,'')}, function(data){
-    if(data && data.ok && data.socia && !data.inativa){ cb(true); }
-    else if(data===null){ cb(SOCIAS_ATIVAS.indexOf(raw)>-1); }
-    else { cb(false); }
+    if(data && data.ok && data.socia && !data.inativa){ cb(true,'ok'); }
+    else if(data===null){ cb(false,'offline'); }   // não falamos com o sistema
+    else { cb(false,'naoachou'); }
   });
+}
+/* mensagem certa pra cada caso: código errado é uma coisa, sistema fora do ar é outra */
+function fiMsgErro(motivo){
+  return motivo==='offline'
+    ? 'Não conseguimos falar com o sistema agora. Tente de novo em alguns segundos.'
+    : 'Código não encontrado. Verifique ou entre em contato pelo WhatsApp.';
 }
 function logReserva(cod, exp, tipo){
   try{ fiJsonp({action:'reserva',codigo:(cod||'').replace(/\D/g,''),experiencia:exp,tipo:tipo}, function(){}); }catch(e){}
@@ -3266,7 +3281,7 @@ var _fiUnlocked = false;
 /* UM LOGIN SÓ: a sócia digita o código uma vez e abre tudo que é dela
    (a teia, o álbum, as dicas e a área pessoal). A sessão fica guardada,
    então ela não digita de novo na próxima visita. */
-function fiAbrirTudo(cod){
+function fiAbrirTudo(cod, tudo){
   _fiUnlocked = true; window._fiCod = cod;
   try{ _maCod = String(cod).replace(/\D/g,'') || cod; }catch(e){}
   try{ localStorage.setItem('fi_ma_cod', _maCod); }catch(e){}
@@ -3280,8 +3295,11 @@ function fiAbrirTudo(cod){
   abre('dicas-lock','dicas-content');
   if(!window._fiInited){ window._fiInited=true; setTimeout(initFi,300); }
   try{ fiMontarEspacos(); }catch(e){}
-  try{ if(typeof maCarregarFio==='function'){
-    fiJsonp({action:'perfil',codigo:_maCod}, function(p){ if(p&&p.socia&&!p.inativa) maAbrir(p); });
+  try{ if(typeof maAbrir==='function'){
+    if(tudo && tudo.perfil){ maAbrir(tudo.perfil, tudo); }
+    else fiJsonp({action:'tudo',codigo:_maCod}, function(t){
+      if(t&&t.socia&&t.perfil&&!t.perfil.inativa) maAbrir(t.perfil, t);
+    });
   } }catch(e){}
 }
 /* ETAPA 2 e 3: a Área das Sócias vira UM lugar só.
@@ -3290,15 +3308,16 @@ function fiAbrirTudo(cod){
    O que era espalhado (teia aqui, álbum e dicas na página Além, área pessoal
    numa página à parte) passa a morar tudo dentro de "As Fiandeiras". */
 var FE_TITULOS={
-  inicio:['Área das Sócias','Tudo que é seu, e tudo que é nosso'],
-  bio:['Minha bio','Quem você é na teia, e tudo que já viveu'],
-  fio:['Minha Fio','A experiência incluída do seu trimestre'],
-  exp:['Minhas experiências','O que você reservou e ainda vai viver'],
+  inicio:['Área das Sócias','Tudo que é meu, e tudo que é nosso'],
+  bio:['Minha bio','Quem sou eu'],
+  exp:['Minhas experiências','O que já vivi e o que vem por aí'],
+  fio:['Minha Fio','A experiência incluída do meu trimestre'],
   indicar:['Meus créditos','Indique uma amiga e ganhe R$157'],
-  assoc:['Meu plano','Mensalidade, pagamento e combinados'],
-  teia:['Nossa teia','As mulheres que fazem este clube'],
+  assoc:['Meu plano','Mensalidade e pagamento'],
+  teia:['Nossas sócias','As mulheres que fazem este clube'],
   album:['Nossos álbuns','As memórias de cada experiência'],
-  dicas:['Nossas dicas','Onde fomos, quem nos guiou, o que amamos']};
+  dicas:['Nossas dicas','Onde fomos, quem nos guiou, o que amamos'],
+  grupo:['Nosso grupo','A conversa do dia a dia no WhatsApp']};
 
 function feMenu(abrir){
   var d=document.getElementById('fe-drawer'); if(!d)return;
@@ -3310,7 +3329,13 @@ function feTab(t){
   for(var i=0;i<itens.length;i++) itens[i].classList.toggle('ativo', itens[i].getAttribute('data-fe')===t);
   var ps=document.querySelectorAll('.fe-pane');
   for(var j=0;j<ps.length;j++) ps[j].style.display='none';
-  var el=document.getElementById('fe-'+t); if(el) el.style.display='block';
+  var el=document.getElementById('fe-'+t);
+  if(el){ el.style.display='block';
+    /* os blocos que vieram da área antiga são .ma-pane e o maTab esconde todos.
+       Aqui a gente reabre o que pertence a este espaço. */
+    var mp=el.querySelectorAll('.ma-pane');
+    for(var k=0;k<mp.length;k++) mp[k].style.display='block';
+  }
   var tit=FE_TITULOS[t]||['',''];
   var a=document.getElementById('fe-titulo'), b=document.getElementById('fe-sub');
   if(a)a.textContent=tit[0]; if(b)b.textContent=tit[1];
@@ -3352,7 +3377,8 @@ function fiMontarEspacos(){
   // INDICAR
   feMover('map-ind','fe-indicar');
   // MINHA ASSOCIAÇÃO
-  feMover('map-assoc','fe-assoc'); feMover('grupo-content','fe-assoc');
+  feMover('map-assoc','fe-assoc');
+  feMover('grupo-content','fe-grupo');
   // NOSSA TEIA
   var g=document.getElementById('sc-grid');
   if(g){ var leg=g.previousElementSibling, d=document.getElementById('fe-teia');
@@ -3430,8 +3456,8 @@ function feResumo(){
 }
 function feInicio(){
   var el=document.getElementById('fe-inicio'); if(!el)return;
-  var GRUPOS=[['O que é meu',['bio','fio','exp','indicar','assoc']],
-              ['O que é nosso',['teia','album','dicas']]];
+  var GRUPOS=[['O que é meu',['bio','exp','fio','indicar','assoc']],
+              ['O que é nosso',['teia','album','dicas','grupo']]];
   var h='<div id="fe-resumo"></div>';
   for(var g=0;g<GRUPOS.length;g++){
     h+='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);padding:'+(g?'22px':'16px')+' 18px 6px;">'+GRUPOS[g][0]+'</div>';
@@ -3461,10 +3487,10 @@ function fiUnlock() {
   var msg = document.getElementById('fi-lock-msg');
   if(!cod) { msg.textContent='Digite seu código de sócia.'; return; }
   msg.textContent='Verificando…';
-  checarSocia(cod,function(ok){
+  checarSocia(cod,function(ok,motivo){
   if(ok) { msg.textContent=''; fiAbrirTudo(cod); }
   else {
-    msg.textContent='Código não encontrado. Verifique ou entre em contato pelo WhatsApp.';
+    msg.textContent=fiMsgErro(motivo);
     _fiUnlocked = false;
   }
   });
@@ -3481,14 +3507,14 @@ function dicasUnlock() {
   var msg = document.getElementById('dicas-lock-msg');
   if(!cod) { msg.textContent='Digite seu código de sócia.'; return; }
   msg.textContent='Verificando…';
-  checarSocia(cod,function(ok){
+  checarSocia(cod,function(ok,motivo){
   if(ok) {
     msg.textContent=''; fiAbrirTudo(cod);
     var resto=document.getElementById('alem-resto'); if(resto) resto.style.display='none';
     var hero=document.querySelector('#page-alem .hero'); if(hero) hero.style.display='none';
     window.scrollTo(0,0);
   } else {
-    msg.textContent='Código não encontrado. Verifique ou entre em contato pelo WhatsApp.';
+    msg.textContent=fiMsgErro(motivo);
   }
   });
 }
@@ -3507,13 +3533,13 @@ function grupoUnlock() {
   var msg = document.getElementById('grupo-lock-msg');
   if(!cod) { msg.textContent='Digite seu código de sócia.'; return; }
   msg.textContent='Verificando…';
-  checarSocia(cod,function(ok){
+  checarSocia(cod,function(ok,motivo){
   if(ok) {
     document.getElementById('grupo-lock').style.display='none';
     document.getElementById('grupo-content').style.display='block';
     msg.textContent='';
   } else {
-    msg.textContent='Código não encontrado. Verifique ou entre em contato pelo WhatsApp.';
+    msg.textContent=fiMsgErro(motivo);
   }
   });
 }
@@ -3630,17 +3656,18 @@ function maEntrar(){
   if(!cod){ if(m)m.textContent='Digite seu código de sócia.'; return; }
   var dig=cod.replace(/\D/g,'')||cod;
   if(m)m.textContent='Entrando…';
-  fiJsonp({action:'perfil',codigo:dig}, function(p){
-    if(p===null){ if(m)m.textContent='Erro de conexão. Tente de novo.'; return; }
-    if(!p.socia){ if(m)m.textContent='Não encontramos esse código. Confira com a gente no WhatsApp.'; return; }
+  fiJsonp({action:'tudo',codigo:dig}, function(t){
+    if(t===null){ if(m)m.textContent='Não conseguimos falar com o sistema agora. Tente de novo em alguns segundos.'; return; }
+    var p=t.perfil||{};
+    if(!t.socia){ if(m)m.textContent='Não encontramos esse código. Confira com a gente no WhatsApp.'; return; }
     if(p.inativa){ if(m)m.innerHTML='Sua associação está pausada. <a href="https://wa.me/5511933251200" target="_blank" style="color:var(--co);font-weight:700;">Fale com a gente para reativar 🌿</a>'; return; }
     if(m)m.textContent='';
     _maCod=dig;
     try{ localStorage.setItem('fi_ma_cod', _maCod); }catch(e){}
-    maAbrir(p);
+    maAbrir(p, t);
   });
 }
-function maAbrir(p){
+function maAbrir(p, tudo){
   var lg=document.getElementById('ma-login'); if(lg)lg.style.display='none';
   var ct=document.getElementById('ma-content'); if(ct)ct.style.display='block';
   var nome=p.nome||'Sócia';
@@ -3651,9 +3678,13 @@ function maAbrir(p){
   document.getElementById('ma-selo').style.display=p.cofundadora?'block':'none';
   var base=location.origin+location.pathname;
   document.getElementById('ma-ind-link').textContent=base+'?ind='+_maCod;
-  maCarregarFio(); maCarregarReservas(); maCarregarCredito(); maCarregarAssoc(p); maCarregarBio();
+  maCarregarAssoc(p);
+  maCarregarFio(tudo?tudo.fio:null);
+  maCarregarReservas(tudo?tudo.reservas:null);
+  maCarregarCredito(tudo?tudo.credito:null);
+  maCarregarBio(tudo?tudo.bio:null);
   try{ feIdentidade(); }catch(e){}
-  maTab('bio');
+  if(!window._feMontado) maTab('bio');
 }
 function maSair(){
   try{ localStorage.removeItem('fi_ma_cod'); }catch(e){}
@@ -3671,14 +3702,14 @@ function maTab(t){
   for(var j=0;j<panes.length;j++){ panes[j].style.display='none'; }
   var el=document.getElementById(map[t]); if(el)el.style.display='block';
 }
-function maCarregarFio(){
-  fiJsonp({action:'fio_check',codigo:_maCod}, function(r){
+function maCarregarFio(pronto){
+  function render(r){
     var box=document.getElementById('ma-fio-box'); if(!box)return;
     if(!r||!r.encontrada){ box.innerHTML='<div style="font-size:12px;color:var(--cv2);">Não conseguimos carregar sua Fio agora.</div>'; return; }
     if(r.disponivel){
       window._maFioAte=r.ate||'';
       box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:16px;color:var(--co);margin-bottom:6px;">Sua Fio deste trimestre está disponível 🌿</div>'
-        +(r.ate?'<div style="font-size:12px;color:var(--cv2);margin-bottom:10px;">Use até <b style="font-weight:700;color:var(--cv);">'+r.ate+'</b>, quando começa seu próximo trimestre.</div>':'<div style="margin-bottom:10px;"></div>')
+        +(r.ate?'<div style="font-size:12px;color:var(--cv2);margin-bottom:10px;">'+(r.desde?'Seu trimestre começou em <b style="font-weight:700;color:var(--cv);">'+r.desde+'</b>. ':'')+'Use até <b style="font-weight:700;color:var(--cv);">'+r.ate+'</b>.</div>':'<div style="margin-bottom:10px;"></div>')
         +'<button class="btn-p" style="max-width:220px;margin:0 auto;" onclick="goTo(\'experiencias\')">Ver experiências Fio</button>';
       try{ feResumo(); }catch(e){}
     } else {
@@ -3686,10 +3717,31 @@ function maCarregarFio(){
       box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);margin-bottom:6px;">Sua Fio deste trimestre já foi usada.</div>'+(r.proxima?'<div style="font-size:12px;color:var(--cv2);">Sua próxima Fio libera em '+r.proxima+'.</div>':'');
       try{ feResumo(); }catch(e){}
     }
-  });
+    maFioLista(!!(r&&r.disponivel));
+  }
+  if(pronto){ render(pronto); return; }
+  fiJsonp({action:'fio_check',codigo:_maCod}, render);
 }
-function maCarregarReservas(){
-  fiJsonp({action:'minhas_reservas',codigo:_maCod}, function(r){
+/* as experiências Fio que ainda vão acontecer */
+var FIO_PROX=[
+  {n:'Tecer a Cidadania',d:'11 de agosto, terça',l:'Jardim Paulista'},
+  {n:'Estrear Juntas',d:'12 de setembro, sábado',l:'Jardim Paulistano'},
+  {n:'Compor a Mesa',d:'15 de outubro, quinta',l:'Jardim Paulista'}];
+function maFioLista(disponivel){
+  var el=document.getElementById('ma-fio-lista'); if(!el)return;
+  var h='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:20px 0 4px;">As experiências Fio de agora</div>'
+   +'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:2px;">'
+   +(disponivel?'Escolha uma delas para usar a sua Fio deste trimestre.':'Estas são as Fio do momento. A sua deste trimestre já foi usada, mas dá para reservar pagando.')+'</p>';
+  for(var i=0;i<FIO_PROX.length;i++){ var e=FIO_PROX[i];
+    h+='<div style="padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);">'
+      +'<div style="font-family:\'Merriweather\',serif;font-size:14px;color:var(--cv);">'+e.n+'</div>'
+      +'<div style="font-size:11px;color:var(--cv2);">'+e.d+' · '+e.l+'</div></div>';
+  }
+  h+='<button class="btn-o" style="margin-top:13px;" onclick="goTo(\'experiencias\')">Ver todas as experiências</button>';
+  el.innerHTML=h;
+}
+function maCarregarReservas(pronto){
+  function render(r){
     var el=document.getElementById('ma-exp-lista'); if(!el)return;
     if(!r||!r.reservas||!r.reservas.length){ el.innerHTML='<p style="font-size:12px;font-weight:300;color:var(--cv2);">Você ainda não tem experiências reservadas.</p>'; return; }
     // separa o que ainda vai viver do que já viveu
@@ -3741,10 +3793,12 @@ function maCarregarReservas(){
       + (foi.length?foi.map(linha).join(''):'')
       + (faltou.length?('<p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:14px;">Você reservou '+faltou.length+' experiência'+(faltou.length>1?'s':'')+' que não conseguiu vir: '+faltou.map(function(x){return x.exp;}).join(', ')+'.</p>'):'');
     try{ feResumo(); }catch(e){}
-  });
+  }
+  if(pronto){ render(pronto); return; }
+  fiJsonp({action:'minhas_reservas',codigo:_maCod}, render);
 }
-function maCarregarCredito(){
-  fiJsonp({action:'credito',codigo:_maCod}, function(cr){
+function maCarregarCredito(pronto){
+  function render(cr){
     var el=document.getElementById('ma-credito'); if(!el)return;
     var s=(cr&&cr.ok)?(Number(cr.saldo)||0):0;
     window._maCredAte=(s>0&&cr&&cr.ate)?cr.ate:'';
@@ -3765,7 +3819,9 @@ function maCarregarCredito(){
     if(q){ var n=(cr&&cr.indicadas)||0;
       q.textContent = n ? (n===1?'1 amiga sua já entrou no clube.':n+' amigas suas já entraram no clube.')
                         : 'Nenhuma indicação convertida ainda.'; }
-  });
+  }
+  if(pronto){ render(pronto); return; }
+  fiJsonp({action:'credito',codigo:_maCod}, render);
 }
 /* data, hora e local de cada experiência, pra montar o convite de calendário */
 var EXP_AGENDA={
@@ -3792,8 +3848,26 @@ function maCarregarAssoc(p){
   var el=document.getElementById('ma-assoc-info'); if(!el)return;
   var plano=p.cofundadora?'Co-fundadora':(p.plano||'Sócia fundadora');
   var mens=Number(p.mensalidade)||157;
-  var valor='R$ '+mens+'/mês';
-  el.innerHTML='<strong style="color:var(--cv);">'+plano+'</strong><br>Mensalidade: '+valor+(p.entrada?'<br>Sócia desde '+p.entrada:'');
+  var m=Number(p.meses)||0;
+  var pausada=!!p.pausada, cancelada=!!p.inativa;
+  function linha(rot, val){
+    return '<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(216,205,194,.5);">'
+      +'<div style="font-size:11.5px;font-weight:300;color:var(--cv2);">'+rot+'</div>'
+      +'<div style="font-size:13px;color:var(--cv);text-align:right;">'+val+'</div></div>';
+  }
+  var situacao = cancelada ? '<span style="color:var(--co);font-weight:700;">Encerrada</span>'
+               : pausada  ? '<span style="color:var(--co);font-weight:700;">Em pausa</span>'
+               : '<span style="color:#5c7a4a;font-weight:700;">Ativa, seguindo</span>';
+  var tempo = m>0 ? (m===1?'1 mês':m+' meses') : 'começando agora';
+  el.innerHTML='<div style="background:var(--li);border-radius:10px;padding:15px 15px 6px;margin-bottom:12px;">'
+    +'<div style="font-family:\'Merriweather\',serif;font-size:18px;font-weight:300;color:var(--cv);margin-bottom:2px;">'+plano+'</div>'
+    +'<div style="font-size:11px;font-weight:300;color:var(--cv2);margin-bottom:8px;">Seu plano hoje</div>'
+    +linha('No clube desde', p.entrada||'a confirmar')
+    +linha('Tecendo há', tempo)
+    +(p.assinatura?linha('Assinatura atual desde', p.assinatura):'')
+    +linha('Mensalidade', '<b style="font-weight:700;">R$ '+mens+'</b> por mês')
+    +linha('Situação', situacao)
+    +'</div>';
 }
 function maConvidar(nome){
   var quem=(document.getElementById('ma-nome')||{}).textContent||'';
@@ -3873,8 +3947,8 @@ function maBioDaGrade(nome){
   }catch(e){}
   return null;
 }
-function maCarregarBio(){
-  fiJsonp({action:'bio_get',codigo:_maCod}, function(b){
+function maCarregarBio(pronto){
+  function render(b){
     if(!b||!b.tem){
       // nada na planilha: aproveita o que já existe na grade
       var g=maBioDaGrade((document.getElementById('ma-nome')||{}).textContent||'');
@@ -3890,7 +3964,9 @@ function maCarregarBio(){
     s('mab-nome',b.nome); s('mab-linha',b.linha); s('mab-faz',b.faz); s('mab-momento',b.momento);
     s('mab-filhos',b.filhos); s('mab-pets',b.pets); s('mab-hobbies',b.hobbies); s('mab-tema',b.tema); s('mab-nasc',b.nascimento);
     var m=document.getElementById('mab-msg'); if(m)m.textContent='Sua bio atual já está preenchida, é só ajustar o que quiser 🌿';
-  });
+  }
+  if(pronto){ render(pronto); return; }
+  fiJsonp({action:'bio_get',codigo:_maCod}, render);
 }
 function maBioSalvar(){
   function g(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
@@ -3903,7 +3979,10 @@ function maBioSalvar(){
     if(m)m.textContent='Bio enviada, ela entra na teia em breve 🌿';
   }catch(e){ if(m)m.textContent='Não consegui enviar agora, tente de novo.'; }
 }
-(function(){ try{ var c=localStorage.getItem('fi_ma_cod'); if(c){ fiJsonp({action:'perfil',codigo:c}, function(p){ if(p&&p.socia&&!p.inativa){ _maCod=c; maAbrir(p); fiAbrirTudo(c); } }); } }catch(e){} })();
+(function(){ try{ var c=localStorage.getItem('fi_ma_cod');
+  if(c){ fiJsonp({action:'tudo',codigo:c}, function(t){
+    if(t&&t.socia&&t.perfil&&!t.perfil.inativa){ _maCod=c; fiAbrirTudo(c, t); }
+  }); } }catch(e){} })();
 </script>
 
 </body>
