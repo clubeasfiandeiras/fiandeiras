@@ -247,7 +247,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
 <!-- ══ INÍCIO ══ -->
 <div class="page active" id="page-inicio">
   <!-- Hero, Carrossel de headers (marca) -->
-  <div style="position:relative;background:var(--li);overflow:hidden;">
+  <div class="hero-co" style="position:relative;background:var(--li);overflow:hidden;">
     <style>
       .hc-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;}
       .hc-slide{min-width:100%;box-sizing:border-box;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:46px 30px 56px;}
@@ -260,8 +260,25 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       .hc-dot.on{background:var(--co);width:20px;border-radius:4px;}
       .hc-mark{display:block;width:15px;height:15px;color:var(--co);opacity:.55;margin:0 auto 14px;}
       .hc-mark svg{width:100%;height:100%;display:block;}
+      /* ===== VERSÃO COBRE DO HERO (comparação) =====
+         Os três slides ficam cobre. Um slide só em cobre faria o topo da página
+         piscar a cada giro do carrossel. */
+      .hero-co{background:var(--co)!important;}
+      .hero-co .hc-kick{color:var(--ro)!important;}
+      .hero-co .hc-title{color:var(--li)!important;}
+      .hero-co .hc-body{color:rgba(240,232,213,.9)!important;}
+      .hero-co .hc-body strong{color:var(--li)!important;}
+      .hero-co .hc-mark{color:var(--li)!important;opacity:.5;}
+      .hero-co .hc-slide > div{color:rgba(240,232,213,.82)!important;}
+      .hero-co #hc-exp-tier{color:var(--ro)!important;}
+      .hero-co .hc-btn{background:var(--li)!important;color:var(--co)!important;}
+      .hero-co #hc-exp-acoes .hc-btn + .hc-btn{background:transparent!important;color:var(--li)!important;border:1px solid rgba(240,232,213,.55)!important;}
+      .hero-co #hc-exp-acoes .hc-btn + .hc-btn + .hc-btn{border:none!important;color:rgba(240,232,213,.8)!important;}
+      .hero-co .hc-dot{background:rgba(240,232,213,.35)!important;}
+      .hero-co .hc-dot.on{background:var(--li)!important;}
+      .hero-co .hc-moldura{border-color:rgba(240,232,213,.4)!important;}
     </style>
-    <div style="position:absolute;inset:14px;border:1px solid rgba(175,105,47,.28);border-radius:4px;pointer-events:none;z-index:3;"></div>
+    <div class="hc-moldura" style="position:absolute;inset:14px;border:1px solid rgba(175,105,47,.28);border-radius:4px;pointer-events:none;z-index:3;"></div>
     <div class="hc-track" id="hc-track">
 
       <!-- Slide 1 · Próxima experiência (dinâmica) -->
@@ -272,7 +289,9 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <div id="hc-exp-desc" style="font-family:'Merriweather',serif;font-style:italic;font-weight:300;font-size:12.5px;color:var(--cv2);line-height:1.55;max-width:250px;margin-bottom:13px;">Uma curadoria do guarda-roupa com a Camila, da Ocre.</div>
         <div id="hc-exp-meta" style="font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--cv2);margin-bottom:4px;">30 jul &middot; qui &middot; Moema</div>
         <div id="hc-exp-tier" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--sa);margin-bottom:20px;">Fio &middot; exclusiva para sócias</div>
-        <button class="hc-btn" onclick="goTo('experiencias')">Ver e reservar &rarr;</button>
+        <div id="hc-exp-acoes" style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:250px;">
+          <button class="hc-btn" onclick="goTo('experiencias')">Ver e reservar &rarr;</button>
+        </div>
       </div>
 
       <!-- Slide 2 · Member-get-member (indicação) -->
@@ -306,15 +325,15 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     var track=document.getElementById('hc-track');
     if(!track) return;
     var HC_EXPS=[
-      {n:'Garimpar o Armário', d:'2026-07-30', meta:'30 jul · qui · Moema', tier:'Fio · exclusiva para sócias', desc:'Uma curadoria do guarda-roupa com a Camila, da Ocre.'},
-      {n:'Despertar o Olhar', d:'2026-08-04', meta:'04 ago · ter · Jardim Paulistano', tier:'Ponto', desc:'Um mergulho na arte guiado por Giancarlo Hannud.',asaas:'0bq6f4rqc9o212sc'},
-      {n:'Tecer a Cidadania', d:'2026-08-11', meta:'11 ago · ter · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'Sobre pertencer e transformar, com Bel Collor.'},
-      {n:'Tomar a Palavra · Módulo 2', d:'2026-08-20', meta:'20 ago · qui · Jardim Paulista', tier:'Fio', desc:'Oratória e presença, com Cecília Flesch.',asaas:'yiq2iwxh7vy5lcx4'},
-      {n:'Pausa', d:'2026-08-28', meta:'28 ago · sex · Online', tier:'Ritual online incluído', desc:'Um respiro coletivo, online e incluído.'},
-      {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'Fio · aberta a convidadas', desc:'A experiência Fio aberta também a convidadas.',asaas:'ubhg5wcswzasc5mu'},
-      {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Ponto', desc:'IA sem medo, com Carolina Kia.',asaas:'ehxkkwsbnbyppw4x'},
-      {n:'Reacender o Brilho', d:'2026-10-03', meta:'03 out · sáb · Morumbi', tier:'Tear', desc:'Face Yoga e máscara de LED, um ritual de cuidado.',asaas:'pvvqkpzbtftvugze'},
-      {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.'}
+      {n:'Garimpar o Armário', d:'2026-07-30', meta:'30 jul · qui · Moema', tier:'Fio · exclusiva para sócias', desc:'Uma curadoria do guarda-roupa com a Camila, da Ocre.',fio:1},
+      {n:'Despertar o Olhar', d:'2026-08-04', meta:'04 ago · ter · Jardim Paulistano', tier:'Ponto', desc:'Um mergulho na arte guiado por Giancarlo Hannud.',pg:'0bq6f4rqc9o212sc'},
+      {n:'Tecer a Cidadania', d:'2026-08-11', meta:'11 ago · ter · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'Sobre pertencer e transformar, com Bel Collor.',fio:1,pg:'llm29jxwsj8u6sr7'},
+      {n:'Tomar a Palavra · Módulo 2', d:'2026-08-20', meta:'20 ago · qui · Jardim Paulista', tier:'Fio', desc:'Oratória e presença, com Cecília Flesch.',fio:1,pg:'un3serfsjnmgcqsd'},
+      {n:'Pausa', d:'2026-08-28', meta:'28 ago · sex · Online', tier:'Ritual online incluído', desc:'Um respiro coletivo, online e incluído.',pausa:1},
+      {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'Fio · aberta a convidadas', desc:'A experiência Fio aberta também a convidadas.',fio:1,pg:'ishqorz2n31xta6v'},
+      {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Ponto', desc:'IA sem medo, com Carolina Kia.',pg:'p3nihwyj3thuia5t'},
+      {n:'Reacender o Brilho', d:'2026-10-03', meta:'03 out · sáb · Morumbi', tier:'Tear', desc:'Face Yoga e máscara de LED, um ritual de cuidado.',pg:'2n92l8fhs8dv5ep4'},
+      {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.',fio:1,pg:'srloe1ea8mbeo69a'}
     ];
     try{
       var today=new Date(); today.setHours(0,0,0,0);
@@ -325,6 +344,18 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       var mt=document.getElementById('hc-exp-meta'); if(mt)mt.textContent=nx.meta;
       var tr=document.getElementById('hc-exp-tier'); if(tr)tr.textContent=nx.tier;
       var de=document.getElementById('hc-exp-desc'); if(de&&nx.desc)de.textContent=nx.desc;
+      /* O hero JÁ é o destaque da próxima experiência: em vez de um bloco extra
+         repetindo o mesmo nome logo abaixo, ele ganha os botões de verdade.
+         Funciona sozinho para toda experiência que vier depois. */
+      var ac=document.getElementById('hc-exp-acoes');
+      if(ac && nx.pg){
+        var url='https://www.asaas.com/c/'+nx.pg;
+        var b='';
+        if(nx.fio) b+='<button class="hc-btn" onclick="reservarFio(\''+nx.n.replace(/'/g,"\\'")+'\',\''+url+'\')">Usar minha Fio inclu&iacute;da</button>';
+        b+='<button class="hc-btn" style="background:transparent;color:var(--co);border:1px solid var(--co);" onclick="reservarSocia(\''+nx.n.replace(/'/g,"\\'")+'\',\''+url+'\')">Reservar</button>';
+        b+='<button class="hc-btn" style="background:transparent;color:var(--cv2);border:none;font-size:10px;letter-spacing:.6px;text-transform:none;font-weight:600;text-decoration:underline;padding:4px;" onclick="goTo(\'experiencias\')">ver todas as experi&ecirc;ncias</button>';
+        ac.innerHTML=b;
+      }
     }catch(e){}
     var n=track.children.length, idx=0, timer=null;
     var dots=[].slice.call(document.querySelectorAll('#hc-dots .hc-dot'));
@@ -1865,6 +1896,22 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               </div>
             </div>
           </div>
+                    <!-- Giancarlo Hannud -->
+          <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(157,175,130,.06);">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(157,175,130,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+              <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:var(--cv);">Giancarlo Hannud</div>
+                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Curadoria &middot; Despertar o Olhar</div>
+              </div>
+            </div>
+            <div style="padding:11px 13px;">
+              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">Conduziu a nossa <em style="color:var(--cv);">Despertar o Olhar</em>. Obra por obra, s&eacute;culos de arte at&eacute; a Bienal de Veneza.</p>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                                <a href="https://www.instagram.com/giancarlo.hannud" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
+              </div>
+            </div>
+          </div>
           <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 2px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Onde nos encontramos</div>
           <!-- Conexa Spot -->
           <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
@@ -1964,6 +2011,25 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               <div style="display:flex;gap:14px;flex-wrap:wrap;">
                                 <a href="https://www.instagram.com/lesdeuxmagotsbrasil" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
                 <a href="https://lesdeuxmagots.com.br" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg> Site</a>
+              </div>
+            </div>
+          </div>
+                    <!-- ArtSoul -->
+          <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(175,105,47,.05);">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(175,105,47,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+              <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:var(--cv);">ArtSoul</div>
+                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Onde aconteceu &middot; Despertar o Olhar</div>
+              </div>
+            </div>
+            <div style="padding:11px 13px;">
+              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">Recebeu a nossa <em style="color:var(--cv);">Despertar o Olhar</em>. Arte contempor&acirc;nea no Jardim Paulistano.</p>
+              <p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;opacity:.85;">Alameda Gabriel Monteiro da Silva, 1889</p>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                                <a href="https://www.instagram.com/artsouldesign.br" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
+                <a href="https://artsoul.com.br" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg> Site</a>
+                <a href="https://maps.google.com/?q=Alameda+Gabriel+Monteiro+da+Silva,+1889,+São+Paulo" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Mapa</a>
               </div>
             </div>
           </div>
@@ -3329,9 +3395,11 @@ function fiAbrirTudo(cod, tudo){
   try{ fiMontarEspacos(); }catch(e){}
   try{ if(typeof maAbrir==='function'){
     if(tudo && tudo.perfil){ maAbrir(tudo.perfil, tudo); }
-    else fiJsonp({action:'tudo',codigo:_maCod}, function(t){
-      if(t&&t.socia&&t.perfil&&!t.perfil.inativa) maAbrir(t.perfil, t);
-    });
+    else { var _meu=++_maSessao, _cod=_maCod;
+      fiJsonp({action:'tudo',codigo:_cod}, function(t){
+        if(_meu!==_maSessao || _cod!==_maCod) return;
+        if(t&&t.socia&&t.perfil&&!t.perfil.inativa) maAbrir(t.perfil, t);
+      }); }
   } }catch(e){}
 }
 /* ETAPA 2 e 3: a Área das Sócias vira UM lugar só.
@@ -3682,13 +3750,32 @@ function albumClose(){document.getElementById('album-lightbox').style.display='n
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0102a278c5724dc294575ed35f41076c"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
 var _maCod='';
+/* Duas telas podiam disputar a mesma área ao mesmo tempo: a entrada
+   automática (com o código guardado no navegador) e a que a sócia digita.
+   As duas pediam os dados ao mesmo tempo, e a resposta que chegava por
+   último mandava. Deu para ver isso na prática: o nome de uma sócia com as
+   experiências de outra. Agora cada entrada ganha um número; resposta de
+   entrada antiga é jogada fora. */
+var _maSessao = 0;
+function maLimpar(){
+  window._maVividas = 0; window._maVividasNomes = [];
+  window._maFioAte = ''; window._maCredAte = '';
+  var ids = ['ma-exp-lista','ma-fio-box','ma-fio-lista','ma-credito','ma-cred-box','ma-cred-conta',
+             'ma-cred-exp','ma-cred-pedido','ma-cred-prazo','ma-assoc-info','ma-hist','ma-indicadas','fe-resumo'];
+  for(var i=0;i<ids.length;i++){ var e=document.getElementById(ids[i]); if(e) e.innerHTML=''; }
+  var nm=document.getElementById('ma-nome'); if(nm) nm.textContent='';
+  var ds=document.getElementById('ma-desde'); if(ds) ds.textContent='';
+}
 function maEntrar(){
   var el=document.getElementById('ma-cod'); var cod=(el?el.value:'').trim();
   var m=document.getElementById('ma-msg');
   if(!cod){ if(m)m.textContent='Digite seu código de sócia.'; return; }
   var dig=cod.replace(/\D/g,'')||cod;
   if(m)m.textContent='Entrando…';
+  var _meu=++_maSessao;
+  maLimpar();
   fiJsonp({action:'tudo',codigo:dig}, function(t){
+    if(_meu!==_maSessao) return;            // outra entrada começou depois desta
     if(t===null){ if(m)m.textContent='Não conseguimos falar com o sistema agora. Tente de novo em alguns segundos.'; return; }
     var p=t.perfil||{};
     if(!t.socia){ if(m)m.textContent='Não encontramos esse código. Confira com a gente no WhatsApp.'; return; }
@@ -3720,7 +3807,7 @@ function maAbrir(p, tudo){
 }
 function maSair(){
   try{ localStorage.removeItem('fi_ma_cod'); }catch(e){}
-  _maCod='';
+  _maCod=''; _maSessao++; maLimpar();
   var ct=document.getElementById('ma-content'); if(ct)ct.style.display='none';
   var lg=document.getElementById('ma-login'); if(lg)lg.style.display='block';
   var el=document.getElementById('ma-cod'); if(el)el.value='';
@@ -4012,9 +4099,11 @@ function maBioSalvar(){
   }catch(e){ if(m)m.textContent='Não consegui enviar agora, tente de novo.'; }
 }
 (function(){ try{ var c=localStorage.getItem('fi_ma_cod');
-  if(c){ fiJsonp({action:'tudo',codigo:c}, function(t){
-    if(t&&t.socia&&t.perfil&&!t.perfil.inativa){ _maCod=c; fiAbrirTudo(c, t); }
-  }); } }catch(e){} })();
+  if(c){ var _meu=++_maSessao;
+    fiJsonp({action:'tudo',codigo:c}, function(t){
+      if(_meu!==_maSessao) return;          // a sócia já entrou com outro código
+      if(t&&t.socia&&t.perfil&&!t.perfil.inativa){ _maCod=c; fiAbrirTudo(c, t); }
+    }); } }catch(e){} })();
 </script>
 
 </body>
