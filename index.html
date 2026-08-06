@@ -3833,10 +3833,18 @@ function maCarregarFio(pronto){
       try{ feResumo(); }catch(e){}
     } else {
       window._maFioAte='';
-      box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);margin-bottom:6px;">Sua Fio deste trimestre já foi usada.</div>'+(r.proxima?'<div style="font-size:12px;color:var(--cv2);">Sua próxima Fio libera em '+r.proxima+'.</div>':'');
+      /* Usar a Fio numa experiência que ainda vem não é "já usada" — é
+         "guardada nessa experiência". Dizer o nome dela evita o susto. */
+      var tit = (r.usadaEm && r.usadaFutura)
+        ? 'Sua Fio deste trimestre está na <em style="font-style:italic;">'+r.usadaEm+'</em>.'
+        : (r.usadaEm ? 'Você usou sua Fio deste trimestre na <em style="font-style:italic;">'+r.usadaEm+'</em>.'
+                     : 'Sua Fio deste trimestre já foi usada.');
+      box.innerHTML='<div style="font-family:\'Merriweather\',serif;font-size:15px;color:var(--cv);margin-bottom:6px;">'+tit+'</div>'
+        +(r.usadaQuando?'<div style="font-size:12px;color:var(--cv2);margin-bottom:3px;">'+(r.usadaFutura?'Acontece em ':'Aconteceu em ')+'<b style="font-weight:700;color:var(--cv);">'+r.usadaQuando+'</b>.</div>':'')
+        +(r.proxima?'<div style="font-size:12px;color:var(--cv2);">Sua próxima Fio libera em '+r.proxima+'.</div>':'');
       try{ feResumo(); }catch(e){}
     }
-    maFioLista(!!(r&&r.disponivel));
+    maFioLista(!!(r&&r.disponivel), r);
   }
   if(pronto){ render(pronto); return; }
   fiJsonp({action:'fio_check',codigo:_maCod}, render);
@@ -3846,8 +3854,13 @@ var FIO_PROX=[
   {n:'Tecer a Cidadania',d:'11 de agosto, terça',l:'Jardim Paulista'},
   {n:'Estrear Juntas',d:'12 de setembro, sábado',l:'Jardim Paulistano'},
   {n:'Compor a Mesa',d:'15 de outubro, quinta',l:'Jardim Paulista'}];
-function maFioLista(disponivel){
+function maFioLista(disponivel, r){
   var el=document.getElementById('ma-fio-lista'); if(!el)return;
+  /* Se ela já escolheu onde usar a Fio, oferecer as outras é ruído. */
+  if(!disponivel && r && r.usadaEm && r.usadaFutura){
+    el.innerHTML='<button class="btn-o" style="margin-top:13px;" onclick="goTo(\'experiencias\')">Ver todas as experiências</button>';
+    return;
+  }
   var h='<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:20px 0 4px;">As experiências Fio de agora</div>'
    +'<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:2px;">'
    +(disponivel?'Escolha uma delas para usar a sua Fio deste trimestre.':'Estas são as Fio do momento. A sua deste trimestre já foi usada, mas dá para reservar pagando.')+'</p>';
@@ -3864,23 +3877,31 @@ function maCarregarReservas(pronto){
     var el=document.getElementById('ma-exp-lista'); if(!el)return;
     if(!r||!r.reservas||!r.reservas.length){ el.innerHTML='<p style="font-size:12px;font-weight:300;color:var(--cv2);">Você ainda não tem experiências reservadas.</p>'; return; }
     // separa o que ainda vai viver do que já viveu
+    /* "Vivida" é quem TEM 'Sim' na coluna Compareceu. Antes, toda reserva
+       passada contava — por isso a Cristiana, que reservou e não foi, aparecia
+       com 2 experiências vividas. Reserva cancelada some da área da sócia. */
     var vem=[], foi=[], faltou=[];
     for(var i=0;i<r.reservas.length;i++){ var x=r.reservas[i];
+      var st=(x.status||'').toLowerCase();
+      if(st.indexOf('cancelada')===0) continue;
       if(x.futura){ vem.push(x); }
-      else if(String(x.foi||'').toLowerCase().indexOf('n')===0 && String(x.foi).toLowerCase()!=='sim'){ faltou.push(x); }
-      else { foi.push(x); }
+      else if(String(x.foi||'').toLowerCase().indexOf('sim')===0){ foi.push(x); }
+      else { faltou.push(x); }
     }
     window._maVividas=foi.length;
     window._maVividasNomes=foi.map(function(x){return x.exp;});
     function ord(a,b){ return (a.ord||0)-(b.ord||0); }
     vem.sort(ord); foi.sort(function(a,b){return (b.ord||0)-(a.ord||0);});
+    /* taxonomia nova (ago/2026): Status = Confirmada · Reservada · Cancelada.
+       Antes só 'Paga' contava como pago, então TUDO virava "Falta pagar". */
     function selo(x){
       var t=(x.tipo||'').toLowerCase(), s=(x.status||'').toLowerCase();
+      if(s.indexOf('cancelada')===0) return ['Cancelada','var(--cv2)'];
       if(t.indexOf('fio')===0) return ['Fio incluída','#5c7a4a'];
       if(t.indexOf('pausa')===0) return ['Incluída','#5c7a4a'];
       if(t.indexOf('cortesia')===0) return ['Cortesia','#5c7a4a'];
       if(t.indexOf('ciclo 1')===0) return ['',''];
-      if(s.indexOf('paga')===0) return ['Pago','#5c7a4a'];
+      if(s.indexOf('confirmada')===0||s.indexOf('paga')===0||s.indexOf('incluida')===0) return ['Pago','#5c7a4a'];
       return ['Falta pagar','var(--co)'];
     }
     function linha(x){
@@ -3910,7 +3931,7 @@ function maCarregarReservas(pronto){
     if(hist) hist.innerHTML = '<div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:2px;">Minha história no clube</div>'
       + '<p style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:6px;">'+(foi.length?('Você já viveu '+foi.length+' experiência'+(foi.length>1?'s':'')+' com a gente.'):'Sua história no clube começa aqui.')+'</p>'
       + (foi.length?foi.map(linha).join(''):'')
-      + (faltou.length?('<p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:14px;">Você reservou '+faltou.length+' experiência'+(faltou.length>1?'s':'')+' que não conseguiu vir: '+faltou.map(function(x){return x.exp;}).join(', ')+'.</p>'):'');
+      + (faltou.length?('<p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:14px;">Você reservou '+faltou.length+' experiência'+(faltou.length>1?'s':'')+' em que a gente não te viu: '+faltou.map(function(x){return x.exp;}).join(', ')+'. Se estivermos enganadas, é só avisar.</p>'):'');
     try{ feResumo(); }catch(e){}
   }
   if(pronto){ render(pronto); return; }
@@ -3982,8 +4003,8 @@ function maCarregarAssoc(p){
     +'<div style="font-family:\'Merriweather\',serif;font-size:18px;font-weight:300;color:var(--cv);margin-bottom:2px;">'+plano+'</div>'
     +'<div style="font-size:11px;font-weight:300;color:var(--cv2);margin-bottom:8px;">Seu plano hoje</div>'
     +linha('No clube desde', p.entrada||'a confirmar')
-    +linha('Tecendo há', tempo)
     +(p.assinatura?linha('Assinatura atual desde', p.assinatura):'')
+    +linha('Tecendo há', tempo)
     +linha('Mensalidade', '<b style="font-weight:700;">R$ '+mens+'</b> por mês')
     +linha('Situação', situacao)
     +'</div>';
