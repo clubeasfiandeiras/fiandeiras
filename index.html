@@ -2361,22 +2361,17 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       </div>
     </div>
 
-    <!-- INDICAR UMA AMIGA -->
+    <!-- MEUS CRÉDITOS -->
     <div class="ma-pane" id="map-ind" style="display:none;">
       <div class="sec" style="padding-top:12px;">
-        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:12px;">Compartilhe seu link. Quando uma amiga entra por ele, você ganha R$157 de crédito para usar em uma experiência que não seja Fio, lançado na primeira parcela dela. O crédito vale por 3 meses.</p>
-        <div style="background:var(--li);border-radius:8px;padding:12px;margin-bottom:12px;">
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">Seu link</div>
-          <div id="ma-ind-link" style="font-size:12px;color:var(--cv);word-break:break-all;line-height:1.5;"></div>
-        </div>
-        <button class="btn-p" onclick="maCopiarInd()">Copiar mensagem pronta</button>
-        <div id="ma-ind-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin-top:8px;"></div>
-        <div style="margin-top:14px;padding:12px 13px;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;">
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:4px;">Seu crédito de indicação</div>
+
+        <!-- o saldo vem primeiro: a página é "Meus créditos", não "indicação".
+             O crédito pode vir de indicação, de ajuste de preço ou de devolução. -->
+        <div style="padding:14px 15px;background:rgba(157,175,130,.1);border:1px solid rgba(157,175,130,.4);border-radius:8px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#5c7a4a;margin-bottom:4px;">Seu crédito</div>
           <div id="ma-credito" style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);">…</div>
-          <div id="ma-indicadas" style="font-size:11px;color:var(--cv2);margin-top:3px;"></div>
           <div id="ma-cred-prazo" style="font-size:11px;color:var(--cv2);margin-top:3px;"></div>
-          <div style="font-size:10px;font-weight:300;color:var(--cv2);line-height:1.5;margin-top:5px;">O crédito abate do valor de uma experiência que não seja Fio, e entra inteiro numa só. Escolha abaixo para ver quanto fica, e a gente manda o link de pagamento com o desconto já aplicado.</div>
+          <div style="font-size:10px;font-weight:300;color:var(--cv2);line-height:1.5;margin-top:7px;">O crédito abate do valor de uma experiência que não seja Fio, e entra inteiro numa só. Escolha abaixo para ver quanto fica, e a gente manda o link de pagamento com o desconto já aplicado.</div>
           <div id="ma-cred-box" style="display:none;margin-top:9px;">
             <select id="ma-cred-exp" class="fi" style="margin-bottom:8px;" onchange="maCredCalc()"></select>
             <div id="ma-cred-conta" style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.7;margin-bottom:9px;"></div>
@@ -2384,6 +2379,17 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           </div>
           <div id="ma-cred-pedido" style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:9px;"></div>
         </div>
+
+        <!-- uma das formas de ganhar crédito, não a única -->
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:24px 0 6px;">Ganhar mais crédito</div>
+        <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:12px;">Compartilhe seu link. Quando uma amiga entra por ele, você ganha R$157 de crédito para usar em uma experiência que não seja Fio, lançado na primeira parcela dela. O crédito vale por 3 meses.</p>
+        <div style="background:var(--li);border-radius:8px;padding:12px;margin-bottom:12px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">Seu link</div>
+          <div id="ma-ind-link" style="font-size:12px;color:var(--cv);word-break:break-all;line-height:1.5;"></div>
+        </div>
+        <button class="btn-p" onclick="maCopiarInd()">Copiar mensagem pronta</button>
+        <div id="ma-ind-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin-top:8px;"></div>
+        <div id="ma-indicadas" style="font-size:11px;color:var(--cv2);margin-top:6px;"></div>
       </div>
     </div>
 
@@ -3412,7 +3418,7 @@ var FE_TITULOS={
   bio:['Minha bio','Quem sou eu'],
   exp:['Minhas experiências','O que já vivi e o que vem por aí'],
   fio:['Minha Fio','A experiência incluída do meu trimestre'],
-  indicar:['Meus créditos','Indique uma amiga e ganhe R$157'],
+  indicar:['Meus créditos','O que você tem para usar'],
   assoc:['Meu plano','Mensalidade e pagamento'],
   teia:['Nossas sócias','As mulheres que fazem este clube'],
   album:['Nossos álbuns','As memórias de cada experiência'],
@@ -3548,7 +3554,7 @@ function feResumo(){
       +(fioAte?(' Use até '+b(fioAte)+'.'):'')+'</div>';
   }
   if(cred.indexOf('R$')>-1){
-    h+='<div style="margin-top:'+(temFio?'2px':'8px')+';">Você tem '+b(cred.replace(' disponível',''))+' de crédito por indicação.'
+    h+='<div style="margin-top:'+(temFio?'2px':'8px')+';">Você tem '+b(cred.replace(' disponível',''))+' de crédito.'
       +(credAte?(' Use até '+b(credAte)+'.'):'')+'</div>';
   }
   h+='</div></div>';
@@ -3943,8 +3949,24 @@ function maCarregarCredito(pronto){
     var s=(cr&&cr.ok)?(Number(cr.saldo)||0):0;
     window._maCredAte=(s>0&&cr&&cr.ate)?cr.ate:'';
     el.textContent=s>0?('R$ '+s+' disponível'):'Sem crédito no momento';
+    /* A conta aberta: de onde veio cada pedaço. Um número solto faz a sócia
+       perguntar "de onde saiu isso?" — e some o gesto do clube de ter devolvido. */
     var pz=document.getElementById('ma-cred-prazo');
-    if(pz) pz.innerHTML=(s>0&&window._maCredAte)?('Use até <b style="font-weight:700;color:var(--cv);">'+window._maCredAte+'</b>.'):'';
+    if(pz){
+      var det=(cr&&cr.detalhe)||[];
+      var linhas='';
+      for(var i=0;i<det.length;i++){ var x=det[i];
+        if(!x||!x.valor) continue;
+        var txt=(x.motivo||x.origem||'').replace(/\s*·\s*valor pago.*$/i,'');
+        linhas+='<div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;">'
+          +'<b style="font-weight:700;color:var(--cv);">R$ '+x.valor+'</b>'
+          +(txt?(' · '+txt):'')
+          +(x.ate?(' <span style="opacity:.8;">· use até '+x.ate+'</span>'):'')
+          +'</div>';
+      }
+      pz.innerHTML = (s>0&&linhas) ? ('<div style="margin-top:6px;">'+linhas+'</div>')
+        : ((s>0&&window._maCredAte)?('Use até <b style="font-weight:700;color:var(--cv);">'+window._maCredAte+'</b>.'):'');
+    }
     var bx=document.getElementById('ma-cred-box');
     if(bx) bx.style.display=s>0?'block':'none';
     window._maCredSaldo=s;
