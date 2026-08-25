@@ -331,8 +331,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       {n:'Garimpar o Armário', d:'2026-07-30', meta:'30 jul · qui · Moema', tier:'Fio · exclusiva para sócias', desc:'Uma curadoria do guarda-roupa com a Camila, da Ocre.',fio:1},
       {n:'Despertar o Olhar', d:'2026-08-04', meta:'04 ago · ter · Jardim Paulistano', tier:'Ponto', desc:'Um mergulho na arte guiado por Giancarlo Hannud.',pg:'0bq6f4rqc9o212sc'},
       {n:'Tomar a Palavra · Módulo 2', d:'2026-08-20', meta:'20 ago · qui · Jardim Paulista', tier:'Fio', desc:'Oratória e presença, com Cecília Flesch.',fio:1,pg:'un3serfsjnmgcqsd'},
-      {n:'Pausa', d:'2026-08-28', meta:'28 ago · sex · Online', tier:'Ritual online incluído', desc:'Um respiro coletivo, online e incluído.',pausa:1},
-      {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'Fio · aberta a convidadas', desc:'A experiência Fio aberta também a convidadas.',fio:1,pg:'ishqorz2n31xta6v'},
+      {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'◍ Especial de estreia · aberta a todas', desc:'Um cinema inteiro só nosso. Traga as amigas que quiser: convidada paga R$ 295, o mesmo que sócia.',fio:1,pg:'ishqorz2n31xta6v',aberta:1},
       {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Ponto', desc:'IA sem medo, com Carolina Kia.',pg:'p3nihwyj3thuia5t'},
       {n:'Reacender o Brilho', d:'2026-10-03', meta:'03 out · sáb · Morumbi', tier:'Tear', desc:'Face Yoga e máscara de LED, um ritual de cuidado.',pg:'2n92l8fhs8dv5ep4'},
       {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.',fio:1,pg:'srloe1ea8mbeo69a'}
@@ -355,7 +354,8 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         var b='';
         if(nx.fio) b+='<button class="hc-btn" onclick="reservarFio(\''+nx.n.replace(/'/g,"\\'")+'\',\''+url+'\')">Usar minha Fio inclu&iacute;da</button>';
         b+='<button class="hc-btn" style="background:transparent;color:var(--co);border:1px solid var(--co);" onclick="reservarSocia(\''+nx.n.replace(/'/g,"\\'")+'\',\''+url+'\')">Reservar</button>';
-        b+='<button class="hc-btn" style="background:transparent;color:var(--cv2);border:none;font-size:10px;letter-spacing:.6px;text-transform:none;font-weight:600;text-decoration:underline;padding:4px;" onclick="goTo(\'experiencias\')">ver todas as experi&ecirc;ncias</button>';
+        if(nx.aberta){ b+='<button class="hc-btn" style="background:transparent;color:var(--cv2);border:none;font-size:10px;letter-spacing:.6px;text-transform:none;font-weight:600;text-decoration:underline;padding:4px;" onclick="convidarAmiga(\''+nx.n.replace(/'/g,"\\'")+'\')">convidar uma amiga</button>'; }
+        else { b+='<button class="hc-btn" style="background:transparent;color:var(--cv2);border:none;font-size:10px;letter-spacing:.6px;text-transform:none;font-weight:600;text-decoration:underline;padding:4px;" onclick="goTo(\'experiencias\')">ver todas as experi&ecirc;ncias</button>'; }
         ac.innerHTML=b;
       }
     }catch(e){}
@@ -512,16 +512,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div style="padding:16px 20px 0;">
     <div class="kicker" style="margin-bottom:10px;">Inscrições abertas</div>
     <div style="display:flex;flex-direction:column;gap:8px;">
-      <!-- Tomar a Palavra 2, 20/ago -->
-      <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">20 ago · qui · 19h</div>
-          <span class="tipo-badge t-fio" style="font-size:7px;">Fio</span>
-        </div>
-        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Tomar a Palavra · Módulo 2</div>
-        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulista</div>
-        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
-      </div>
       <!-- Pausa 28/ago -->
       <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
@@ -556,6 +546,16 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <span style="font-size:7px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">✓ Realizada</span>
         </div>
         <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Tecer a Cidadania</div>
+        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulista</div>
+        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver como foi →</div>
+      </div>
+      <!-- Tomar a Palavra · Módulo 2, 20/ago -->
+      <div onclick="abrirExperiencia('tomar-a-palavra-modulo-2')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid var(--ar);cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--cv2);">20 ago · qui</div>
+          <span style="font-size:7px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">✓ Realizada</span>
+        </div>
+        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Tomar a Palavra · Módulo 2</div>
         <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulista</div>
         <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver como foi →</div>
       </div>
@@ -645,28 +645,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div style="padding:8px 18px 4px;"><div class="kicker">Confirmadas</div></div>
     <div class="tl">
-      <!-- Tomar a Palavra · Módulo 2, 20/ago -->
-      <div class="tl-item" id="exp-tomar-a-palavra-modulo-2">
-        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
-        <div class="exp-card">
-          <div class="ec-top">
-            <div><div class="ec-date">20</div><div class="ec-day">ago · qui · 19h</div></div>
-            <span class="tipo-badge t-fio" onclick="verCombinados()" style="cursor:pointer;">Fio</span>
-          </div>
-          <div class="ec-name">Tomar a Palavra · Módulo 2</div>
-          <div class="ec-local">Jardim Paulista</div>
-          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Ampliação</div>
-          <span style="display:inline-block;font-size:8px;letter-spacing:.5px;font-weight:600;color:#5c7a4a;background:rgba(157,175,130,.14);padding:2px 8px;border-radius:20px;margin:0 0 8px;">encontro do mês · 3ª quinta</span><br><div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Uma continuação do encontro com Cecília Flesch, sobre a relação de cada uma com a própria voz e a presença que conecta de verdade. Para quem esteve no módulo 1 e quer aprofundar, e para quem chega agora, sem ter feito o primeiro.</div>
-          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Cecília Flesch</span> · jornalista, apresentadora do RivoNews e criadora do Método FALE.</div>
-          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
-            <div style="font-size:9px;font-weight:600;color:#5c7a4a;background:rgba(157,175,130,.14);display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:10px;">✦ Experiência Fio, exclusiva para sócias</div>
-            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
-            <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 147,50</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 295</div>
-            <button onclick="reservarFio('Tomar a Palavra · Módulo 2','https://www.asaas.com/c/un3serfsjnmgcqsd')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;margin-bottom:7px;">Usar minha Fio incluída</button>
-            <button onclick="reservarSocia('Tomar a Palavra · Módulo 2','https://www.asaas.com/c/un3serfsjnmgcqsd')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Reservar pagando</button>
-          </div>
-        </div>
-      </div>
       <!-- Pausa, 28/ago -->
       <div class="tl-item" id="exp-pausa-28-ago">
         <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
@@ -697,21 +675,17 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div class="ec-name">Estrear Juntas</div>
           <div class="ec-local">Jardim Paulistano</div>
           <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Conexão</div>
-          <div style="background:rgba(223,178,181,.16);border:1px solid rgba(223,178,181,.55);border-radius:8px;padding:9px 12px;margin:2px 0 10px;font-size:12px;font-weight:600;color:#a85c66;line-height:1.4;">✦ Para você e uma amiga especial, o convite é para duas.</div><div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">As Fiandeiras fecharam o cinema do Iguatemi para uma sessão exclusiva de As Melhores Amigas, com Ingrid Guimarães e Monica Martelli. Pipoca inclusa. Depois, aperitivo na região para comentar e rir sobre as verdades do filme.</div>
+          <div style="background:rgba(175,105,47,.08);border:1px solid rgba(175,105,47,.45);border-radius:8px;padding:10px 12px;margin:2px 0 10px;"><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:5px;">◍ Especial de estreia</div><div style="font-size:12px;font-weight:400;color:var(--cv);line-height:1.5;">Um cinema tem espaço para muito mais gente do que uma sala de casa. Então nesta experiência traga as amigas que quiser! Sua convidada paga <b>R$ 295</b>, o mesmo que você, e também pode levar uma amiga!</div></div><div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">As Fiandeiras fecharam o cinema do Iguatemi para uma sessão exclusiva de As Melhores Amigas, com Ingrid Guimarães e Monica Martelli. Pipoca inclusa. Depois, aperitivo na região para comentar e rir sobre as verdades do filme.</div>
           <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><em>A única experiência Fio aberta a convidadas.</em></div>
           <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
-            <div style="display:grid;grid-template-columns:1fr 1fr;">
-              <div style="padding-right:11px;border-right:1px solid rgba(216,205,194,.5);">
-                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
-                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 147,50</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 295</div>
-                <button onclick="reservarFio('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button><button onclick="reservarSocia('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Reservar</button>
-              </div>
-              <div style="padding-left:11px;">
-                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
-                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1.05;">2x R$ 226,00</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 452</div>
-                <button onclick="interesseConv('Estrear Juntas','https://www.asaas.com/c/ubhg5wcswzasc5mu')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
-              </div>
-            </div>
+            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia e convidada</div>
+            <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 147,50</div>
+            <div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin:1px 0 6px;">total R$ 295 · o mesmo valor para as duas</div>
+            <div style="font-size:9px;font-weight:600;color:#5c7a4a;margin-bottom:9px;">✦ Experiência Fio · aberta a convidadas</div>
+            <button onclick="reservarFio('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>
+            <button onclick="reservarSocia('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Sou sócia · reservar</button>
+            <button onclick="convidadaAberta('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Não sou sócia · reservar</button>
+            <button onclick="convidarAmiga('Estrear Juntas')" style="width:100%;padding:8px 0 0;background:transparent;border:none;font-family:'Mulish',sans-serif;font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--co);cursor:pointer;text-decoration:underline;margin-top:4px;">convidar uma amiga</button>
           </div>
         </div>
       </div>
@@ -862,10 +836,27 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <!-- REALIZADAS -->
   <div class="exp-pane" id="exp-realizadas">
     <div style="padding:16px 18px 4px;">
-      <p style="font-size:12px;color:var(--cv2);font-weight:300;line-height:1.7;">Dez experiências já aconteceram. Cada uma delas deixou algo real.</p>
+      <p style="font-size:12px;color:var(--cv2);font-weight:300;line-height:1.7;">Onze experiências já aconteceram. Cada uma delas deixou algo real.</p>
     </div>
     <div class="tl">
 
+      <!-- Tomar a Palavra · Módulo 2, 20/ago -->
+      <div class="tl-item" id="exp-tomar-a-palavra-modulo-2">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--sa);background:var(--sa);"></div><div class="tl-line"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div class="ec-date" style="color:var(--cv2);">20</div><div class="ec-day">ago · qui · 19h</div></div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+              <span class="tipo-badge t-fio">Fio</span>
+              <span style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">✓ Realizada</span>
+            </div>
+          </div>
+          <div class="ec-name">Tomar a Palavra · Módulo 2</div>
+          <div class="ec-local">Jardim Paulista</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Ampliação</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Cecília Flesch</span> · jornalista, apresentadora do RivoNews e criadora do Método FALE.</div>
+        </div>
+      </div>
       <!-- Tecer a Cidadania, 11/ago -->
       <div class="tl-item" id="exp-tecer-a-cidadania">
         <div class="tl-spine"><div class="tl-dot" style="border-color:var(--sa);background:var(--sa);"></div><div class="tl-line"></div></div>
@@ -883,11 +874,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;padding:0 13px 10px;">Uma noite sobre o lugar que cada uma ocupa na construção da sociedade, com a Bel Collor guiando uma conversa sem respostas prontas sobre política, cidadania e o nosso papel na capital china. Terminou em roda, sobre a mesa posta com carinho.</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/tecer-a-cidadania-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tecer-a-cidadania-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/tecer-a-cidadania-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/tecer-a-cidadania-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tecer-a-cidadania-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tecer-a-cidadania-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -914,11 +905,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;padding:0 13px 10px;">Uma noite atravessando séculos de arte para reparar em quem sempre esteve ali como imagem e quase nunca como criadora. O Giancarlo conduziu obra por obra, do início dessa história até a Bienal de Veneza de 2026, e a conversa seguiu no jantar.</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/despertar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/despertar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/despertar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/despertar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/despertar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/despertar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
         </div>
@@ -941,13 +932,13 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;padding:0 13px 10px;">Uma noite de troca de verdade na Ocre, garimpando no próprio armário e no acervo da loja, descobrindo novas formas de usar o que já se tem, com a Camila conduzindo peça por peça.</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/garimpar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/garimpar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/garimpar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/garimpar-4.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/garimpar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/garimpar-5.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/garimpar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/garimpar-4.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/garimpar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/garimpar-5.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -973,11 +964,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/entreciclos-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/entreciclos-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/entreciclos-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/entreciclos-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/entreciclos-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/entreciclos-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1003,11 +994,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/silenciar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/silenciar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/silenciar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/silenciar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/silenciar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/silenciar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1031,11 +1022,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/paladar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/paladar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/paladar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/paladar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/paladar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/paladar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div><div style="padding:10px 13px 2px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;margin-bottom:7px;">Nas palavras das sócias</div><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Maravilhosa.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Leveza e conhecimento.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0;">&ldquo;Aprender coisas novas é sempre muito bom.&rdquo;</p></div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1061,11 +1052,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/restaurar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/restaurar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/restaurar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/restaurar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/restaurar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/restaurar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1091,11 +1082,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/tomar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tomar-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/tomar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/tomar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tomar-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/tomar-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1121,11 +1112,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/treino-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/treino-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/treino-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/treino-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/treino-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/treino-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div><div style="padding:10px 13px 2px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;margin-bottom:7px;">Nas palavras das sócias</div><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Transformador.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0 0 8px;">&ldquo;Conhecimento e trocas.&rdquo;</p><p style="font-family:'Merriweather',serif;font-size:12px;font-style:italic;color:var(--cv);line-height:1.55;margin:0;">&ldquo;Ver na prática como a ciência transforma o corpo.&rdquo;</p></div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1151,13 +1142,13 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/compor-1.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;" loading="lazy">
-  <img src="img/compor-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/compor-1.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/compor-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin:0 -14px 0;">
-  <img src="img/compor-3.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
-  <img src="img/compor-4.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
-  <img src="img/compor-5.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/compor-3.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/compor-4.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/compor-5.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:center;gap:10px;">
@@ -1184,11 +1175,11 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <div style="margin:8px -13px 0;border-top:1px solid rgba(216,205,194,.4);">
             <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);opacity:.7;padding:8px 13px 5px;">Como foi</div>
             <div style="margin:0 -14px 2px;">
-  <img src="img/lancamento-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/lancamento-1.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0 -14px;">
-  <img src="img/lancamento-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
-  <img src="img/lancamento-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/lancamento-2.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
+  <img src="https://asfiandeiras.com.br/img/lancamento-3.jpg" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy">
 </div>
           </div>
           <div style="margin:12px -13px -13px;padding:13px;background:rgba(157,175,130,.08);border-top:1px solid rgba(216,205,194,.4);display:flex;align-items:flex-start;gap:10px;">
@@ -1211,7 +1202,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </a>
   </div>
   <div style="padding:0 20px 6px;text-align:center;font-size:10px;font-weight:300;color:var(--cv2);opacity:.5;">Dúvidas? Fale com a gente.</div>
-<div style="padding:26px 20px 10px;border-top:1px solid rgba(216,205,194,.5);margin-top:8px;"><details class="combo-wrap"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--ar);border-radius:10px;background:var(--br);"><div><div class="kicker" style="margin:0;">Monte seu combo</div><div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.4;margin-top:4px;">3 ou mais experiências, <em style="font-style:italic;color:var(--co);">5% de desconto</em></div></div></summary><div style="padding:18px 2px 0;"><p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:16px;">Marque as experiências que você quer viver. A partir de 3, o desconto entra sozinho, e você ainda pode parcelar. A Fio incluída não entra na conta.</p><div id="combo-lista"><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Tomar a Palavra · Módulo 2" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Tomar a Palavra · Módulo 2</div><div style="font-size:11px;color:var(--cv2);">20/ago · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Estrear Juntas" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Estrear Juntas</div><div style="font-size:11px;color:var(--cv2);">12/set · Fio · aberta a convidadas</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Desmistificar a IA" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Desmistificar a IA</div><div style="font-size:11px;color:var(--cv2);">17/set · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Reacender o Brilho" data-preco="595" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Reacender o Brilho</div><div style="font-size:11px;color:var(--cv2);">03/out · Tear</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 595</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Compor a Mesa" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Compor a Mesa</div><div style="font-size:11px;color:var(--cv2);">15/out · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label></div><div id="combo-total" style="margin-top:16px;padding:14px 16px;background:var(--li);border-radius:10px;font-family:'Merriweather',serif;font-size:15px;color:var(--cv);line-height:1.5;text-align:center;">Selecione as experiências que você quer.</div><div class="fg" style="margin-top:16px;"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="combo-cod" placeholder="•••••••••••" maxlength="11" style="letter-spacing:2px;font-weight:700;text-align:center;" oninput="document.getElementById('combo-msg').textContent=''"></div><div id="combo-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 10px;"></div><button class="btn-p" onclick="comboEnviar()">Montar meu combo →</button><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:10px;text-align:center;">A gente confere sua seleção e te manda o link de pagamento.</p></div></details></div>
+<div style="padding:26px 20px 10px;border-top:1px solid rgba(216,205,194,.5);margin-top:8px;"><details class="combo-wrap"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--ar);border-radius:10px;background:var(--br);"><div><div class="kicker" style="margin:0;">Monte seu combo</div><div style="font-family:'Merriweather',serif;font-size:15px;font-weight:300;color:var(--cv);line-height:1.4;margin-top:4px;">3 ou mais experiências, <em style="font-style:italic;color:var(--co);">5% de desconto</em></div></div></summary><div style="padding:18px 2px 0;"><p style="font-size:13px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:16px;">Marque as experiências que você quer viver. A partir de 3, o desconto entra sozinho, e você ainda pode parcelar. A Fio incluída não entra na conta.</p><div id="combo-lista"><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Estrear Juntas" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Estrear Juntas</div><div style="font-size:11px;color:var(--cv2);">12/set · Fio · aberta a convidadas</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Desmistificar a IA" data-preco="395" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Desmistificar a IA</div><div style="font-size:11px;color:var(--cv2);">17/set · Ponto</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 395</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Reacender o Brilho" data-preco="595" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Reacender o Brilho</div><div style="font-size:11px;color:var(--cv2);">03/out · Tear</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 595</div></label><label style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(216,205,194,.5);cursor:pointer;"><input type="checkbox" class="combo-cb" data-nome="Compor a Mesa" data-preco="295" onchange="comboAtualizar()" style="width:18px;height:18px;accent-color:var(--co);flex-shrink:0;"><div style="flex:1;"><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv);">Compor a Mesa</div><div style="font-size:11px;color:var(--cv2);">15/out · Fio</div></div><div style="font-family:'Merriweather',serif;font-size:14px;color:var(--cv2);white-space:nowrap;">R$ 295</div></label></div><div id="combo-total" style="margin-top:16px;padding:14px 16px;background:var(--li);border-radius:10px;font-family:'Merriweather',serif;font-size:15px;color:var(--cv);line-height:1.5;text-align:center;">Selecione as experiências que você quer.</div><div class="fg" style="margin-top:16px;"><label class="fl">Seu código de sócia</label><input class="fi" type="text" id="combo-cod" placeholder="•••••••••••" maxlength="11" style="letter-spacing:2px;font-weight:700;text-align:center;" oninput="document.getElementById('combo-msg').textContent=''"></div><div id="combo-msg" style="font-size:12px;font-weight:600;color:var(--co);min-height:18px;margin:2px 0 10px;"></div><button class="btn-p" onclick="comboEnviar()">Montar meu combo →</button><p style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;margin-top:10px;text-align:center;">A gente confere sua seleção e te manda o link de pagamento.</p></div></details></div>
 </div>
 
 <!-- ══ QUEM SOMOS ══ -->
@@ -1233,7 +1224,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div class="qs-pane active" id="qs-historia">
     <div class="sec">
       <div style="width:100%;border-radius:8px;overflow:hidden;margin-bottom:22px;">
-        <img src="img/quemsomos-1.jpg" style="width:100%;height:auto;object-fit:cover;object-position:center top;display:block;" alt="Mari e Cris">
+        <img src="https://asfiandeiras.com.br/img/quemsomos-1.jpg" style="width:100%;height:auto;object-fit:cover;object-position:center top;display:block;" alt="Mari e Cris">
       </div>
       <div style="font-family:'Merriweather',serif;font-size:17px;font-weight:300;font-style:italic;color:var(--co);line-height:1.6;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--ar);">"E se organizássemos um espaço de troca real entre mulheres?"</div>
 
@@ -1280,7 +1271,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div style="margin:16px 20px;border:1px solid var(--ar);border-radius:8px;overflow:hidden;">
       <div style="display:flex;gap:0;">
-        <div style="width:96px;flex-shrink:0;overflow:hidden;"><img src="img/quemsomos-2.jpg" alt="Mari Almeida" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
+        <div style="width:96px;flex-shrink:0;overflow:hidden;"><img src="https://asfiandeiras.com.br/img/quemsomos-2.jpg" alt="Mari Almeida" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
         <div style="padding:16px;flex:1;background:var(--li);">
           <div style="font-family:'Merriweather',serif;font-size:19px;font-weight:300;color:var(--cv);margin-bottom:2px;">Mari Almeida</div>
           <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:10px;">Co-fundadora</div>
@@ -1290,7 +1281,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div style="margin:0 20px 16px;border:1px solid var(--ar);border-radius:8px;overflow:hidden;">
       <div style="display:flex;gap:0;">
-        <div style="width:96px;flex-shrink:0;overflow:hidden;"><img src="img/quemsomos-3.jpg" alt="Cris Taneze" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
+        <div style="width:96px;flex-shrink:0;overflow:hidden;"><img src="https://asfiandeiras.com.br/img/quemsomos-3.jpg" alt="Cris Taneze" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
         <div style="padding:16px;flex:1;background:var(--li);">
           <div style="font-family:'Merriweather',serif;font-size:19px;font-weight:300;color:var(--cv);margin-bottom:2px;">Cris Taneze</div>
           <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:10px;">Co-fundadora</div>
@@ -1579,20 +1570,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <span style="font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">✓ Realizada</span>
       </div>
     </div>
-    <!-- Tomar a Palavra · Módulo 2 -->
-    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
-      <div style="padding:14px 14px 10px;">
-        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
-          <div style="font-size:14px;font-weight:600;color:var(--cv);">Tomar a Palavra · Módulo 2</div>
-          <span class="tipo-badge t-fio" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Fio</span>
-        </div>
-        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">20/ago · qui · 19h · Jardim Paulista</div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 147,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 295)</span> · só sócia</div>
-      </div>
-      <div style="padding:0 14px 14px;">
-        <button class="btn-p" onclick="reservarFio('Tomar a Palavra · Módulo 2','https://www.asaas.com/c/un3serfsjnmgcqsd')">Usar minha Fio incluída</button><button class="btn-o" onclick="reservarSocia('Tomar a Palavra · Módulo 2','https://www.asaas.com/c/un3serfsjnmgcqsd')">Reservar, sócia</button>
-      </div>
-    </div>
     <!-- Estrear Juntas -->
     <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
       <div style="padding:14px 14px 10px;">
@@ -1601,7 +1578,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <span class="tipo-badge t-fio" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Fio</span>
         </div>
         <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">12/set · sáb · 10h · Jardim Paulistano</div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 147,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 295)</span> · convidada 2x R$ 226,00 <span style="font-weight:400;color:var(--cv2);">(total R$ 452)</span></div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 147,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 295)</span> · <b>convidada paga o mesmo</b></div>
       </div>
       <div style="padding:0 14px 14px;">
         <button class="btn-p" onclick="reservarFio('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')">Usar minha Fio incluída</button><button class="btn-o" onclick="reservarSocia('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')">Reservar, sócia</button>
@@ -1782,16 +1759,16 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <p style="font-size:11px;font-weight:300;font-style:italic;color:var(--cv2);line-height:1.5;">Toque numa foto para ampliar.</p>
           <button onclick="albumLockOut()" style="background:none;border:1px solid var(--ar);border-radius:8px;padding:5px 10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;flex-shrink:0;margin-left:10px;">Sair</button>
         </div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Tecer a Cidadania <span style="color:var(--cv2);font-weight:600;">· 11 ago</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/tecer-a-cidadania-1.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-2.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-3.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-4.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-5.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-6.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-7.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-brinde-1.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tecer-a-cidadania-brinde-2.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Garimpar o Armário <span style="color:var(--cv2);font-weight:600;">· 30 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/garimpar-album-1.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-2.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-3.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-4.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-5.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-6.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-7.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-8.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-9.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-10.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/garimpar-album-11.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Lançamento do Clube <span style="color:var(--cv2);font-weight:600;">· 16 abr</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/lancamento-1.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/lancamento-2.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/lancamento-3.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Compor com Flores <span style="color:var(--cv2);font-weight:600;">· 28 abr</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/compor-1.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/compor-2.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/compor-3.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/compor-4.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/compor-5.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Treino com Ciência <span style="color:var(--cv2);font-weight:600;">· 09 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/treino-1.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/treino-2.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/treino-3.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Tomar a Palavra <span style="color:var(--cv2);font-weight:600;">· 21 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/tomar-1.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tomar-2.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/tomar-3.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Restaurar o Corpo <span style="color:var(--cv2);font-weight:600;">· 13 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/restaurar-1.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/restaurar-2.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/restaurar-3.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Educar o Paladar <span style="color:var(--cv2);font-weight:600;">· 18 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/paladar-1.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-2.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-3.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-4.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/paladar-5.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Silenciar o Ruído <span style="color:var(--cv2);font-weight:600;">· 4 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/silenciar-1.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-2.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-3.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-4.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-5.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-6.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/silenciar-7.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
-        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Entre Ciclos <span style="color:var(--cv2);font-weight:600;">· 23 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="img/entreciclos-1.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-2.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-3.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-4.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-5.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-6.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-7.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-8.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-9.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-10.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-11.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-12.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="img/entreciclos-13.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Tecer a Cidadania <span style="color:var(--cv2);font-weight:600;">· 11 ago</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-1.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-2.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-3.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-4.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-5.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-6.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-7.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-brinde-1.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tecer-a-cidadania-brinde-2.jpg" alt="Tecer a Cidadania" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Garimpar o Armário <span style="color:var(--cv2);font-weight:600;">· 30 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-1.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-2.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-3.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-4.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-5.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-6.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-7.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-8.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-9.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-10.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/garimpar-album-11.jpg" alt="Garimpar o Armário" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Lançamento do Clube <span style="color:var(--cv2);font-weight:600;">· 16 abr</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/lancamento-1.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/lancamento-2.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/lancamento-3.jpg" alt="Lançamento do Clube" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Compor com Flores <span style="color:var(--cv2);font-weight:600;">· 28 abr</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/compor-1.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/compor-2.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/compor-3.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/compor-4.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/compor-5.jpg" alt="Compor com Flores" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Treino com Ciência <span style="color:var(--cv2);font-weight:600;">· 09 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/treino-1.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/treino-2.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/treino-3.jpg" alt="Treino com Ciência" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Tomar a Palavra <span style="color:var(--cv2);font-weight:600;">· 21 mai</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tomar-1.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tomar-2.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/tomar-3.jpg" alt="Tomar a Palavra" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Restaurar o Corpo <span style="color:var(--cv2);font-weight:600;">· 13 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/restaurar-1.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/restaurar-2.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/restaurar-3.jpg" alt="Restaurar o Corpo" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Educar o Paladar <span style="color:var(--cv2);font-weight:600;">· 18 jun</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/paladar-1.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/paladar-2.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/paladar-3.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/paladar-4.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/paladar-5.jpg" alt="Educar o Paladar" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Silenciar o Ruído <span style="color:var(--cv2);font-weight:600;">· 4 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-1.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-2.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-3.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-4.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-5.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-6.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/silenciar-7.jpg" alt="Silenciar o Ruído" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
+        <div style="margin-bottom:18px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--co);margin:6px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(175,105,47,.25);">Entre Ciclos <span style="color:var(--cv2);font-weight:600;">· 23 jul</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-1.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-2.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-3.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-4.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-5.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-6.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-7.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-8.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-9.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-10.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-11.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-12.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"><img class="alb-th" src="https://asfiandeiras.com.br/img/entreciclos-13.jpg" alt="Entre Ciclos" loading="lazy" onclick="albumOpen(this)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;display:block;"></div></div>
       </div>
     </div>
   </div>
@@ -2125,18 +2102,36 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               <div style="width:40px;height:40px;border-radius:50%;background:rgba(175,105,47,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h0c1.1 0 2-.9 2-2V2M5 2v9M5 11v11"/><path d="M17 2c-1.7 0-3 2-3 5s1 4 3 4v11"/></svg></div>
               <div style="flex:1;">
                 <div style="font-size:14px;font-weight:600;color:var(--cv);">L&amp;M Banqueteria</div>
-                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Buffet · Tomar a Palavra</div>
+                <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Buffet · Tomar a Palavra · Módulos 1 e 2</div>
               </div>
             </div>
             <div style="padding:11px 13px;">
-              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">A mesa da nossa <em style="color:var(--cv);">Tomar a Palavra</em>. Comida cuidadosa e bonita.</p>
+              <p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">A mesa das nossas duas <em style="color:var(--cv);">Tomar a Palavra</em>. Comida cuidadosa e bonita.</p>
               <div style="display:flex;gap:14px;flex-wrap:wrap;">
                                 <a href="https://wa.me/5511965670212" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg> WhatsApp</a>
                 <a href="https://www.instagram.com/lmbanqueteria" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
               </div>
             </div>
           </div>
-          <!-- @atacacerta -->
+          <!-- A Taça Certa -->
+<div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
+<div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(175,105,47,.05);">
+<div style="width:40px;height:40px;border-radius:50%;background:rgba(175,105,47,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">🍷</div>
+<div style="flex:1;">
+<div style="font-size:14px;font-weight:600;color:var(--cv);">A Taça Certa</div>
+<div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);margin-top:2px;">Vinhos · Tomar a Palavra · Módulo 2</div>
+</div>
+</div>
+<div style="padding:11px 13px;">
+<p style="font-size:12px;font-weight:300;color:var(--cv2);line-height:1.6;margin-bottom:10px;">O nosso garimpo de vinhos. Serviu a <em style="color:var(--cv);">Tomar a Palavra · Módulo 2</em>.</p>
+<div style="display:inline-flex;align-items:center;gap:6px;background:rgba(157,175,130,.14);border:1px dashed var(--sa);border-radius:6px;padding:5px 10px;font-size:10px;font-weight:700;color:#5c7a4a;margin-bottom:10px;">🎁 10% de desconto no primeiro serviço contratado</div>
+<div style="display:flex;gap:14px;flex-wrap:wrap;">
+<a href="https://wa.me/5511981899583" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);">WhatsApp</a>
+<a href="https://www.instagram.com/atacacerta" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--co);">@atacacerta</a>
+</div>
+</div>
+</div>
+<!-- @atacacerta -->
           <div style="border:1px solid var(--ar);border-radius:10px;overflow:hidden;">
             <div style="display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(175,105,47,.05);">
               <div style="width:40px;height:40px;border-radius:50%;background:rgba(175,105,47,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--co)" stroke-width="1.5"><path d="M8 2h8l-1 9a3 3 0 01-3 3 3 3 0 01-3-3L8 2z"/><path d="M12 14v8M8 22h8"/></svg></div>
@@ -3194,9 +3189,8 @@ function usarSemCodigo(){
 }
 
 var EXP_RV=[
-  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:452,fio:true,asaas:'ubhg5wcswzasc5mu'},
+  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:295,fio:true,asaas:'ishqorz2n31xta6v'},
   {n:'Despertar o Olhar',d:'04/ago',l:'Jardim Paulistano',ps:395,pn:552,fio:false,asaas:'0bq6f4rqc9o212sc'},
-  {n:'Tomar a Palavra · Módulo 2',d:'20/ago',l:'Jardim Paulista',ps:295,pn:452,fio:true,asaas:'yiq2iwxh7vy5lcx4'},
   {n:'Desmistificar a IA',d:'17/set',l:'Online',ps:395,pn:552,fio:false,asaas:'ehxkkwsbnbyppw4x'},
   {n:'Reacender o Brilho',d:'03/out',l:'Morumbi',ps:595,pn:752,fio:false,asaas:'pvvqkpzbtftvugze'},
 ];
@@ -3265,6 +3259,50 @@ function interesseConv(nome, payUrl){
   document.getElementById('mov-conv').classList.add('open');
   document.body.style.overflow='hidden';
 }
+/* ===== ESPECIAL DE ESTREIA — 25/08/2026 ==============================
+   Na Estrear Juntas a convidada paga o mesmo que a sócia e pode trazer outra
+   amiga. Ou seja: não existe mais porta. O fluxo normal de convidada
+   (interesseConv) começa pedindo o CÓDIGO DA SÓCIA que indicou — aqui isso
+   deixaria de fazer sentido e travaria a segunda amiga, que não tem sócia
+   nenhuma atrás dela.
+   Esta função reaproveita o mesmo painel e pula direto para o passo 2: nome,
+   WhatsApp e e-mail. O registro continua igual — a convidada nasce na aba
+   Reservas como "Reservada", entra na lista de presença e na cobrança. Só o
+   campo "quem indicou" fica vazio quando ninguém indicou. */
+function convidadaAberta(nome, payUrl){
+  _convNome=nome; _convUrl=payUrl||''; _convCod='';
+  document.getElementById('conv-nome').textContent=nome;
+  document.getElementById('conv-cod').value='';
+  document.getElementById('conv-msg1').textContent='';
+  document.getElementById('conv-msg2').textContent='';
+  document.getElementById('conv-nm').value='';
+  document.getElementById('conv-wp').value='';
+  document.getElementById('conv-em').value='';
+  document.getElementById('conv-step1').style.display='none';
+  document.getElementById('conv-step2').style.display='block';
+  document.getElementById('mov-conv').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+/* "Convidar uma amiga": abre o WhatsApp com a mensagem pronta e o link do
+   site. Sem código, sem cadastro, sem passar CPF de ninguém — na Estrear
+   Juntas a amiga compra direto. Se o aparelho não tiver como compartilhar,
+   cai no WhatsApp Web. */
+function convidarAmiga(nome){
+  var link='https://asfiandeiras.com.br/#experiencias';
+  var txt='Vem comigo na '+nome+', das Fiandeiras 🌿\n\n'
+        +'É dia 12 de setembro, sábado, no Jardim Paulistano — um cinema inteiro só para a gente.\n\n'
+        +'Nesta experiência convidada paga o mesmo que sócia: R$ 295 (ou 2x de R$ 147,50). '
+        +'E você ainda pode trazer uma amiga sua.\n\n'+link;
+  if(navigator.share){
+    navigator.share({title:nome+' · As Fiandeiras', text:txt}).catch(function(){
+      window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+    });
+    return;
+  }
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+
 function closeConv(){document.getElementById('mov-conv').classList.remove('open');document.body.style.overflow='';}
 function convContinuar(){
   var cod=document.getElementById('conv-cod').value.trim();
