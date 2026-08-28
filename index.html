@@ -512,15 +512,15 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
   <div style="padding:16px 20px 0;">
     <div class="kicker" style="margin-bottom:10px;">Inscrições abertas</div>
     <div style="display:flex;flex-direction:column;gap:8px;">
-      <!-- Pausa 28/ago -->
+      <!-- Estrear Juntas 12/set -->
       <div onclick="goTo('experiencias')" style="background:var(--br);border-radius:8px;padding:12px 14px;border:1px solid rgba(175,105,47,.25);cursor:pointer;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">28 ago · sex · 7h</div>
-          <span style="font-size:7px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">Incluída</span>
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--co);">12 set &middot; s&aacute;b &middot; 10h</div>
+          <span style="font-size:7px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;background:rgba(175,105,47,.14);color:var(--co);">Aberta a todas</span>
         </div>
-        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Pausa</div>
-        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Online · ritual mensal</div>
-        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar →</div>
+        <div style="font-family:'Merriweather',serif;font-size:13px;font-weight:400;color:var(--cv);line-height:1.4;">Estrear Juntas</div>
+        <div style="font-size:10px;font-weight:300;color:var(--cv2);margin-top:3px;line-height:1.5;">Jardim Paulistano &middot; R$ 295 para s&oacute;cia e convidada</div>
+        <div style="font-size:9px;color:var(--co);font-weight:700;margin-top:6px;letter-spacing:.5px;">Ver detalhes e reservar &rarr;</div>
       </div>
     </div>    <button class="btn-p" style="margin-top:12px;" onclick="goTo('experiencias')">Ver todas as experiências</button>
   </div>
@@ -645,25 +645,6 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
     </div>
     <div style="padding:8px 18px 4px;"><div class="kicker">Confirmadas</div></div>
     <div class="tl">
-      <!-- Pausa, 28/ago -->
-      <div class="tl-item" id="exp-pausa-28-ago">
-        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
-        <div class="exp-card">
-          <div class="ec-top">
-            <div><div class="ec-date">28</div><div class="ec-day">ago · sex · 7h</div></div>
-            <span class="tipo-badge" style="background:rgba(157,175,130,.22);color:#4d6b3e;">Incluída</span>
-          </div>
-          <div class="ec-name">Pausa</div>
-          <div class="ec-local">Online · ritual mensal</div>
-          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Interioridade</div>
-          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">O ritual online mensal das Fiandeiras. Toda última sexta do mês, uma hora para desacelerar antes de recomeçar, meditação, respiração ou movimento, de onde você estiver.</div>
-          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><em>Um respiro coletivo, todo mês.</em></div>
-          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
-            <div style="font-size:9px;font-weight:600;color:#5c7a4a;background:rgba(157,175,130,.14);display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:10px;">✦ Exclusiva e inclusa para todas as sócias</div>
-            <button onclick="reservarPausa('28 ago')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar minha participação</button>
-          </div>
-        </div>
-      </div>
       <!-- Estrear Juntas, 12/set -->
       <div class="tl-item" id="exp-estrear-juntas">
         <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
@@ -684,7 +665,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
             <div style="font-size:9px;font-weight:600;color:#5c7a4a;margin-bottom:9px;">✦ Experiência Fio · aberta a convidadas</div>
             <button onclick="reservarFio('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>
             <button onclick="reservarSocia('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Sou sócia · reservar</button>
-            <button onclick="convidadaAberta('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Não sou sócia · reservar</button>
+            <button onclick="convidadaAberta('Estrear Juntas','https://www.asaas.com/c/ubhg5wcswzasc5mu')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Não sou sócia · reservar</button>
             <button onclick="convidarAmiga('Estrear Juntas')" style="width:100%;padding:8px 0 0;background:transparent;border:none;font-family:'Mulish',sans-serif;font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--co);cursor:pointer;text-decoration:underline;margin-top:4px;">convidar uma amiga</button>
           </div>
         </div>
@@ -2936,7 +2917,7 @@ function fiAbrirPeloEndereco(){
   if(h === 'convite-estrear-juntas' || h === 'convite'){
     goTo('experiencias');
     setTimeout(function(){
-      try { convidadaAberta('Estrear Juntas','https://www.asaas.com/c/ishqorz2n31xta6v'); } catch(e){}
+      try { convidadaAberta('Estrear Juntas','https://www.asaas.com/c/ubhg5wcswzasc5mu'); } catch(e){}
     }, 260);
     return;
   }
@@ -3202,7 +3183,7 @@ function usarSemCodigo(){
 }
 
 var EXP_RV=[
-  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:295,fio:true,asaas:'ishqorz2n31xta6v'},
+  {n:'Estrear Juntas',d:'12/set',l:'Jardim Paulistano',ps:295,pn:295,fio:true,asaas:'ubhg5wcswzasc5mu'}, /* 'asaas' aqui e o link de CONVIDADA: e o que o presente usa, e e assim nas outras tres. 28/08 */
   {n:'Despertar o Olhar',d:'04/ago',l:'Jardim Paulistano',ps:395,pn:552,fio:false,asaas:'0bq6f4rqc9o212sc'},
   {n:'Desmistificar a IA',d:'17/set',l:'Online',ps:395,pn:552,fio:false,asaas:'ehxkkwsbnbyppw4x'},
   {n:'Reacender o Brilho',d:'03/out',l:'Morumbi',ps:595,pn:752,fio:false,asaas:'pvvqkpzbtftvugze'},
