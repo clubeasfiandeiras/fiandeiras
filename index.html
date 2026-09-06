@@ -334,7 +334,13 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
       {n:'Estrear Juntas', d:'2026-09-12', meta:'12 set · sáb · Jardim Paulistano', tier:'◍ Especial de estreia · aberta a todas', desc:'Um cinema inteiro só nosso. Traga as amigas que quiser: convidada paga R$ 295, o mesmo que sócia.',fio:1,pg:'ishqorz2n31xta6v',aberta:1},
       {n:'Desmistificar a IA', d:'2026-09-17', meta:'17 set · qui · Online', tier:'Ponto', desc:'IA sem medo, com Carolina Kia.',pg:'p3nihwyj3thuia5t'},
       {n:'Reacender o Brilho', d:'2026-10-03', meta:'03 out · sáb · Morumbi', tier:'Tear', desc:'Face Yoga e máscara de LED, um ritual de cuidado.',pg:'2n92l8fhs8dv5ep4'},
-      {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.',fio:1,pg:'srloe1ea8mbeo69a'}
+      {n:'Compor a Mesa', d:'2026-10-15', meta:'15 out · qui · Jardim Paulista', tier:'Fio · exclusiva para sócias', desc:'A mesa como encontro, com Ana Maria Freire e Mari.',fio:1,pg:'srloe1ea8mbeo69a'},
+      /* 06/09: os links do Asaas existem — as quatro ganharam 'pg' e o botão
+         de reserva. Parcelamento: toda parcela abaixo de R$ 200 (regra da Mari). */
+      {n:'Cozinhar Solidário', d:'2026-11-05', meta:'05 nov · qui · Vila Madalena', tier:'Tear', desc:'100 marmitas cozinhadas por nós, com as chefs Izabela e Luísa.',pg:'zn1w17wck8wnf5vs'},
+      {n:'Ensaiar a Coragem', d:'2026-11-18', meta:'18 nov · qua · Moema', tier:'Fio · exclusiva para sócias', desc:'Uma oficina de teatro sobre rir de si mesma, com Lana Sultani.',fio:1,pg:'9tcap8lvx1nucdhc'},
+      {n:'Aquarelar o Instante', d:'2026-12-05', meta:'05 dez · sáb · Vila Nova Conceição', tier:'Ponto', desc:'Uma manhã de aquarela e presença, com Ana Mazakina.',pg:'wo81dl98lkh2dg56'},
+      {n:'Brindar as Fiandeiras', d:'2026-12-10', meta:'10 dez · qui · Pizzaria e loja de vinil', tier:'Fio · aberta a convidadas', desc:'A noite que fecha o ano: pizza, drinks e vinil.',fio:1,aberta:1,pg:'9jp551sfmrj9nnnf'}
     ];
     try{
       var today=new Date(); today.setHours(0,0,0,0);
@@ -769,7 +775,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
               </div>
               <div style="padding-left:11px;">
                 <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
-                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1.05;">3x R$ 250,67</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 752</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1.05;">4x R$ 188</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 752</div>
                 <button onclick="interesseConv('Reacender o Brilho','https://www.asaas.com/c/pvvqkpzbtftvugze')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
               </div>
             </div>
@@ -816,22 +822,104 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           </div>
         </div>
       </div>
-      <!-- Esculpir o Livro, sem data (suspensa) -->
-      <div class="tl-item" id="exp-esculpir-o-livro">
-        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--ar);background:var(--br);"></div></div>
+      <!-- Cozinhar Solidário, 05/nov -->
+      <div class="tl-item" id="exp-cozinhar-solidario">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
         <div class="exp-card">
           <div class="ec-top">
-            <div><div style="display:inline-block;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);background:rgba(175,105,47,.1);border:1px solid rgba(175,105,47,.35);border-radius:20px;padding:3px 9px;">Nova data em breve</div><div class="ec-day" style="margin-top:6px;">Outubro · data a remarcar</div></div>
-            <span class="tipo-badge t-tapecaria" onclick="verCombinados()" style="cursor:pointer;">Tapeçaria</span>
+            <div><div class="ec-date">05</div><div class="ec-day">nov · qui · 18h30</div></div>
+            <span class="tipo-badge t-tear" onclick="verCombinados()" style="cursor:pointer;">Tear</span>
           </div>
-          <div class="ec-name">Esculpir o Livro</div>
+          <div class="ec-name">Cozinhar Solidário</div>
+          <div class="ec-local">Vila Madalena</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Ampliação</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Tem gestos que alimentam duas vezes: quem cozinha, e quem recebe. Um grupo de Fiandeiras numa cozinha de verdade, para preparar 100 marmitas para pessoas em situação de vulnerabilidade. Antes de doar, todo mundo prova o que cozinhou. Fecha com sobremesa das chefs e certificado.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Izabela Dolabela e Luísa Zogbi</span> · chefs, formadas pelo Le Cordon Bleu.</div>
+          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;">
+              <div style="padding-right:11px;border-right:1px solid rgba(216,205,194,.5);">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">3x R$ 198,33</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 595</div>
+                <button onclick="reservarSocia('Cozinhar Solidário','https://www.asaas.com/c/zn1w17wck8wnf5vs')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar</button>
+              </div>
+              <div style="padding-left:11px;">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1.05;">4x R$ 188</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 752</div>
+                <button onclick="interesseConv('Cozinhar Solidário','https://www.asaas.com/c/qgii386gwst5lsyp')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ensaiar a Coragem, 18/nov -->
+      <div class="tl-item" id="exp-ensaiar-a-coragem">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div class="ec-date">18</div><div class="ec-day">nov · qua · 19h</div></div>
+            <span class="tipo-badge t-fio" onclick="verCombinados()" style="cursor:pointer;">Fio</span>
+          </div>
+          <div class="ec-name">Ensaiar a Coragem</div>
+          <div class="ec-local">Moema</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Conexão</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Rir de si mesma também é uma forma de coragem. Uma oficina de teatro dedicada à comicidade, só para mulheres, com jogos teatrais e a técnica de palhaço. Não é preciso ter experiência: o único erro aqui é ter medo de errar.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Lana Sultani</span> · mestre em Pedagogia do Teatro, formada pela École Philippe Gaulier, em Paris.</div>
+          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
+            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div><div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 147,50</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin:1px 0 6px;">total R$ 295</div>
+            <div style="font-size:9px;font-weight:600;color:#5c7a4a;margin-bottom:9px;">✦ Experiência Fio · exclusiva para sócias</div>
+            <button onclick="reservarFio('Ensaiar a Coragem','https://www.asaas.com/c/9tcap8lvx1nucdhc')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>
+            <button onclick="reservarSocia('Ensaiar a Coragem','https://www.asaas.com/c/9tcap8lvx1nucdhc')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Aquarelar o Instante, 05/dez -->
+      <div class="tl-item" id="exp-aquarelar-o-instante">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div class="ec-date">05</div><div class="ec-day">dez · sáb · 9h</div></div>
+            <span class="tipo-badge t-ponto" onclick="verCombinados()" style="cursor:pointer;">Ponto</span>
+          </div>
+          <div class="ec-name">Aquarelar o Instante</div>
           <div class="ec-local">Vila Nova Conceição</div>
           <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Interioridade</div>
-          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">Um livro nas mãos vira outra coisa. As páginas deixam de ser lidas para serem esculpidas, dobradas, compostas, e o que sai é uma peça autoral, única, feita por você. Seguido de um momento gostoso na Vila Nova Conceição.</div>
-          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Bernardo Campos</span> · professor e pioneiro em escultura em livros no Brasil.</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">A água leva o pigmento por caminhos nem sempre previsíveis, e é nesse descontrole que mora a graça da aquarela. Uma manhã para desacelerar, observar flores secas, ramos e sementes, e criar com as próprias mãos. Cada uma leva para casa a sua obra.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><span style="font-weight:700;color:var(--co);">Por Ana Mazakina</span> · artista visual e educadora formada pela FAAP, há mais de 20 anos nas artes visuais.</div>
           <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
-            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:4px;">Reservas em breve</div>
-            <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;">A data está sendo remarcada, as reservas reabrem assim que a nova data for confirmada. Sócia 3x R$ 268,33 (total R$ 805) · convidada 3x R$ 320,67 (total R$ 962).</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;">
+              <div style="padding-right:11px;border-right:1px solid rgba(216,205,194,.5);">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 197,50</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 395</div>
+                <button onclick="reservarSocia('Aquarelar o Instante','https://www.asaas.com/c/wo81dl98lkh2dg56')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Reservar</button>
+              </div>
+              <div style="padding-left:11px;">
+                <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--cv2);margin-bottom:3px;">Convidada</div>
+                <div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv2);line-height:1.05;">3x R$ 184</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin-bottom:9px;">total R$ 552</div>
+                <button onclick="interesseConv('Aquarelar o Instante','https://www.asaas.com/c/308r9cpno09gywzq')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;">Tenho interesse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Brindar as Fiandeiras, 10/dez -->
+      <div class="tl-item" id="exp-brindar-as-fiandeiras">
+        <div class="tl-spine"><div class="tl-dot" style="border-color:var(--co);background:var(--co);"></div><div class="tl-line"></div></div>
+        <div class="exp-card">
+          <div class="ec-top">
+            <div><div class="ec-date">10</div><div class="ec-day">dez · qui · 18h</div></div>
+            <span class="tipo-badge t-fio" onclick="verCombinados()" style="cursor:pointer;">Fio</span>
+          </div>
+          <div class="ec-name">Brindar as Fiandeiras</div>
+          <div class="ec-local">Pizzaria e loja de vinil</div>
+          <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--sa);margin:-6px 0 8px;">◍ Conexão</div>
+          <div style="font-size:11.5px;font-weight:300;color:var(--cv2);line-height:1.65;margin-bottom:0;">O ano se fecha do jeito que foi vivido: junto. Uma noite de celebração na Linga, com pizza, drinks e um DJ tocando clássicos direto do vinil. Sem pauta e sem pressa, só o prazer de estar entre mulheres que já teceram tanta coisa.</div>
+          <div style="font-size:10px;font-weight:400;color:var(--cv2);line-height:1.55;margin-top:9px;padding-top:9px;border-top:1px dotted rgba(216,205,194,.8);"><em>Uma noite para encerrar o ano com alegria e já sair com vontade do próximo encontro.</em></div>
+          <div style="margin:11px -13px 0;padding:12px 13px 13px;border-top:1px solid rgba(216,205,194,.5);">
+            <div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--co);margin-bottom:3px;">Sócia</div><div style="font-family:'Merriweather',serif;font-size:16px;color:var(--cv);line-height:1.05;">2x R$ 147,50</div><div style="font-size:9.5px;font-weight:300;color:var(--cv2);line-height:1;margin:1px 0 6px;">total R$ 295 · convidada 3x R$ 150,67 (total R$ 452)</div>
+            <div style="font-size:9px;font-weight:600;color:#5c7a4a;margin-bottom:9px;">✦ Experiência Fio · aberta a convidadas</div>
+            <button onclick="reservarFio('Brindar as Fiandeiras','https://www.asaas.com/c/9jp551sfmrj9nnnf')" style="width:100%;padding:9px;background:var(--co);border:none;border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--li);cursor:pointer;">Usar minha Fio incluída</button>
+            <button onclick="reservarSocia('Brindar as Fiandeiras','https://www.asaas.com/c/9jp551sfmrj9nnnf')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Sou sócia · reservar</button>
+            <button onclick="interesseConv('Brindar as Fiandeiras','https://www.asaas.com/c/mtu1ccf6a5kbsl67')" style="width:100%;padding:9px;background:transparent;border:1px solid var(--ar);border-radius:6px;font-family:'Mulish',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cv2);cursor:pointer;margin-top:7px;">Sou convidada · tenho interesse</button>
           </div>
         </div>
       </div>
@@ -1572,7 +1660,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <span class="tipo-badge t-ponto" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Ponto</span>
         </div>
         <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">04/ago · ter · 19h · Jardim Paulistano</div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 197,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 395)</span> · convidada 2x R$ 276,00 <span style="font-weight:400;color:var(--cv2);">(total R$ 552)</span></div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 197,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 395)</span> · convidada 3x R$ 184,00 <span style="font-weight:400;color:var(--cv2);">(total R$ 552)</span></div>
       </div>
       <div style="padding:0 14px 14px;">
         <span style="font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(157,175,130,.15);color:#5c7a4a;">✓ Realizada</span>
@@ -1628,7 +1716,7 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
           <span class="tipo-badge t-tear" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tear</span>
         </div>
         <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">03/out · sáb · 8h30 · Morumbi</div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">3x R$ 198,33 <span style="font-weight:400;color:var(--cv2);">(total R$ 595)</span> · convidada 3x R$ 250,67 <span style="font-weight:400;color:var(--cv2);">(total R$ 752)</span></div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">3x R$ 198,33 <span style="font-weight:400;color:var(--cv2);">(total R$ 595)</span> · convidada 4x R$ 188 <span style="font-weight:400;color:var(--cv2);">(total R$ 752)</span></div>
       </div>
       <div style="padding:0 14px 14px;">
         <button class="btn-p" onclick="reservarSocia('Reacender o Brilho','https://www.asaas.com/c/2n92l8fhs8dv5ep4')">Reservar, sócia</button>
@@ -1648,25 +1736,67 @@ body{font-family:'Mulish',sans-serif;background:var(--br);color:var(--cv);overfl
         <button class="btn-p" onclick="reservarSocia('Compor a Mesa','https://www.asaas.com/c/srloe1ea8mbeo69a')">Reservar, sócia</button>
       </div>
     </div>
+    <!-- Cozinhar Solidário -->
+    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
+      <div style="padding:14px 14px 10px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Cozinhar Solidário</div>
+          <span class="tipo-badge t-tear" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tear</span>
+        </div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">05/nov · qui · 18h30 · Vila Madalena</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">3x R$ 198,33 <span style="font-weight:400;color:var(--cv2);">(total R$ 595)</span> · convidada 4x R$ 188 <span style="font-weight:400;color:var(--cv2);">(total R$ 752)</span></div>
+      </div>
+      <div style="padding:0 14px 14px;">
+        <button class="btn-p" onclick="reservarSocia('Cozinhar Solidário','https://www.asaas.com/c/zn1w17wck8wnf5vs')">Reservar, sócia</button>
+      </div>
+    </div>
+    <!-- Ensaiar a Coragem -->
+    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
+      <div style="padding:14px 14px 10px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Ensaiar a Coragem</div>
+          <span class="tipo-badge t-fio" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Fio</span>
+        </div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">18/nov · qua · 19h · Moema</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 147,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 295)</span> · exclusiva para sócias</div>
+      </div>
+      <div style="padding:0 14px 14px;">
+        <button class="btn-p" onclick="reservarSocia('Ensaiar a Coragem','https://www.asaas.com/c/9tcap8lvx1nucdhc')">Reservar, sócia</button>
+      </div>
+    </div>
+    <!-- Aquarelar o Instante -->
+    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
+      <div style="padding:14px 14px 10px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Aquarelar o Instante</div>
+          <span class="tipo-badge t-ponto" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Ponto</span>
+        </div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">05/dez · sáb · 9h · Vila Nova Conceição</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 197,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 395)</span> · convidada 3x R$ 184 <span style="font-weight:400;color:var(--cv2);">(total R$ 552)</span></div>
+      </div>
+      <div style="padding:0 14px 14px;">
+        <button class="btn-p" onclick="reservarSocia('Aquarelar o Instante','https://www.asaas.com/c/wo81dl98lkh2dg56')">Reservar, sócia</button>
+      </div>
+    </div>
+    <!-- Brindar as Fiandeiras -->
+    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
+      <div style="padding:14px 14px 10px;">
+        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <div style="font-size:14px;font-weight:600;color:var(--cv);">Brindar as Fiandeiras</div>
+          <span class="tipo-badge t-fio" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Fio</span>
+        </div>
+        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">10/dez · qui · 18h · Pizzaria e loja de vinil</div>
+        <div style="font-size:11px;color:var(--co);font-weight:600;">2x R$ 147,50 <span style="font-weight:400;color:var(--cv2);">(total R$ 295)</span> · convidada 3x R$ 150,67 <span style="font-weight:400;color:var(--cv2);">(total R$ 452)</span></div>
+      </div>
+      <div style="padding:0 14px 14px;">
+        <button class="btn-p" onclick="reservarSocia('Brindar as Fiandeiras','https://www.asaas.com/c/9jp551sfmrj9nnnf')">Reservar, sócia</button>
+      </div>
+    </div>
 
     <p style="font-size:10px;color:var(--cv2);font-style:italic;text-align:center;margin:8px 0 20px;line-height:1.6;">Reservas de convidadas abrem 5 dias antes de cada experiência. Todas têm vagas limitadas.</p>
 
     <!-- Realizadas -->
     <div style="height:1px;background:var(--ar);margin-bottom:16px;"></div>
-    <!-- Esculpir o Livro -->
-    <div style="border:1px solid var(--ar);border-radius:8px;overflow:hidden;margin-bottom:10px;">
-      <div style="padding:14px 14px 10px;">
-        <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:4px;">
-          <div style="font-size:14px;font-weight:600;color:var(--cv);">Esculpir o Livro</div>
-          <span class="tipo-badge t-tapecaria" style="font-size:7px;flex-shrink:0;align-self:flex-start;">Tapeçaria</span>
-        </div>
-        <div style="font-size:11px;color:var(--cv2);margin-bottom:4px;">Vila Nova Conceição · <strong style="color:var(--co);font-weight:700;">nova data em breve</strong></div>
-        <div style="font-size:11px;color:var(--co);font-weight:600;">3x R$ 268,33 <span style="font-weight:400;color:var(--cv2);">(total R$ 805)</span> · convidada 3x R$ 320,67 <span style="font-weight:400;color:var(--cv2);">(total R$ 962)</span></div>
-      </div>
-      <div style="padding:0 14px 14px;">
-        <div style="font-size:11px;font-weight:300;color:var(--cv2);line-height:1.6;font-style:italic;">A data está sendo remarcada, reservas reabrem em breve.</div>
-      </div>
-    </div>
     <div class="kicker" style="margin-bottom:4px;opacity:.6;">Já aconteceram</div>
     <p style="font-size:11px;color:var(--cv2);font-weight:300;margin-bottom:12px;">Experiências realizadas.</p>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
@@ -4004,7 +4134,9 @@ function maCarregarFio(pronto){
 /* as experiências Fio que ainda vão acontecer */
 var FIO_PROX=[
   {n:'Estrear Juntas',d:'12 de setembro, sábado',l:'Jardim Paulistano'},
-  {n:'Compor a Mesa',d:'15 de outubro, quinta',l:'Jardim Paulista'}];
+  {n:'Compor a Mesa',d:'15 de outubro, quinta',l:'Jardim Paulista'},
+  {n:'Ensaiar a Coragem',d:'18 de novembro, quarta',l:'Moema'},
+  {n:'Brindar as Fiandeiras',d:'10 de dezembro, quinta',l:'Pizzaria e loja de vinil'}];
 function maFioLista(disponivel, r){
   var el=document.getElementById('ma-fio-lista'); if(!el)return;
   /* Se ela já escolheu onde usar a Fio, oferecer as outras é ruído. */
