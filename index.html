@@ -3023,6 +3023,23 @@ function fiAbrirPeloEndereco(){
   /* inscrição e login direto, pra divulgar fora do site (Instagram etc.) */
   if(h === 'quero-ser-socia'){ goTo('associacao'); setTimeout(function(){ assocIrForm('nova'); }, 180); return; }
   if(h === 'renovar' || h === 'sou-fundadora'){ goTo('associacao'); setTimeout(function(){ assocIrForm('renov'); }, 180); return; }
+  /* LINK DIRETO PARA O ÁLBUM (28/09/2026) — #album ou #fotos.
+     Abre a Área das Sócias; se ela já estiver logada, cai direto em
+     "Nossos álbuns". Se não, pede o CPF e, assim que entra, vai pro álbum. */
+  if(h === 'album' || h === 'albuns' || h === 'fotos'){
+    goTo('quemsomos');
+    setTimeout(function(){
+      var btn = document.querySelector('.qs-tab[data-pane="membras"]');
+      if(btn) switchQsTab('membras', btn);
+      if(_fiUnlocked && window._feMontado){ try{ feTab('album'); }catch(e){} }
+      else {
+        window._fiDestino = 'album';
+        var inp = document.getElementById('fi-lock-input');
+        if(inp) inp.focus();
+      }
+    }, 180);
+    return;
+  }
   if(h === 'entrar' || h === 'area-das-socias'){
     goTo('quemsomos');
     setTimeout(function(){
@@ -3624,6 +3641,9 @@ function fiAbrirTudo(cod, tudo){
   abre('dicas-lock','dicas-content');
   if(!window._fiInited){ window._fiInited=true; setTimeout(initFi,300); }
   try{ fiMontarEspacos(); }catch(e){}
+  /* chegou por um link direto (#album): depois do login, vai pro espaço pedido */
+  if(window._fiDestino){ var _d=window._fiDestino; window._fiDestino='';
+    setTimeout(function(){ try{ feTab(_d); }catch(e){} }, 350); }
   try{ if(typeof maAbrir==='function'){
     if(tudo && tudo.perfil){ maAbrir(tudo.perfil, tudo); }
     else { var _meu=++_maSessao, _cod=_maCod;
